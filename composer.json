@@ -1,0 +1,28 @@
+{
+    "name": "jacksleight/statamic-tailset",
+    "autoload": {
+        "psr-4": {
+            "JackSleight\\StatamicTailset\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Tailset Fieldtype",
+            "description": "This Statamic addon allows you to create a compact set of fields that augment to a list of utility classes."
+        },
+        "laravel": {
+            "providers": [
+                "JackSleight\\StatamicTailset\\ServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "statamic/cms": "^3.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "pixelfear/composer-dist-plugin": true
+        }
+    }
+}
