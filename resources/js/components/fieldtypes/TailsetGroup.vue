@@ -60,10 +60,6 @@ export default {
         errorKeyPrefix: {
             type: String
         },
-        canDelete: {
-            type: Boolean,
-            default: true
-        },
     },
 
     methods: {

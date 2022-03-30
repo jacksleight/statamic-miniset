@@ -30,39 +30,41 @@ class TailsetFieldtype extends Fieldtype
 
     public function process($data)
     {
-        return collect($data)->map(function ($variant) {
-            return $this->processVariant($variant);
+        return collect($data)->map(function ($group) {
+            return $this->processGroup($group);
         })->all();
     }
 
-    private function processVariant($variant)
+    private function processGroup($group)
     {
-        $variant = array_except($variant, '_id');
+        $group = array_except($group, '_id');
 
-        $fields = $this->fields()->addValues($variant)->process()->values()->all();
+        $fields = $this->fields()->addValues($group)->process()->values()->all();
 
-        $variant = array_merge($variant, $fields);
+        $group = array_merge($group, $fields);
 
-        return Arr::removeNullValues($variant);
+        return Arr::removeNullValues($group);
     }
 
     public function preProcess($data)
     {
         $data = collect($data);
         
-        $data = $data->pad(1, []);
+        $data = $data->pad(1, [
+            'variants' => [],
+        ]);
 
-        return $data->map(function ($variant, $i) {
-            return $this->preProcessVariant($variant, $i);
+        return $data->map(function ($group, $i) {
+            return $this->preProcessGroup($group, $i);
         })->all();
     }
 
-    private function preProcessVariant($variant, $index)
+    private function preProcessGroup($group, $index)
     {
-        $fields = $this->fields()->addValues($variant)->preProcess()->values()->all();
+        $fields = $this->fields()->addValues($group)->preProcess()->values()->all();
 
-        return array_merge($variant, $fields, [
-            '_id' => "variant-$index",
+        return array_merge($group, $fields, [
+            '_id' => "group-$index",
         ]);
     }
 
@@ -78,30 +80,30 @@ class TailsetFieldtype extends Fieldtype
 
     public function extraRules(): array
     {
-        return collect($this->field->value())->map(function ($variant, $index) {
-            return $this->variantRules($variant, $index);
+        return collect($this->field->value())->map(function ($group, $index) {
+            return $this->groupRules($group, $index);
         })->reduce(function ($carry, $rules) {
             return $carry->merge($rules);
         }, collect())->all();
     }
 
-    protected function variantRules($data, $index)
+    protected function groupRules($data, $index)
     {
         $rules = $this
             ->fields()
             ->addValues($data)
             ->validator()
             ->withContext([
-                'prefix' => $this->field->validationContext('prefix').$this->variantRuleFieldPrefix($index).'.',
+                'prefix' => $this->field->validationContext('prefix').$this->groupRuleFieldPrefix($index).'.',
             ])
             ->rules();
 
         return collect($rules)->mapWithKeys(function ($rules, $handle) use ($index) {
-            return [$this->variantRuleFieldPrefix($index).'.'.$handle => $rules];
+            return [$this->groupRuleFieldPrefix($index).'.'.$handle => $rules];
         })->all();
     }
 
-    protected function variantRuleFieldPrefix($index)
+    protected function groupRuleFieldPrefix($index)
     {
         return "{$this->field->handle()}.{$index}";
     }
@@ -110,9 +112,9 @@ class TailsetFieldtype extends Fieldtype
     {
         $attributes = $this->fields()->validator()->attributes();
 
-        return collect($this->field->value())->map(function ($variant, $index) use ($attributes) {
-            return collect($variant)->except('_id')->mapWithKeys(function ($value, $handle) use ($attributes, $index) {
-                return [$this->variantRuleFieldPrefix($index).'.'.$handle => $attributes[$handle] ?? null];
+        return collect($this->field->value())->map(function ($group, $index) use ($attributes) {
+            return collect($group)->except('_id')->mapWithKeys(function ($value, $handle) use ($attributes, $index) {
+                return [$this->groupRuleFieldPrefix($index).'.'.$handle => $attributes[$handle] ?? null];
             });
         })->reduce(function ($carry, $rules) {
             return $carry->merge($rules);
@@ -122,15 +124,15 @@ class TailsetFieldtype extends Fieldtype
     public function preload()
     {
         return [
-            'defaults' => $this->defaultVariantData()->all(),
+            'defaults' => $this->defaultGroupData()->all(),
             'new' => $this->fields()->meta()->all(),
-            'existing' => collect($this->field->value())->mapWithKeys(function ($variant) {
-                return [$variant['_id'] => $this->fields()->addValues($variant)->meta()];
+            'existing' => collect($this->field->value())->mapWithKeys(function ($group) {
+                return [$group['_id'] => $this->fields()->addValues($group)->meta()];
             })->toArray(),
         ];
     }
 
-    protected function defaultVariantData()
+    protected function defaultGroupData()
     {
         return $this->fields()->all()->map(function ($field) {
             return $field->fieldtype()->preProcess($field->defaultValue());
@@ -139,6 +141,10 @@ class TailsetFieldtype extends Fieldtype
 
     public function augment($value)
     {
+        if (!$value) {
+            return;
+        }
+        
         $list = [];
         foreach ($value as $group) {
             $variants = $group['variants'] ?? null;

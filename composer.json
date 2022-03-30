@@ -8,7 +8,7 @@
     "extra": {
         "statamic": {
             "name": "Tailset Fieldtype",
-            "description": "This Statamic addon allows you to create a compact set of fields that augment to a list of utility classes."
+            "description": "This Statamic addon allows you to create a compact set of fields that all augment to a single list of utility classes."
         },
         "laravel": {
             "providers": [

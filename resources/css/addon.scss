@@ -1,0 +1,155 @@
+// Base Styles
+
+.tailset-fieldtype {
+
+    &-tabs {
+        font-size: 12px;
+        display: flex;
+        margin-bottom: -1px;
+    }
+
+    &-tab {
+        font-size: 12px;
+        border-width: 1px;
+        border-color: #dde3e9;
+        border-radius: 3px 3px 0 0;
+        background-color: white;
+        position: relative;
+        z-index: 1;
+        &:not(:first-child) {
+            border-left: 0;
+        }
+        &-active {
+            border-bottom-color: transparent;
+            background-color: #fafcff;
+        }
+    }
+
+    &-select {
+        display: block;
+        padding: 4px 8px;
+        &-removeable {
+            padding-right: calc(6px + 1rem);
+        }
+    }
+
+    &-remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 4px 4px 2px;
+    }
+    
+    &-add {
+        font-size: 12px;
+        border-width: 1px 1px 0 1px;
+        border-color: transparent;
+        padding: 0 0.25rem 2px 0.25rem;
+    }
+        
+    &-groups {
+        border-width: 1px;
+        border-color: #dde3e9;
+        border-radius: 3px;
+        background-color: #fafcff;
+        position: relative;
+    }
+    &-tabs + &-group {
+        border-top-left-radius: 0;
+    }
+
+    &-create {
+        position: absolute;
+        inset: 0;
+        background-color: #fafcff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        &-variants {
+            display: flex;
+            gap: 0.5em;
+        }
+    }
+
+}
+    
+// Compact Overrides
+
+.tailset-compact {
+
+    font-size: 12px !important;
+    * {
+        font-size: inherit !important;
+    }
+
+    .publish-fields {
+        padding: 0.6rem !important;
+    }
+
+    .publish-field {
+        padding: 0.5rem !important;
+    }   
+    
+    .form-group > label {
+        line-height: 0.8 !important;
+        margin-bottom: 7px !important;
+    }
+    
+    .select-fieldtype {
+        .vs__dropdown-toggle {
+            height: 1.625rem !important;
+        }
+        .vs__open-indicator {
+            height: 1.625rem !important;
+            padding-left: 4px !important;
+            padding-right: 4px !important;
+        }
+        .vs__selected-options {
+            padding: 4px 6px !important;
+            background-color: white !important;
+        }
+        .vs__selected-options-outside {
+            .vs__selected {
+                margin-top: 4px !important;
+                margin-right: 4px !important;
+                padding-top: 2px !important;
+                padding-left: 4px !important;
+                padding-right: 4px !important;
+            }
+            .vs__deselect {
+                margin-top: -2px !important;
+                padding-top: 1px !important;
+            }
+        }
+        .vs__dropdown-menu {
+            top: 32px !important;
+        }
+        .vs__dropdown-option {
+            padding: 4px 6px !important;
+        }
+    }
+    
+    .button_group-fieldtype {
+        .btn-group {
+            height: 1.625rem !important;
+        }
+        .btn {
+            padding: 4px 6px !important;
+            height: 1.625rem !important;
+        }
+    }
+    
+    .text-fieldtype {
+        .input-group {
+            height: 1.625rem !important;
+        }
+        .input-text {
+            padding: 4px 6px !important;
+            background-color: white !important;
+            height: 1.625rem !important;
+        }
+    }
+
+}
