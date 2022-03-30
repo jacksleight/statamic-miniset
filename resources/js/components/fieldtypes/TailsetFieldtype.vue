@@ -1,6 +1,7 @@
 <template>
 
-    <div class="tailset-fieldtype-wrapper">
+    <div
+        class="tailset-fieldtype-wrapper">
 
         <div class="tailset-fieldtype-tabs" v-if="showTabs">
             <div
@@ -102,6 +103,10 @@ export default {
 
         variants() {
             return this.config.variants;
+        },
+
+        hideLabel() {
+            return this.config.hideLabel;
         },
 
         showTabs() {

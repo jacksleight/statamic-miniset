@@ -110,6 +110,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -127,6 +128,9 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
     variants: function variants() {
       return this.config.variants;
+    },
+    hideLabel: function hideLabel() {
+      return this.config.hideLabel;
     },
     showTabs: function showTabs() {
       return Object.keys(this.variants).length > 0;

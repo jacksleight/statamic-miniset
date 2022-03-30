@@ -18,12 +18,27 @@ class TailsetFieldtype extends Fieldtype
         return [
             'fields' => [
                 'display' => __('Fields'),
-                'instructions' => __('statamic::fieldtypes.grid.config.fields'),
                 'type' => 'fields',
             ],
             'variants' => [
                 'display' => __('Variants'),
                 'type' => 'array',
+            ],
+            'variantSeparator' => [
+                'display' => __('Variant Separator'),
+                'type' => 'text',
+                'width' => '25',
+                'default' => ':',
+            ],
+            'variantPosition' => [
+                'display' => __('Variant Position'),
+                'type' => 'button_group',
+                'width' => '25',
+                'default' => 'before',
+                'options' => [
+                    'before' => 'Before',
+                    'after'  => 'After',
+                ],
             ],
         ];
     }
@@ -144,19 +159,28 @@ class TailsetFieldtype extends Fieldtype
         if (!$value) {
             return;
         }
+
+        $separator = $this->config('variantSeparator');
+        $position  = $this->config('variantPosition');
         
         $list = [];
         foreach ($value as $group) {
-            $variants = $group['variants'] ?? null;
+            $variants = $group['variants'] ?? [];
             unset($group['variants']);
-            $prefix = $variants
-                ? implode(':', $variants) . ':'
-                : '';
-            array_walk_recursive($group, function($v) use (&$list, $prefix) {
-                $list[] = $prefix . $v;
+            $affix = implode(array_map(function($v) use ($position, $separator) {
+                return $position === 'before'
+                    ? $v . $separator
+                    : $separator . $v;
+            }, $variants));
+            array_walk_recursive($group, function($v) use (&$list, $affix, $position) {
+                $list[] = $position === 'before'
+                    ? $affix . $v
+                    : $v . $affix;
             });
         }
+
         $class = implode(' ', $list);
+
         return $class;
     }
 
