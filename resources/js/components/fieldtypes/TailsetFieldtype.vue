@@ -1,7 +1,6 @@
 <template>
 
-    <div
-        class="tailset-fieldtype-wrapper">
+    <div class="tailset-fieldtype-wrapper">
 
         <div class="tailset-fieldtype-tabs" v-if="showTabs">
             <div

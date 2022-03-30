@@ -20,21 +20,28 @@ composer require jacksleight/statamic-tailset
 
 ## Getting Started
 
-Create a Tailset field and add the fields, classes and variants you need. I recommend doing this in a fieldset so it can easily be reused.
+Create a Tailset field and add the fields, options and variants you need. I recommend doing this in a fieldset so it can easily be reused.
 
 The following fieldtypes are the only ones supported within Tailset:
 
 * Select (inc. multiple)
 * Button Group
-* Checkboxes
-* Radio
 * Text
+* ~Checkboxes~ (planned)
+* ~Radio~ (planned)
 
 Other fieldtypes probably won’t look right and may cause errors or unexpected results.
 
 ### Using with Tailwind CSS
 
-When using Tailwind’s JIT mode you’ll need to tell it to search your blueprint and fieldset files for classes:
+When using Tailwind you’ll need to tell the JIT compiler to search your blueprint and fieldset files for classes:
+
+```js
+content: [
+    './resources/blueprints/**/*.yaml',
+    './resources/fieldsets/**/*.yaml',
+],
+```
 
 Tailset automatically embeds a full list of variant classes in the YAML file, so they can be discovered and included by the compiler.
 
@@ -42,5 +49,5 @@ Tailset automatically embeds a full list of variant classes in the YAML file, so
 
 While this was built to be used with Tailwind CSS you don’t have to use Tailwind classes or naming conventions.
 
-* Use the `variant_separator` option to change the character used separate variants from classes.
-* Use the `variant_position` option to change whether variants are placed before or after the class.
+* Use the `variant_separator` option to change the character used separate variants from utilities.
+* Use the `variant_position` option to change whether variants are placed before or after the utilitiy.

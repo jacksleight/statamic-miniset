@@ -24,13 +24,13 @@ class TailsetFieldtype extends Fieldtype
                 'display' => __('Variants'),
                 'type' => 'array',
             ],
-            'variantSeparator' => [
+            'variant_separator' => [
                 'display' => __('Variant Separator'),
                 'type' => 'text',
                 'width' => '25',
                 'default' => ':',
             ],
-            'variantPosition' => [
+            'variant_position' => [
                 'display' => __('Variant Position'),
                 'type' => 'button_group',
                 'width' => '25',
@@ -160,8 +160,8 @@ class TailsetFieldtype extends Fieldtype
             return;
         }
 
-        $separator = $this->config('variantSeparator');
-        $position  = $this->config('variantPosition');
+        $separator = $this->config('variant_separator');
+        $position  = $this->config('variant_position');
         
         $list = [];
         foreach ($value as $group) {
