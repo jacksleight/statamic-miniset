@@ -43,7 +43,7 @@ content: [
 ],
 ```
 
-Tailset automatically embeds a full list of variant classes in the YAML file, so they can be discovered and included by the compiler.
+Tailset embeds a full list of possible variant utilities in the YAML file. This is necessary so they can be discovered by the compiler and included in your CSS files, so they work when a user selects them in the CP.
 
 ### Using with other CSS frameworks / custom classes
 
