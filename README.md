@@ -11,11 +11,11 @@
 Miniset is a collection of fieldtypes for creating compact fieldsets, including fieldsets that augment to a single string of utility classes. It includes the follwing fieldtypes:
 
 * **Miniset**
-	* A general purpose fieldtype for creating a compact set of fields.
+  A general purpose fieldtype for creating a compact set of fields.
 * **Miniset Classes**
-	* A fieldtype that augments to a single string of classes, including variant options. Works great with Tailwind CSS.
+  A fieldtype that augments to a single string of classes, including variant options. Works great with Tailwind CSS.
 * **~Miniset Panel~** (coming someday)
-	* ~A fieldtype for grouping multiple Minisets into a stacked or tabbed panel.~
+  ~A fieldtype for grouping multiple Minisets into a stacked or tabbed panel.~
 
 ## Installation
 
@@ -25,7 +25,7 @@ You can search for this addon in the `Tools > Addons` section of the Statamic co
 composer require jacksleight/statamic-miniset
 ```
 
-## Getting Started
+## Creating a Miniset Fieldtype
 
 Create a Miniset field and add your nested fields. Miniset is intended for "simple" data (single or multiple scalar values) and only supports the following nested fieldtypes:
 
@@ -37,32 +37,44 @@ Create a Miniset field and add your nested fields. Miniset is intended for "simp
 * ~Checkboxes~ (coming soon)
 * ~Radio~ (coming soon)
 
-Other fieldtypes won’t look right and may cause errors or unexpected results. Feature requests and PR's are welcome if you think another fieldtype could be supported.
+Other fieldtypes won’t look right. Feature requests and PR's are welcome if you think another fieldtype could be supported.
 
-Fields within a Miniset field can be output by refernecing the inner keys:
+Fields within a Miniset field can be output by referencing the inner keys:
 
 ```html
 {{ my_field:example }}
 ```
 
-## Miniset Classes
+## Creating a Miniset Classes Fieldtype
 
-Miniset Classes will augment all contained values down to a single flat string of classes. It also allows you to specify a list of variants that will be offered as options when creating groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
+Create a Miniset field and add your nested fields and variants. Miniset Classes only supports the following nested fieldtypes:
+
+* Select (inc. multiple)
+* Button Group
+* Text
+* ~Checkboxes~ (coming soon)
+* ~Radio~ (coming soon)
+
+Other fieldtypes won’t look right and may cause errors or unexpected results. Feature requests and PR's are welcome if you think another fieldtype could be supported.
+
+Variants will be offered as options when creating groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
 
 ```
-"w-32" / "lg" --> "lg:w-32"
+"lg" / "w-32" --> "lg:w-32"
 ```
 
 If you're not using Tailwind CSS you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
 ```
-"width-half" / "&@large" --> "width-half@large"
+"&@large" / "width-half" --> "width-half@large"
 ```
 
-A Miniset Classes field can be output just like any field:
+Miniset Classes will augment all contained values down to a single flat string of classes which can be output just like any field:
 
 ```html
-<div class="{{ my_class }}"></div>
+<div class="{{ my_class }}">
+	<!--- --->
+</div>
 ```
 
 ### Using with Tailwind
