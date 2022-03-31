@@ -10,11 +10,11 @@
 
 Miniset is a collection of fieldtypes for creating compact fieldsets, including fieldsets that augment to a single string of utility classes. It includes the follwing fieldtypes:
 
-* **Miniset**
+* **Miniset**  
   A general purpose fieldtype for creating a compact set of fields.
-* **Miniset Classes**
+* **Miniset Classes**  
   A fieldtype that augments to a single string of classes, including variant options. Works great with Tailwind CSS.
-* **~Miniset Panel~** (coming someday)
+* **~Miniset Panel~** (coming someday)  
   ~A fieldtype for grouping multiple Minisets into a stacked or tabbed panel.~
 
 ## Installation
