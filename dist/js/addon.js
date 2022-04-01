@@ -1,10 +1,10 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! uniqid */ "./node_modules/uniqid/index.js");
 /* harmony import */ var uniqid__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(uniqid__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TailsetGroup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TailsetGroup.vue */ "./resources/js/components/Fieldtypes/TailsetGroup.vue");
+/* harmony import */ var _MinisetClassesGroup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MinisetClassesGroup.vue */ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -113,7 +113,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mixins: [Fieldtype, _TailsetGroup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  mixins: [Fieldtype],
+  components: {
+    MinisetClassesGroup: _MinisetClassesGroup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       selected: 0,
@@ -136,7 +139,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     }
   },
   reactiveProvide: {
-    name: 'tailset',
+    name: 'miniset',
     include: ['config', 'isReadOnly', 'handle', 'errorKeyPrefix']
   },
   watch: {
@@ -162,9 +165,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     commitGroup: function commitGroup(variant) {
       var _this2 = this;
 
-      var variants = [variant];
       var existing = this.value.findIndex(function (group) {
-        return _.isEqual(group.variants, variants);
+        return group.variant === variant;
       });
 
       if (existing !== -1) {
@@ -180,7 +182,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }).value();
 
       group._id = id;
-      group.variants = [variant];
+      group.variant = variant;
       this.updateGroupMeta(id, this.meta["new"]);
       this.update([].concat(_toConsumableArray(this.value), [group]));
       this.$nextTick(function () {
@@ -215,11 +217,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }, 1);
     },
     groupLabel: function groupLabel(group) {
-      var _this5 = this;
-
-      return group.variants ? group.variants.map(function (v) {
-        return _this5.variants[v] || v;
-      }).join(', ') : 'Default';
+      return group.variant ? this.variants[group.variant] || group.variant : this.config.default_group_display;
     },
     updateGroupMeta: function updateGroupMeta(group, value) {
       this.updateMeta(_objectSpread(_objectSpread({}, this.meta), {}, {
@@ -231,10 +229,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -275,7 +273,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     SetField: _vendor_statamic_cms_resources_js_components_fieldtypes_replicator_Field_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  inject: ['tailset'],
+  inject: ['miniset'],
   props: {
     index: {
       type: Number,
@@ -700,13 +698,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Fieldtypes_TailsetFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Fieldtypes/TailsetFieldtype.vue */ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue");
-/* harmony import */ var _components_Fieldtypes_TailsetGroup_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Fieldtypes/TailsetGroup.vue */ "./resources/js/components/Fieldtypes/TailsetGroup.vue");
-
+/* harmony import */ var _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Fieldtypes/MinisetClassesFieldtype.vue */ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue");
 
 Statamic.booting(function () {
-  Statamic.$components.register('tailset-fieldtype', _components_Fieldtypes_TailsetFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  Statamic.$components.register('tailset-group', _components_Fieldtypes_TailsetGroup_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  Statamic.$components.register('miniset_classes-fieldtype', _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
 });
 
 /***/ }),
@@ -1978,10 +1973,10 @@ function now(){
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetFieldtype.vue ***!
-  \*****************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue ***!
+  \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1989,8 +1984,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TailsetFieldtype.vue?vue&type=template&id=3bdc0197& */ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197&");
-/* harmony import */ var _TailsetFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TailsetFieldtype.vue?vue&type=script&lang=js& */ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MinisetClassesFieldtype.vue?vue&type=template&id=29e00934& */ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934&");
+/* harmony import */ var _MinisetClassesFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MinisetClassesFieldtype.vue?vue&type=script&lang=js& */ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2000,9 +1995,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _TailsetFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__.render,
-  _TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MinisetClassesFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -2012,15 +2007,15 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Fieldtypes/TailsetFieldtype.vue"
+component.options.__file = "resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetGroup.vue":
-/*!*************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetGroup.vue ***!
-  \*************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesGroup.vue ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2028,8 +2023,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TailsetGroup.vue?vue&type=template&id=7ac6563c& */ "./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c&");
-/* harmony import */ var _TailsetGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TailsetGroup.vue?vue&type=script&lang=js& */ "./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js&");
+/* harmony import */ var _MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MinisetClassesGroup.vue?vue&type=template&id=11319a02& */ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02&");
+/* harmony import */ var _MinisetClassesGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MinisetClassesGroup.vue?vue&type=script&lang=js& */ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -2039,9 +2034,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _TailsetGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__.render,
-  _TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _MinisetClassesGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__.render,
+  _MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -2051,7 +2046,7 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/components/Fieldtypes/TailsetGroup.vue"
+component.options.__file = "resources/js/components/Fieldtypes/MinisetClassesGroup.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -2134,10 +2129,10 @@ component.options.__file = "vendor/statamic/cms/resources/js/components/fieldtyp
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2145,15 +2140,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TailsetFieldtype.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MinisetClassesFieldtype.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesFieldtype_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js&":
-/*!**************************************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2161,8 +2156,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TailsetGroup.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MinisetClassesGroup.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesGroup_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -2198,36 +2193,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197&":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197& ***!
-  \************************************************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934& ***!
+  \*******************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetFieldtype_vue_vue_type_template_id_3bdc0197___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TailsetFieldtype.vue?vue&type=template&id=3bdc0197& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesFieldtype_vue_vue_type_template_id_29e00934___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MinisetClassesFieldtype.vue?vue&type=template&id=29e00934& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934&");
 
 
 /***/ }),
 
-/***/ "./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02& ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TailsetGroup_vue_vue_type_template_id_7ac6563c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./TailsetGroup.vue?vue&type=template&id=7ac6563c& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MinisetClassesGroup_vue_vue_type_template_id_11319a02___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MinisetClassesGroup.vue?vue&type=template&id=11319a02& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02&");
 
 
 /***/ }),
@@ -2266,10 +2261,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197&":
-/*!***************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetFieldtype.vue?vue&type=template&id=3bdc0197& ***!
-  \***************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934&":
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue?vue&type=template&id=29e00934& ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2282,26 +2277,26 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tailset-fieldtype-wrapper" }, [
+  return _c("div", { staticClass: "miniset-classes" }, [
     _vm.showTabs
       ? _c(
           "div",
-          { staticClass: "tailset-fieldtype-tabs" },
+          { staticClass: "miniset-classes-tabs" },
           [
             _vm._l(_vm.value, function (group, index) {
               return _c(
                 "div",
                 {
-                  staticClass: "tailset-fieldtype-tab",
+                  staticClass: "miniset-classes-tab",
                   class: {
-                    "tailset-fieldtype-tab-active": _vm.selected === index,
+                    "miniset-classes-tab-active": _vm.selected === index,
                   },
                 },
                 [
                   _c("button", {
-                    staticClass: "tailset-fieldtype-select",
+                    staticClass: "miniset-classes-select",
                     class: {
-                      "tailset-fieldtype-select-removeable":
+                      "miniset-classes-select-removeable":
                         index !== 0 && index === _vm.selected,
                     },
                     domProps: { textContent: _vm._s(_vm.groupLabel(group)) },
@@ -2317,7 +2312,7 @@ var render = function () {
                     ? _c(
                         "button",
                         {
-                          staticClass: "tailset-fieldtype-remove",
+                          staticClass: "miniset-classes-remove",
                           on: {
                             click: function ($event) {
                               return _vm.removeGroup(index)
@@ -2358,7 +2353,7 @@ var render = function () {
             _c(
               "button",
               {
-                staticClass: "tailset-fieldtype-add",
+                staticClass: "miniset-classes-add",
                 on: {
                   click: function ($event) {
                     $event.preventDefault()
@@ -2396,13 +2391,13 @@ var render = function () {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "tailset-fieldtype-groups" }, [
+    _c("div", { staticClass: "miniset-classes-groups" }, [
       _c(
         "div",
-        { staticClass: "tailset-compact" },
+        { staticClass: "miniset-compact" },
         _vm._l(_vm.value, function (group, index) {
           return index === _vm.selected
-            ? _c("tailset-group", {
+            ? _c("MinisetClassesGroup", {
                 key: "group-" + group._id,
                 attrs: {
                   index: index,
@@ -2430,10 +2425,10 @@ var render = function () {
       ),
       _vm._v(" "),
       _vm.addingGroup
-        ? _c("div", { staticClass: "tailset-fieldtype-create" }, [
+        ? _c("div", { staticClass: "miniset-classes-create" }, [
             _c(
               "div",
-              { staticClass: "tailset-fieldtype-create-variants" },
+              { staticClass: "miniset-classes-create-variants" },
               _vm._l(_vm.variants, function (label, variant) {
                 return _c(
                   "button",
@@ -2463,10 +2458,10 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c&":
-/*!***********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/TailsetGroup.vue?vue&type=template&id=7ac6563c& ***!
-  \***********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Fieldtypes/MinisetClassesGroup.vue?vue&type=template&id=11319a02& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2500,7 +2495,7 @@ var render = function () {
           "set-index": _vm.index,
           errors: _vm.errors(field.handle),
           "error-key-prefix": _vm.errorKey(field.handle),
-          "read-only": _vm.tailset.isReadOnly,
+          "read-only": _vm.miniset.isReadOnly,
         },
         on: {
           updated: function ($event) {

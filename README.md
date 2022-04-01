@@ -8,12 +8,12 @@
 
 <!-- /statamic:hide -->
 
-Miniset is a collection of fieldtypes for creating compact fieldsets, including fieldsets that augment to a single string of utility classes. It includes the follwing fieldtypes:
+Miniset is a suite of fieldtypes for creating compact fieldsets, including fieldsets that combine into a single string of utility classes. It includes the follwing fieldtypes:
 
 * **Miniset**  
   A general purpose fieldtype for creating a compact set of fields.
 * **Miniset Classes**  
-  A fieldtype that augments to a single string of classes, including variant options. Works great with Tailwind CSS.
+  A fieldtype that combines all fields into a single string of classes, including variant options. Works great with Tailwind CSS.
 * **~Miniset Panel~** (coming someday)  
   ~A fieldtype for grouping multiple Minisets into a stacked or tabbed panel.~
 
@@ -51,7 +51,7 @@ Create a Miniset field and add your nested fields and variants. Miniset Classes 
 
 * Select (inc. multiple)
 * Button Group
-* Text
+* Text (not `jit_safe` compatible)
 * ~Checkboxes~ (coming soon)
 * ~Radio~ (coming soon)
 
@@ -69,7 +69,7 @@ If you're not using Tailwind CSS you can customize this behaviour by including a
 "&@large" / "width-half" --> "width-half@large"
 ```
 
-Miniset Classes will augment all contained values down to a single flat string of classes which can be output just like any field:
+Miniset Classes will combine all contained values down to a single flat string of classes which can be output just like any field:
 
 ```html
 <div class="{{ my_class }}">
@@ -79,19 +79,26 @@ Miniset Classes will augment all contained values down to a single flat string o
 
 ### Using with Tailwind
 
-When using Tailwind the JIT compiler needs to know which classes should be included in your CSS. To simplify this Miniset Classes has a `jit_mode` option that will save a full list of possible variant utilities to the blueprint/fieldset file:
+When using Tailwind the JIT compiler needs to know which classes should be included in your CSS. To simplify this Miniset has a `jit_safe` feature. To enable this publish the config:
 
-```yaml
-jit_mode: true
+```bash
+php please vendor:publish --tag=statamic-miniset-config
 ```
 
-Once enabled you can tell Tailwind to search these files for classes in your `tailwind.config.js` file:
+Then open `config/statamic/miniset.php` and set the `jit_safe` option to `true`:
+
+```php
+`jit_safe` => true,
+```
+
+Once enabled Miniset will save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset. If you would like to save this file to a different location you can change the `jit_file` option.
+
+You can then tell Tailwind to search this file in your `tailwind.config.js`:
 
 ```js
 content: [
-    './resources/blueprints/**/*.yaml',
-    './resources/fieldsets/*.yaml',
+    './resources/css/statamic/miniset_classes.yaml',
 ],
 ```
 
-This is necessary so that any classes a user can select in the CP are included in your CSS.
+This is necessary so that any classes a user can select in the CP are also included in your CSS.

@@ -1,9 +1,7 @@
-import TailsetFieldtype from './components/Fieldtypes/TailsetFieldtype.vue';
-import TailsetGroup from './components/Fieldtypes/TailsetGroup.vue';
+import MinisetClassesFieldtype from './components/Fieldtypes/MinisetClassesFieldtype.vue';
 
 Statamic.booting(() => {
 
-    Statamic.$components.register('tailset-fieldtype', TailsetFieldtype);
-    Statamic.$components.register('tailset-group', TailsetGroup);
+    Statamic.$components.register('miniset_classes-fieldtype', MinisetClassesFieldtype);
 
 });

@@ -1,16 +1,18 @@
 <?php
 
-namespace JackSleight\StatamicTailset\Fieldtypes;
+namespace JackSleight\StatamicMiniset\Fieldtypes;
 
 use Statamic\Fields\Fieldtype;
 use Statamic\Fields\Fields;
-use Statamic\Facades\GraphQL;
 use Statamic\Support\Arr;
+use Statamic\Support\Str;
 
-class TailsetFieldtype extends Fieldtype
+class MinisetClassesFieldtype extends Fieldtype
 {
     protected $categories = ['structured'];
+
     protected $defaultable = false;
+
     protected $defaultValue = [];
 
     protected function configFieldItems(): array
@@ -18,27 +20,26 @@ class TailsetFieldtype extends Fieldtype
         return [
             'fields' => [
                 'display' => __('Fields'),
+                'instructions' => 'All fields will be combined into a single flat string of classes.',
                 'type' => 'fields',
             ],
             'variants' => [
                 'display' => __('Variants'),
+                'instructions' => 'Options for creating groups of fields for specific variants.',
                 'type' => 'array',
             ],
-            'variant_separator' => [
-                'display' => __('Variant Separator'),
+            'default_group_display' => [
+                'display' => __('Default Group Display'),
+                'instructions' => 'Label for the default (non-variant) group tab.',
                 'type' => 'text',
-                'width' => '25',
-                'default' => ':',
+                'default' => 'Default',
+                'width' => '33',
             ],
-            'variant_position' => [
-                'display' => __('Variant Position'),
-                'type' => 'button_group',
-                'width' => '25',
-                'default' => 'before',
-                'options' => [
-                    'before' => 'Before',
-                    'after'  => 'After',
-                ],
+            'jit_safe' => [
+                'display' => __('JIT Safe'),
+                'instructions' => 'Save a full list of possible variant classes to the blueprint/fieldset file.',
+                'type' => 'toggle',
+                'width' => '66',
             ],
         ];
     }
@@ -65,9 +66,7 @@ class TailsetFieldtype extends Fieldtype
     {
         $data = collect($data);
         
-        $data = $data->pad(1, [
-            'variants' => [],
-        ]);
+        $data = $data->pad(1, []);
 
         return $data->map(function ($group, $i) {
             return $this->preProcessGroup($group, $i);
@@ -160,50 +159,30 @@ class TailsetFieldtype extends Fieldtype
             return;
         }
 
-        $separator = $this->config('variant_separator');
-        $position  = $this->config('variant_position');
-        
+        return implode(' ', static::generateClasses($value));
+    }
+
+    public static function generateClasses(array $value)
+    {
         $list = [];
         foreach ($value as $group) {
-            $variants = $group['variants'] ?? [];
-            unset($group['variants']);
-            $affix = implode(array_map(function($v) use ($position, $separator) {
-                return $position === 'before'
-                    ? $v . $separator
-                    : $separator . $v;
-            }, $variants));
-            array_walk_recursive($group, function($v) use (&$list, $affix, $position) {
-                $list[] = $position === 'before'
-                    ? $affix . $v
-                    : $v . $affix;
+            $variant = $group['variant'] ?? null;
+            unset($group['variant']);
+            if ($variant && ! Str::contains($variant, '&')) {
+                $variant = "{$variant}:&";
+            }
+            array_walk_recursive($group, function($option) use (&$list, $variant) {
+                $parts = preg_split('/\s+/', $option, -1, PREG_SPLIT_NO_EMPTY);
+                foreach ($parts as $part) {
+                    $list[] = $variant
+                        ? str_replace('&', $part, $variant)
+                        : $part;
+                }
             });
         }
 
-        $class = implode(' ', $list);
-
-        return $class;
+        return $list;
     }
-
-    public function toGqlType()
-    {
-        return GraphQL::listOf(GraphQL::type($this->gqlItemTypeName()));
-    }
-
-    // public function addGqlTypes()
-    // {
-    //     GraphQL::addType($type = new GridItemType($this, $this->gqlItemTypeName()));
-
-    //     $this->fields()->all()->each(function ($field) {
-    //         $field->fieldtype()->addGqlTypes();
-    //     });
-    // }
-
-    // private function gqlItemTypeName()
-    // {
-    //     return 'GridItem_'.collect($this->field->handlePath())->map(function ($part) {
-    //         return Str::studly($part);
-    //     })->join('_');
-    // }
 
     public function preProcessValidatable($value)
     {

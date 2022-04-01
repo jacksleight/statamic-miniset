@@ -1,24 +1,24 @@
 <template>
 
-    <div class="tailset-fieldtype-wrapper">
+    <div class="miniset-classes">
 
-        <div class="tailset-fieldtype-tabs" v-if="showTabs">
+        <div class="miniset-classes-tabs" v-if="showTabs">
             <div
-                class="tailset-fieldtype-tab"
+                class="miniset-classes-tab"
                 :class="{   
-                    'tailset-fieldtype-tab-active': selected === index
+                    'miniset-classes-tab-active': selected === index
                 }"
                 v-for="(group, index) in value">
                 <button
-                    class="tailset-fieldtype-select"
+                    class="miniset-classes-select"
                     :class="{   
-                        'tailset-fieldtype-select-removeable': index !== 0 && index === selected
+                        'miniset-classes-select-removeable': index !== 0 && index === selected
                     }"
                     v-text="groupLabel(group)"
                     @click.prevent="selectGroup(index)">
                 </button>
                 <button
-                    class="tailset-fieldtype-remove"
+                    class="miniset-classes-remove"
                     v-if="index !== 0 && index === selected"
                     @click="removeGroup(index)">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -27,7 +27,7 @@
                 </button>
             </div>
             <button
-                class="tailset-fieldtype-add"
+                class="miniset-classes-add"
                 @click.prevent="addGroup">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -35,10 +35,10 @@
             </button>
         </div>
 
-        <div class="tailset-fieldtype-groups">
+        <div class="miniset-classes-groups">
 
-            <div class="tailset-compact">
-                <tailset-group
+            <div class="miniset-compact">
+                <MinisetClassesGroup
                     v-for="(group, index) in value"
                     v-if="index === selected"
                     :key="`group-${group._id}`"
@@ -56,10 +56,10 @@
             </div>
             
             <div
-                class="tailset-fieldtype-create"
+                class="miniset-classes-create"
                 v-if="addingGroup"
                 >
-                <div class="tailset-fieldtype-create-variants">
+                <div class="miniset-classes-create-variants">
                     <button
                         class="btn"
                         v-for="(label, variant) in variants"
@@ -77,14 +77,17 @@
 
 <script>
 import uniqid from 'uniqid';
-import TailsetGroup from './TailsetGroup.vue';
+import MinisetClassesGroup from './MinisetClassesGroup.vue';
 
 export default {
 
     mixins: [
         Fieldtype,
-        TailsetGroup,
     ],
+
+    components: {
+        MinisetClassesGroup,
+    },
 
     data() {
         return {
@@ -115,7 +118,7 @@ export default {
     },
 
     reactiveProvide: {
-        name: 'tailset',
+        name: 'miniset',
         include: ['config', 'isReadOnly', 'handle', 'errorKeyPrefix']
     },
 
@@ -146,10 +149,8 @@ export default {
         },
 
         commitGroup(variant) {
-            
-            const variants = [variant];
-            
-            const existing = this.value.findIndex(group => _.isEqual(group.variants, variants));
+                        
+            const existing = this.value.findIndex(group => group.variant === variant);
             if (existing !== -1) {
                 this.addingGroup = false;
                 this.selected = existing;
@@ -164,7 +165,7 @@ export default {
                 .value();
 
             group._id = id;
-            group.variants = [variant];
+            group.variant = variant;
 
             this.updateGroupMeta(id, this.meta.new);
             this.update([...this.value, group]);
@@ -215,9 +216,9 @@ export default {
         },
 
         groupLabel(group) {
-            return group.variants
-                ? group.variants.map(v => this.variants[v] || v).join(', ')
-                : 'Default';
+            return group.variant
+                ? (this.variants[group.variant] || group.variant)
+                : this.config.default_group_display;
         },
 
         updateGroupMeta(group, value) {

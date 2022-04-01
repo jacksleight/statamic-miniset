@@ -1,6 +1,6 @@
-// Base Styles
+// Miniset Classes
 
-.tailset-fieldtype {
+.miniset-classes {
 
     &-tabs {
         font-size: 12px;
@@ -75,9 +75,9 @@
 
 }
     
-// Compact Overrides
+// Miniset Compact Overrides
 
-.tailset-compact {
+.miniset-compact {
 
     font-size: 12px !important;
     * {
@@ -88,13 +88,21 @@
         padding: 0.6rem !important;
     }
 
+    .publish-fields-narrow {
+        .field-w-1\/4 {
+            width: 50% !important;
+        }
+    }
+
     .publish-field {
         padding: 0.5rem !important;
     }   
     
-    .form-group > label {
-        line-height: 0.8 !important;
-        margin-bottom: 7px !important;
+    .form-group {
+        > label {
+            line-height: 0.8 !important;
+            margin-bottom: 7px !important;
+        }
     }
     
     .select-fieldtype {

@@ -12,7 +12,7 @@
           :set-index="index"
           :errors="errors(field.handle)"
           :error-key-prefix="errorKey(field.handle)"          
-          :read-only="tailset.isReadOnly"
+          :read-only="miniset.isReadOnly"
           @updated="updated(field.handle, $event)"
           @meta-updated="metaUpdated(field.handle, $event)"
           @focus="$emit('focus')"
@@ -34,7 +34,7 @@ export default {
 
     components: { SetField },
 
-    inject: ['tailset'],
+    inject: ['miniset'],
 
     props: {
         index: {

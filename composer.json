@@ -1,18 +1,18 @@
 {
-    "name": "jacksleight/statamic-tailset",
+    "name": "jacksleight/statamic-miniset",
     "autoload": {
         "psr-4": {
-            "JackSleight\\StatamicTailset\\": "src"
+            "JackSleight\\StatamicMiniset\\": "src"
         }
     },
     "extra": {
         "statamic": {
-            "name": "Tailset Fieldtype",
-            "description": "This Statamic addon allows you to create a compact set of fields that all augment to a single list of utility classes."
+            "name": "Miniset Fieldtype",
+            "description": "This Statamic addon is a suite of fieldtypes for creating compact fieldsets, including fieldsets that augment to a single string of utility classes."
         },
         "laravel": {
             "providers": [
-                "JackSleight\\StatamicTailset\\ServiceProvider"
+                "JackSleight\\StatamicMiniset\\ServiceProvider"
             ]
         }
     },

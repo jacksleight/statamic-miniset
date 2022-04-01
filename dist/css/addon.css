@@ -1,9 +1,9 @@
-.tailset-fieldtype-tabs {
+.miniset-classes-tabs {
   font-size: 12px;
   display: flex;
   margin-bottom: -1px;
 }
-.tailset-fieldtype-tab {
+.miniset-classes-tab {
   font-size: 12px;
   border-width: 1px;
   border-color: #dde3e9;
@@ -12,43 +12,43 @@
   position: relative;
   z-index: 1;
 }
-.tailset-fieldtype-tab:not(:first-child) {
+.miniset-classes-tab:not(:first-child) {
   border-left: 0;
 }
-.tailset-fieldtype-tab-active {
+.miniset-classes-tab-active {
   border-bottom-color: transparent;
   background-color: #fafcff;
 }
-.tailset-fieldtype-select {
+.miniset-classes-select {
   display: block;
   padding: 4px 8px;
 }
-.tailset-fieldtype-select-removeable {
+.miniset-classes-select-removeable {
   padding-right: calc(6px + 1rem);
 }
-.tailset-fieldtype-remove {
+.miniset-classes-remove {
   position: absolute;
   top: 0;
   right: 0;
   padding: 4px 4px 4px 2px;
 }
-.tailset-fieldtype-add {
+.miniset-classes-add {
   font-size: 12px;
   border-width: 1px 1px 0 1px;
   border-color: transparent;
   padding: 0 0.25rem 2px 0.25rem;
 }
-.tailset-fieldtype-groups {
+.miniset-classes-groups {
   border-width: 1px;
   border-color: #dde3e9;
   border-radius: 3px;
   background-color: #fafcff;
   position: relative;
 }
-.tailset-fieldtype-tabs + .tailset-fieldtype-group {
+.miniset-classes-tabs + .miniset-classes-group {
   border-top-left-radius: 0;
 }
-.tailset-fieldtype-create {
+.miniset-classes-create {
   position: absolute;
   inset: 0;
   background-color: #fafcff;
@@ -58,67 +58,70 @@
   align-items: center;
   border-radius: 3px;
 }
-.tailset-fieldtype-create-variants {
+.miniset-classes-create-variants {
   display: flex;
   gap: 0.5em;
 }
 
-.tailset-compact {
+.miniset-compact {
   font-size: 12px !important;
 }
-.tailset-compact * {
+.miniset-compact * {
   font-size: inherit !important;
 }
-.tailset-compact .publish-fields {
+.miniset-compact .publish-fields {
   padding: 0.6rem !important;
 }
-.tailset-compact .publish-field {
+.miniset-compact .publish-fields-narrow .field-w-1\/4 {
+  width: 50% !important;
+}
+.miniset-compact .publish-field {
   padding: 0.5rem !important;
 }
-.tailset-compact .form-group > label {
+.miniset-compact .form-group > label {
   line-height: 0.8 !important;
   margin-bottom: 7px !important;
 }
-.tailset-compact .select-fieldtype .vs__dropdown-toggle {
+.miniset-compact .select-fieldtype .vs__dropdown-toggle {
   height: 1.625rem !important;
 }
-.tailset-compact .select-fieldtype .vs__open-indicator {
+.miniset-compact .select-fieldtype .vs__open-indicator {
   height: 1.625rem !important;
   padding-left: 4px !important;
   padding-right: 4px !important;
 }
-.tailset-compact .select-fieldtype .vs__selected-options {
+.miniset-compact .select-fieldtype .vs__selected-options {
   padding: 4px 6px !important;
   background-color: white !important;
 }
-.tailset-compact .select-fieldtype .vs__selected-options-outside .vs__selected {
+.miniset-compact .select-fieldtype .vs__selected-options-outside .vs__selected {
   margin-top: 4px !important;
   margin-right: 4px !important;
   padding-top: 2px !important;
   padding-left: 4px !important;
   padding-right: 4px !important;
 }
-.tailset-compact .select-fieldtype .vs__selected-options-outside .vs__deselect {
+.miniset-compact .select-fieldtype .vs__selected-options-outside .vs__deselect {
   margin-top: -2px !important;
   padding-top: 1px !important;
 }
-.tailset-compact .select-fieldtype .vs__dropdown-menu {
+.miniset-compact .select-fieldtype .vs__dropdown-menu {
   top: 32px !important;
 }
-.tailset-compact .select-fieldtype .vs__dropdown-option {
+.miniset-compact .select-fieldtype .vs__dropdown-option {
   padding: 4px 6px !important;
 }
-.tailset-compact .button_group-fieldtype .btn-group {
+.miniset-compact .button_group-fieldtype .btn-group {
   height: 1.625rem !important;
 }
-.tailset-compact .button_group-fieldtype .btn {
+.miniset-compact .button_group-fieldtype .btn {
   padding: 4px 6px !important;
   height: 1.625rem !important;
 }
-.tailset-compact .text-fieldtype .input-group {
+.miniset-compact .text-fieldtype .input-group {
   height: 1.625rem !important;
 }
-.tailset-compact .text-fieldtype .input-text {
+.miniset-compact .text-fieldtype .input-text {
   padding: 4px 6px !important;
   background-color: white !important;
   height: 1.625rem !important;
