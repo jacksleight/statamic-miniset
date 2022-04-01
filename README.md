@@ -77,9 +77,9 @@ Miniset Classes will combine all contained values down to a single flat string o
 </div>
 ```
 
-### Using with Tailwind
+### Using `jit_safe` mode with Tailwind
 
-When using Tailwind the JIT compiler needs to know which classes should be included in your CSS. To simplify this Miniset has a `jit_safe` feature. To enable this publish the config:
+When using Tailwind the JIT compiler needs to know which classes should be included in your CSS, and this needs to include any classes that could possibly be selected by users in the CP. To simplify this process Miniset has a `jit_safe` mode. To enable this publish the config:
 
 ```bash
 php please vendor:publish --tag=statamic-miniset-config
@@ -91,7 +91,7 @@ Then open `config/statamic/miniset.php` and set the `jit_safe` option to `true`:
 `jit_safe` => true,
 ```
 
-Once enabled Miniset will save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset. If you would like to save this file to a different location you can change the `jit_file` option.
+Once enabled Miniset will scan your Miniset Classes fields and save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset. If you would like to save this file to a different location you can change the `jit_file` option.
 
 You can then tell Tailwind to search this file in your `tailwind.config.js`:
 
@@ -100,5 +100,3 @@ content: [
     './resources/css/statamic/miniset_classes.yaml',
 ],
 ```
-
-This is necessary so that any classes a user can select in the CP are also included in your CSS.
