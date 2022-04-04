@@ -15,7 +15,7 @@ Miniset includes the following components:
 * **Miniset Classes**  
   A class specific fieldtype for creating a compact set of fields that combine into a single string of utility classes, including variant options. Works great with Tailwind CSS.
 * **Miniset Options**  
-  A general purpose fieldtype for creating a compact set of fields.
+  A general purpose fieldtype for creating a compact set of option fields.
 * **~Miniset Panel~** (coming someday)  
   ~A fieldtype for grouping multiple Minisets into a stacked panel.~
 
