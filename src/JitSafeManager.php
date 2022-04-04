@@ -31,7 +31,7 @@ class JitSafeManager
         $configs = $this->findConfigs($contents);
         $classes = $this->processConfigs($configs);
 
-        $path = config('statamic.miniset.jit_file');
+        $path = config('statamic.miniset.classes.jit_safe.file');
         $dir  = dirname($path);
 
         if (! File::exists($dir)) {
@@ -56,7 +56,7 @@ class JitSafeManager
             if (! is_array($value)) {
                 continue;
             }
-            if (($value['type'] ?? null) === 'miniset_classes' && ($value['jit_safe'] ?? false)) {
+            if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null) && is_array($value['variants'] ?? null)) {
                 $configs[] = $value;
             }
         }

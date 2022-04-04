@@ -27,19 +27,7 @@ class MinisetClassesFieldtype extends Fieldtype
                 'display' => __('Variants'),
                 'instructions' => 'Options for creating groups of fields for specific variants.',
                 'type' => 'array',
-            ],
-            'default_group_display' => [
-                'display' => __('Default Group Display'),
-                'instructions' => 'Label for the default (non-variant) group tab.',
-                'type' => 'text',
-                'default' => 'Default',
-                'width' => '33',
-            ],
-            'jit_safe' => [
-                'display' => __('JIT Safe'),
-                'instructions' => 'Save a full list of possible variant classes to the blueprint/fieldset file.',
-                'type' => 'toggle',
-                'width' => '66',
+                'default' => ['' => 'Default'],
             ],
         ];
     }

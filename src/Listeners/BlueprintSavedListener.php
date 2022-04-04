@@ -9,7 +9,7 @@ class BlueprintSavedListener
 {
     public function handle(BlueprintSaved $event)
     {
-        if (!config('statamic.miniset.jit_safe')) {
+        if (!config('statamic.miniset.classes.jit_safe.enable')) {
             return;
         }
         

@@ -112,7 +112,7 @@ export default {
         },
 
         showTabs() {
-            return Object.keys(this.variants).length > 0
+            return Object.keys(this.variants).length > 1
         },
 
     },
@@ -216,9 +216,7 @@ export default {
         },
 
         groupLabel(group) {
-            return group.variant
-                ? (this.variants[group.variant] || group.variant)
-                : this.config.default_group_display;
+            return this.variants[group.variant || ''] || group.variant;
         },
 
         updateGroupMeta(group, value) {

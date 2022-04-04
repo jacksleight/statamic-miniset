@@ -4,15 +4,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | JIT Safe
+    | Classes JIT Safe
     |--------------------------------------------------------------------------
     |
-    | Enable JIT safe class generation.
+    | Enable classes JIT safe mode.
     |
     */
 
-    'jit_safe' => false,
-    
-    'jit_file' => resource_path('css/statamic/miniset_classes.yaml'),
+    'classes' => [
+
+        'jit_safe' => [
+            'enable' => false,
+            'file'   => resource_path('css/statamic/miniset_classes.yaml'),
+        ],
+        
+    ],
 
 ];

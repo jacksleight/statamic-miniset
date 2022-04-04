@@ -8,14 +8,16 @@
 
 <!-- /statamic:hide -->
 
-Miniset is a suite of fieldtypes for creating compact fieldsets, including fieldsets that combine into a single string of utility classes. It includes the follwing fieldtypes:
+Miniset allows you to create compact sets of fields that either combine into a single string of utility classes, or can store an array of simple option values.
 
-* **Miniset**  
-  A general purpose fieldtype for creating a compact set of fields.
+Miniset includes the following components:
+
 * **Miniset Classes**  
-  A fieldtype that combines all fields into a single string of classes, including variant options. Works great with Tailwind CSS.
+  A class specific fieldtype for creating a compact set of fields that combine into a single string of utility classes, including variant options. Works great with Tailwind CSS.
+* **Miniset Options**  
+  A general purpose fieldtype for creating a compact set of fields.
 * **~Miniset Panel~** (coming someday)  
-  ~A fieldtype for grouping multiple Minisets into a stacked or tabbed panel.~
+  ~A fieldtype for grouping multiple Minisets into a stacked panel.~
 
 ## Installation
 
@@ -25,29 +27,9 @@ You can search for this addon in the `Tools > Addons` section of the Statamic co
 composer require jacksleight/statamic-miniset
 ```
 
-## Creating a Miniset Fieldtype
+## Creating a Miniset Classes Field
 
-Create a Miniset field and add your nested fields. Miniset is intended for "simple" data (single or multiple scalar values) and only supports the following nested fieldtypes:
-
-* Select (inc. multiple)
-* Button Group
-* Text
-* ~Textarea~ (coming soon)
-* ~Toggle~ (coming soon)
-* ~Checkboxes~ (coming soon)
-* ~Radio~ (coming soon)
-
-Other fieldtypes won’t look right. Feature requests and PR's are welcome if you think another fieldtype could be supported.
-
-Fields within a Miniset field can be output by referencing the inner keys:
-
-```html
-{{ my_field:example }}
-```
-
-## Creating a Miniset Classes Fieldtype
-
-Create a Miniset field and add your nested fields and variants. Miniset Classes only supports the following nested fieldtypes:
+Create a Miniset Classes field and add your nested fields and variants. Miniset Classes only supports the following nested fieldtypes:
 
 * Select (inc. multiple)
 * Button Group
@@ -55,7 +37,7 @@ Create a Miniset field and add your nested fields and variants. Miniset Classes 
 * ~Checkboxes~ (coming soon)
 * ~Radio~ (coming soon)
 
-Other fieldtypes won’t look right and may cause errors or unexpected results. Feature requests and PR's are welcome if you think another fieldtype could be supported.
+Other fieldtypes should not be added and may cause errors or unexpected results.
 
 Variants will be offered as options when creating groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
 
@@ -85,13 +67,18 @@ When using Tailwind the JIT compiler needs to know which classes should be inclu
 php please vendor:publish --tag=statamic-miniset-config
 ```
 
-Then open `config/statamic/miniset.php` and set the `jit_safe` option to `true`:
+Then open `config/statamic/miniset.php` and set the `classes.jit_safe.enable` option to `true`:
 
 ```php
-`jit_safe` => true,
+'classes' => [
+    'jit_safe' => [
+        'enable' => true,
+        'file'   => resource_path('css/statamic/miniset_classes.yaml'),
+    ], 
+],
 ```
 
-Once enabled Miniset will scan your Miniset Classes fields and save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset. If you would like to save this file to a different location you can change the `jit_file` option.
+Once enabled Miniset will scan your Miniset Classes fields and save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset.
 
 You can then tell Tailwind to search this file in your `tailwind.config.js`:
 
@@ -99,4 +86,24 @@ You can then tell Tailwind to search this file in your `tailwind.config.js`:
 content: [
     './resources/css/statamic/miniset_classes.yaml',
 ],
+```
+
+## Creating a Miniset Options Field
+
+Create a Miniset Options field and add your nested fields. Miniset Options is intended for simple data (single or multiple scalar values) and only officially supports these nested fieldtypes:
+
+* Select (inc. multiple)
+* Button Group
+* Text
+* ~Textarea~ (coming soon)
+* ~Toggle~ (coming soon)
+* ~Checkboxes~ (coming soon)
+* ~Radio~ (coming soon)
+
+Other fieldtypes can be added but will not have a compact style. 
+
+Fields within a Miniset field can be output by referencing the inner keys:
+
+```html
+{{ my_field:example }}
 ```

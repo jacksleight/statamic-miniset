@@ -135,7 +135,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return this.config.hideLabel;
     },
     showTabs: function showTabs() {
-      return Object.keys(this.variants).length > 0;
+      return Object.keys(this.variants).length > 1;
     }
   },
   reactiveProvide: {
@@ -217,7 +217,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }, 1);
     },
     groupLabel: function groupLabel(group) {
-      return group.variant ? this.variants[group.variant] || group.variant : this.config.default_group_display;
+      return this.variants[group.variant || ''] || group.variant;
     },
     updateGroupMeta: function updateGroupMeta(group, value) {
       this.updateMeta(_objectSpread(_objectSpread({}, this.meta), {}, {

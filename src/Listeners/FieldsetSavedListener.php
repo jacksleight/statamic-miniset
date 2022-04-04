@@ -9,7 +9,7 @@ class FieldsetSavedListener
 {
     public function handle(FieldsetSaved $event)
     {
-        if (!config('statamic.miniset.jit_safe')) {
+        if (!config('statamic.miniset.classes.jit_safe.enable')) {
             return;
         }
         
