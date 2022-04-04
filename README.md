@@ -34,6 +34,7 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 * Select (inc. multiple)
 * Button Group
 * Text (not `jit_safe` compatible)
+* Textarea (not `jit_safe` compatible)
 * ~Checkboxes~ (coming soon)
 * ~Radio~ (coming soon)
 
@@ -95,14 +96,13 @@ Create a Miniset Options field and add your nested fields. Miniset Options is in
 * Select (inc. multiple)
 * Button Group
 * Text
-* ~Textarea~ (coming soon)
-* ~Toggle~ (coming soon)
+* Textarea
 * ~Checkboxes~ (coming soon)
 * ~Radio~ (coming soon)
 
 Other fieldtypes can be added but will not have a compact style. 
 
-Fields within a Miniset Options field can be output by (plucking the values)[https://statamic.dev/new-antlers-parser#plucking]:
+Fields within a Miniset Options field can be output by [plucking the values](https://statamic.dev/new-antlers-parser#plucking):
 
 ```html
 {{ my_options.theme }}
