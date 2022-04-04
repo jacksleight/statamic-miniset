@@ -100,8 +100,10 @@
         }
     }
 
-    .select-fieldtype,
     .button_group-fieldtype,
+    .checkboxes-fieldtype,
+    .radio-fieldtype,
+    .select-fieldtype,
     .text-fieldtype,
     .textarea-fieldtype {
         font-size: 12px !important;
@@ -110,6 +112,27 @@
         }
     }
     
+    .button_group-fieldtype {
+        .btn-group {
+            height: 1.625rem !important;
+        }
+        .btn {
+            padding: 4px 6px !important;
+            height: 1.625rem !important;
+        }
+    }
+    
+    .checkboxes-fieldtype,
+    .radio-fieldtype {
+        .option {
+            margin-top: 4px !important;
+            margin-bottom: 0 !important;
+            &:first-child {
+                margin-top: 0 !important;
+            }
+        }
+    }
+
     .select-fieldtype {
         .vs__dropdown-toggle {
             height: 1.625rem !important;
@@ -141,16 +164,6 @@
         }
         .vs__dropdown-option {
             padding: 4px 6px !important;
-        }
-    }
-    
-    .button_group-fieldtype {
-        .btn-group {
-            height: 1.625rem !important;
-        }
-        .btn {
-            padding: 4px 6px !important;
-            height: 1.625rem !important;
         }
     }
     

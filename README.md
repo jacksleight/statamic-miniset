@@ -33,10 +33,10 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 
 * Select (inc. multiple)
 * Button Group
+* Checkboxes
+* Radio
 * Text (not `jit_safe` compatible)
 * Textarea (not `jit_safe` compatible)
-* <s>Checkboxes</s> (coming soon)
-* <s>Radio</s> (coming soon)
 
 Other fieldtypes should not be added and may cause errors or unexpected results.
 
@@ -95,10 +95,10 @@ Create a Miniset Options field and add your nested fields. Miniset Options is in
 
 * Select (inc. multiple)
 * Button Group
+* Checkboxes
+* Radio
 * Text
 * Textarea
-* <s>Checkboxes</s> (coming soon)
-* <s>Radio</s> (coming soon)
 
 Other fieldtypes can be added but will not have a compact style. 
 

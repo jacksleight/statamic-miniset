@@ -76,17 +76,37 @@
   line-height: 0.8 !important;
   margin-bottom: 7px !important;
 }
-.miniset-compact .select-fieldtype,
 .miniset-compact .button_group-fieldtype,
+.miniset-compact .checkboxes-fieldtype,
+.miniset-compact .radio-fieldtype,
+.miniset-compact .select-fieldtype,
 .miniset-compact .text-fieldtype,
 .miniset-compact .textarea-fieldtype {
   font-size: 12px !important;
 }
-.miniset-compact .select-fieldtype *,
 .miniset-compact .button_group-fieldtype *,
+.miniset-compact .checkboxes-fieldtype *,
+.miniset-compact .radio-fieldtype *,
+.miniset-compact .select-fieldtype *,
 .miniset-compact .text-fieldtype *,
 .miniset-compact .textarea-fieldtype * {
   font-size: inherit !important;
+}
+.miniset-compact .button_group-fieldtype .btn-group {
+  height: 1.625rem !important;
+}
+.miniset-compact .button_group-fieldtype .btn {
+  padding: 4px 6px !important;
+  height: 1.625rem !important;
+}
+.miniset-compact .checkboxes-fieldtype .option,
+.miniset-compact .radio-fieldtype .option {
+  margin-top: 4px !important;
+  margin-bottom: 0 !important;
+}
+.miniset-compact .checkboxes-fieldtype .option:first-child,
+.miniset-compact .radio-fieldtype .option:first-child {
+  margin-top: 0 !important;
 }
 .miniset-compact .select-fieldtype .vs__dropdown-toggle {
   height: 1.625rem !important;
@@ -116,13 +136,6 @@
 }
 .miniset-compact .select-fieldtype .vs__dropdown-option {
   padding: 4px 6px !important;
-}
-.miniset-compact .button_group-fieldtype .btn-group {
-  height: 1.625rem !important;
-}
-.miniset-compact .button_group-fieldtype .btn {
-  padding: 4px 6px !important;
-  height: 1.625rem !important;
 }
 .miniset-compact .text-fieldtype .input-group {
   height: 1.625rem !important;
