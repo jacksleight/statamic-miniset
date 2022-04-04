@@ -1,9 +1,9 @@
-.miniset-classes-tabs {
+.miniset-tabs {
   font-size: 12px;
   display: flex;
   margin-bottom: -1px;
 }
-.miniset-classes-tab {
+.miniset-tab {
   font-size: 12px;
   border-width: 1px;
   border-color: #dde3e9;
@@ -12,43 +12,43 @@
   position: relative;
   z-index: 1;
 }
-.miniset-classes-tab:not(:first-child) {
+.miniset-tab:not(:first-child) {
   border-left: 0;
 }
-.miniset-classes-tab-active {
+.miniset-tab-active {
   border-bottom-color: transparent;
   background-color: #fafcff;
 }
-.miniset-classes-select {
+.miniset-select {
   display: block;
   padding: 4px 8px;
 }
-.miniset-classes-select-removeable {
+.miniset-select-removeable {
   padding-right: calc(6px + 1rem);
 }
-.miniset-classes-remove {
+.miniset-remove {
   position: absolute;
   top: 0;
   right: 0;
   padding: 4px 4px 4px 2px;
 }
-.miniset-classes-add {
+.miniset-add {
   font-size: 12px;
   border-width: 1px 1px 0 1px;
   border-color: transparent;
   padding: 0 0.25rem 2px 0.25rem;
 }
-.miniset-classes-groups {
+.miniset-groups {
   border-width: 1px;
   border-color: #dde3e9;
   border-radius: 3px;
   background-color: #fafcff;
   position: relative;
 }
-.miniset-classes-tabs + .miniset-classes-group {
+.miniset-tabs + .miniset-groups {
   border-top-left-radius: 0;
 }
-.miniset-classes-create {
+.miniset-create {
   position: absolute;
   inset: 0;
   background-color: #fafcff;
@@ -58,17 +58,11 @@
   align-items: center;
   border-radius: 3px;
 }
-.miniset-classes-create-variants {
+.miniset-create-variants {
   display: flex;
   gap: 0.5em;
 }
 
-.miniset-compact {
-  font-size: 12px !important;
-}
-.miniset-compact * {
-  font-size: inherit !important;
-}
 .miniset-compact .publish-fields {
   padding: 0.6rem !important;
 }
@@ -81,6 +75,18 @@
 .miniset-compact .form-group > label {
   line-height: 0.8 !important;
   margin-bottom: 7px !important;
+}
+.miniset-compact .select-fieldtype,
+.miniset-compact .button_group-fieldtype,
+.miniset-compact .text-fieldtype,
+.miniset-compact .textarea-fieldtype {
+  font-size: 12px !important;
+}
+.miniset-compact .select-fieldtype *,
+.miniset-compact .button_group-fieldtype *,
+.miniset-compact .text-fieldtype *,
+.miniset-compact .textarea-fieldtype * {
+  font-size: inherit !important;
 }
 .miniset-compact .select-fieldtype .vs__dropdown-toggle {
   height: 1.625rem !important;
@@ -125,4 +131,8 @@
   padding: 4px 6px !important;
   background-color: white !important;
   height: 1.625rem !important;
+}
+.miniset-compact .textarea-fieldtype .input-text {
+  padding: 4px 6px !important;
+  background-color: white !important;
 }

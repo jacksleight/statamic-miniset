@@ -39,7 +39,7 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 
 Other fieldtypes should not be added and may cause errors or unexpected results.
 
-Variants will be offered as options when creating groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
+Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
 
 ```
 "lg" / "w-32" --> "lg:w-32"
@@ -51,17 +51,17 @@ If you're not using Tailwind CSS you can customize this behaviour by including a
 "&@large" / "width-half" --> "width-half@large"
 ```
 
-Miniset Classes will combine all contained values down to a single flat string of classes which can be output just like any field:
+Miniset Classes will combine all field values down to a single flat string of classes which can be output just like any field:
 
 ```html
-<div class="{{ my_class }}">
+<div class="{{ my_classes }}">
     <!--- --->
 </div>
 ```
 
 ### Using `jit_safe` mode with Tailwind
 
-When using Tailwind the JIT compiler scans your content for classes, but this needs to include any classes that could possibly be selected by users in the CP. To simplify this process Miniset has a `jit_safe` mode. To enable this publish the config:
+When using Tailwind the JIT compiler scans your content for classes, and this will need to include any classes that could be selected by users in the control panel. To simplify this process Miniset has a `jit_safe` mode. To enable this publish the config:
 
 ```bash
 php please vendor:publish --tag=statamic-miniset-config
@@ -102,8 +102,8 @@ Create a Miniset Options field and add your nested fields. Miniset Options is in
 
 Other fieldtypes can be added but will not have a compact style. 
 
-Fields within a Miniset field can be output by referencing the inner keys:
+Fields within a Miniset Options field can be output by (plucking the values)[https://statamic.dev/new-antlers-parser#plucking]:
 
 ```html
-{{ my_field:example }}
+{{ my_options.theme }}
 ```

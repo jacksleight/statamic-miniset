@@ -2,8 +2,8 @@
 
 namespace JackSleight\StatamicMiniset\Fieldtypes;
 
-use Statamic\Fields\Fieldtype;
 use Statamic\Fields\Fields;
+use Statamic\Fields\Fieldtype;
 use Statamic\Support\Arr;
 use Statamic\Support\Str;
 
@@ -15,17 +15,20 @@ class MinisetClassesFieldtype extends Fieldtype
 
     protected $defaultValue = [];
 
+    public function icon()
+    {
+        return file_get_contents(__DIR__ . '/../../resources/svg/icon.svg');
+    }
+
     protected function configFieldItems(): array
     {
         return [
             'fields' => [
                 'display' => __('Fields'),
-                'instructions' => 'All fields will be combined into a single flat string of classes.',
                 'type' => 'fields',
             ],
             'variants' => [
                 'display' => __('Variants'),
-                'instructions' => 'Options for creating groups of fields for specific variants.',
                 'type' => 'array',
                 'default' => ['' => 'Default'],
             ],
@@ -53,7 +56,7 @@ class MinisetClassesFieldtype extends Fieldtype
     public function preProcess($data)
     {
         $data = collect($data);
-        
+
         $data = $data->pad(1, []);
 
         return $data->map(function ($group, $i) {
@@ -143,33 +146,11 @@ class MinisetClassesFieldtype extends Fieldtype
 
     public function augment($value)
     {
-        if (!$value) {
+        if (! $value) {
             return;
         }
 
         return implode(' ', static::generateClasses($value));
-    }
-
-    public static function generateClasses(array $value)
-    {
-        $list = [];
-        foreach ($value as $group) {
-            $variant = $group['variant'] ?? null;
-            unset($group['variant']);
-            if ($variant && ! Str::contains($variant, '&')) {
-                $variant = "{$variant}:&";
-            }
-            array_walk_recursive($group, function($option) use (&$list, $variant) {
-                $parts = preg_split('/\s+/', $option, -1, PREG_SPLIT_NO_EMPTY);
-                foreach ($parts as $part) {
-                    $list[] = $variant
-                        ? str_replace('&', $part, $variant)
-                        : $part;
-                }
-            });
-        }
-
-        return $list;
     }
 
     public function preProcessValidatable($value)
@@ -183,5 +164,27 @@ class MinisetClassesFieldtype extends Fieldtype
 
             return array_merge($values, $processed);
         })->all();
+    }
+
+    public static function generateClasses(array $value)
+    {
+        $list = [];
+        foreach ($value as $group) {
+            $variant = $group['variant'] ?? null;
+            unset($group['variant']);
+            if ($variant && ! Str::contains($variant, '&')) {
+                $variant = "{$variant}:&";
+            }
+            array_walk_recursive($group, function ($option) use (&$list, $variant) {
+                $parts = preg_split('/\s+/', $option, -1, PREG_SPLIT_NO_EMPTY);
+                foreach ($parts as $part) {
+                    $list[] = $variant
+                        ? str_replace('&', $part, $variant)
+                        : $part;
+                }
+            });
+        }
+
+        return $list;
     }
 }

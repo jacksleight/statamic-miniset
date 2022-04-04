@@ -1,6 +1,6 @@
-// Miniset Classes
+// Miniset
 
-.miniset-classes {
+.miniset {
 
     &-tabs {
         font-size: 12px;
@@ -54,7 +54,7 @@
         background-color: #fafcff;
         position: relative;
     }
-    &-tabs + &-group {
+    &-tabs + &-groups {
         border-top-left-radius: 0;
     }
 
@@ -79,11 +79,6 @@
 
 .miniset-compact {
 
-    font-size: 12px !important;
-    * {
-        font-size: inherit !important;
-    }
-
     .publish-fields {
         padding: 0.6rem !important;
     }
@@ -102,6 +97,16 @@
         > label {
             line-height: 0.8 !important;
             margin-bottom: 7px !important;
+        }
+    }
+
+    .select-fieldtype,
+    .button_group-fieldtype,
+    .text-fieldtype,
+    .textarea-fieldtype {
+        font-size: 12px !important;
+        * {
+            font-size: inherit !important;
         }
     }
     
@@ -157,6 +162,13 @@
             padding: 4px 6px !important;
             background-color: white !important;
             height: 1.625rem !important;
+        }
+    }
+    
+    .textarea-fieldtype {
+        .input-text {
+            padding: 4px 6px !important;
+            background-color: white !important;
         }
     }
 

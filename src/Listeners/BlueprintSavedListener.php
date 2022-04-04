@@ -2,17 +2,17 @@
 
 namespace JackSleight\StatamicMiniset\Listeners;
 
-use Statamic\Events\BlueprintSaved;
 use JackSleight\StatamicMiniset\Facades\JitSafeManager;
+use Statamic\Events\BlueprintSaved;
 
 class BlueprintSavedListener
 {
     public function handle(BlueprintSaved $event)
     {
-        if (!config('statamic.miniset.classes.jit_safe.enable')) {
+        if (! config('statamic.miniset.classes.jit_safe.enable')) {
             return;
         }
-        
+
         JitSafeManager::processBlueprint($event->blueprint);
     }
 }

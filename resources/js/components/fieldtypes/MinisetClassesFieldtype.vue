@@ -2,23 +2,23 @@
 
     <div class="miniset-classes">
 
-        <div class="miniset-classes-tabs" v-if="showTabs">
+        <div class="miniset-tabs" v-if="showTabs">
             <div
-                class="miniset-classes-tab"
+                class="miniset-tab"
                 :class="{   
-                    'miniset-classes-tab-active': selected === index
+                    'miniset-tab-active': selected === index
                 }"
                 v-for="(group, index) in value">
                 <button
-                    class="miniset-classes-select"
+                    class="miniset-select"
                     :class="{   
-                        'miniset-classes-select-removeable': index !== 0 && index === selected
+                        'miniset-select-removeable': index !== 0 && index === selected
                     }"
                     v-text="groupLabel(group)"
                     @click.prevent="selectGroup(index)">
                 </button>
                 <button
-                    class="miniset-classes-remove"
+                    class="miniset-remove"
                     v-if="index !== 0 && index === selected"
                     @click="removeGroup(index)">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -27,7 +27,7 @@
                 </button>
             </div>
             <button
-                class="miniset-classes-add"
+                class="miniset-add"
                 @click.prevent="addGroup">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -35,10 +35,10 @@
             </button>
         </div>
 
-        <div class="miniset-classes-groups">
+        <div class="miniset-groups">
 
             <div class="miniset-compact">
-                <MinisetClassesGroup
+                <miniset-classes-group
                     v-for="(group, index) in value"
                     v-if="index === selected"
                     :key="`group-${group._id}`"
@@ -56,10 +56,10 @@
             </div>
             
             <div
-                class="miniset-classes-create"
+                class="miniset-create"
                 v-if="addingGroup"
                 >
-                <div class="miniset-classes-create-variants">
+                <div class="miniset-create-variants">
                     <button
                         class="btn"
                         v-for="(label, variant) in variants"
@@ -105,10 +105,6 @@ export default {
 
         variants() {
             return this.config.variants;
-        },
-
-        hideLabel() {
-            return this.config.hideLabel;
         },
 
         showTabs() {

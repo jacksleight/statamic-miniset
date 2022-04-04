@@ -3,25 +3,25 @@
 namespace JackSleight\StatamicMiniset;
 
 use JackSleight\StatamicMiniset\Fieldtypes\MinisetClassesFieldtype;
-use Statamic\Fields\Fieldset;
-use Statamic\Fields\Blueprint;
-use RecursiveIteratorIterator;
 use RecursiveArrayIterator;
+use RecursiveIteratorIterator;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;
+use Statamic\Fields\Blueprint;
+use Statamic\Fields\Fieldset;
 
 class JitSafeManager
 {
     public function processFieldset(Fieldset $fieldset)
     {
-        $key = 'fieldsets.' . $fieldset->handle();
+        $key = 'fieldsets.'.$fieldset->handle();
 
         $this->processContents($key, $fieldset->contents());
     }
 
     public function processBlueprint(Blueprint $blueprint)
     {
-        $key = 'blueprints.' . $blueprint->namespace() . '.' . $blueprint->handle();
+        $key = 'blueprints.'.$blueprint->namespace().'.'.$blueprint->handle();
 
         $this->processContents($key, $blueprint->contents());
     }
@@ -32,7 +32,7 @@ class JitSafeManager
         $classes = $this->processConfigs($configs);
 
         $path = config('statamic.miniset.classes.jit_safe.file');
-        $dir  = dirname($path);
+        $dir = dirname($path);
 
         if (! File::exists($dir)) {
             File::makeDirectory($dir);
@@ -69,12 +69,11 @@ class JitSafeManager
         $classes = [];
 
         foreach ($configs as $config) {
-            
             $variants = array_merge(
                 [null],
                 array_keys($config['variants'] ?? [])
             );
-    
+
             $options = call_user_func_array('array_merge', array_map(function ($field) {
                 return array_keys($field['field']['options'] ?? []);
             }, $config['fields']));
@@ -91,6 +90,4 @@ class JitSafeManager
 
         return array_unique($classes);
     }
-
-
 }

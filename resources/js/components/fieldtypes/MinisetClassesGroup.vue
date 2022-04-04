@@ -2,23 +2,23 @@
 
     <publish-fields-container>
         <set-field
-          v-for="field in fields"
-          v-show="showField(field)"
-          :key="field.handle"
-          :field="field"
-          :meta="meta[field.handle]"
-          :value="values[field.handle]"
-          :parent-name="name"
-          :set-index="index"
-          :errors="errors(field.handle)"
-          :error-key-prefix="errorKey(field.handle)"          
-          :read-only="miniset.isReadOnly"
-          @updated="updated(field.handle, $event)"
-          @meta-updated="metaUpdated(field.handle, $event)"
-          @focus="$emit('focus')"
-          @blur="$emit('blur')"
+            v-for="field in fields"
+            v-show="showField(field)"
+            :key="field.handle"
+            :field="field"
+            :meta="meta[field.handle]"
+            :value="values[field.handle]"
+            :parent-name="name"
+            :set-index="index"
+            :errors="errors(field.handle)"
+            :error-key-prefix="errorKey(field.handle)"          
+            :read-only="miniset.isReadOnly"
+            @updated="updated(field.handle, $event)"
+            @meta-updated="metaUpdated(field.handle, $event)"
+            @focus="$emit('focus')"
+            @blur="$emit('blur')"
         />
-      </publish-fields-container>
+    </publish-fields-container>
 
 </template>
 

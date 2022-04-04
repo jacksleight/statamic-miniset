@@ -17,7 +17,7 @@ return [
             'enable' => false,
             'file'   => resource_path('css/statamic/miniset_classes.yaml'),
         ],
-        
+
     ],
 
 ];
