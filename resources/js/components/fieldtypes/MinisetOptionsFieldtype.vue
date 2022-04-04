@@ -16,7 +16,7 @@
                         :parent-name="name"
                         :set-index="index"
                         :errors="errors(field.handle)"
-                        :error-key-prefix="field.handle"
+                        :error-key="errorKey(field.handle)"
                         :read-only="isReadOnly"
                         @updated="updated(field.handle, $event)"
                         @meta-updated="metaUpdated(field.handle, $event)"
@@ -83,10 +83,14 @@ export default {
             this.update(group);
         },
 
+        errorKey(handle) {
+            return `${this.handle}.${handle}`;
+        },
+
         errors(handle) {
             const state = this.$store.state.publish[this.storeName];
             if (! state) return [];
-            return state.errors[handle] || [];
+            return state.errors[this.errorKey(handle)] || [];
         },
 
         blurred() {

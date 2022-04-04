@@ -61,7 +61,9 @@ class MinisetOptionsFieldtype extends Fieldtype
             ->validator()
             ->rules();
 
-        return $rules;
+        return collect($rules)->mapWithKeys(function ($rules, $handle) {
+            return [$this->field->handle().'.'.$handle => $rules];
+        })->all();
     }
 
     public function extraValidationAttributes(): array
@@ -71,7 +73,9 @@ class MinisetOptionsFieldtype extends Fieldtype
             ->validator()
             ->attributes();
 
-        return $attributes;
+        return collect($this->field->value())->mapWithKeys(function ($value, $handle) use ($attributes) {
+            return [$this->field->handle().'.'.$handle => $attributes[$handle] ?? null];
+        })->filter()->all();
     }
 
     public function preload()

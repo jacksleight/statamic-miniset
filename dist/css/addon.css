@@ -72,10 +72,6 @@
 .miniset-compact .publish-field {
   padding: 0.5rem !important;
 }
-.miniset-compact .form-group > label {
-  line-height: 0.8 !important;
-  margin-bottom: 7px !important;
-}
 .miniset-compact .button_group-fieldtype,
 .miniset-compact .checkboxes-fieldtype,
 .miniset-compact .radio-fieldtype,
@@ -91,6 +87,25 @@
 .miniset-compact .text-fieldtype *,
 .miniset-compact .textarea-fieldtype * {
   font-size: inherit !important;
+}
+.miniset-compact .button_group-fieldtype > label,
+.miniset-compact .checkboxes-fieldtype > label,
+.miniset-compact .radio-fieldtype > label,
+.miniset-compact .select-fieldtype > label,
+.miniset-compact .text-fieldtype > label,
+.miniset-compact .textarea-fieldtype > label {
+  line-height: 0.8 !important;
+  margin-bottom: 7px !important;
+}
+.miniset-compact .button_group-fieldtype .help-block,
+.miniset-compact .checkboxes-fieldtype .help-block,
+.miniset-compact .radio-fieldtype .help-block,
+.miniset-compact .select-fieldtype .help-block,
+.miniset-compact .text-fieldtype .help-block,
+.miniset-compact .textarea-fieldtype .help-block {
+  line-height: 0.8 !important;
+  margin-top: 7px !important;
+  margin-bottom: 7px !important;
 }
 .miniset-compact .button_group-fieldtype .btn-group {
   height: 1.625rem !important;
@@ -137,8 +152,15 @@
 .miniset-compact .select-fieldtype .vs__dropdown-option {
   padding: 4px 6px !important;
 }
-.miniset-compact .text-fieldtype .input-group {
+.miniset-compact .text-fieldtype .input-group,
+.miniset-compact .text-fieldtype .input-group-prepend,
+.miniset-compact .text-fieldtype .input-group-append {
   height: 1.625rem !important;
+}
+.miniset-compact .text-fieldtype .input-group-prepend,
+.miniset-compact .text-fieldtype .input-group-append {
+  line-height: 1.375 !important;
+  padding: 4px 6px !important;
 }
 .miniset-compact .text-fieldtype .input-text {
   padding: 4px 6px !important;

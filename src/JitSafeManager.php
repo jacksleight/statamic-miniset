@@ -88,6 +88,6 @@ class JitSafeManager
             $classes = array_merge($classes, MinisetClassesFieldtype::generateClasses($value));
         }
 
-        return array_unique($classes);
+        return array_values(array_unique($classes));
     }
 }

@@ -93,13 +93,7 @@
         padding: 0.5rem !important;
     }   
     
-    .form-group {
-        > label {
-            line-height: 0.8 !important;
-            margin-bottom: 7px !important;
-        }
-    }
-
+    
     .button_group-fieldtype,
     .checkboxes-fieldtype,
     .radio-fieldtype,
@@ -109,6 +103,15 @@
         font-size: 12px !important;
         * {
             font-size: inherit !important;
+        }
+        > label {
+            line-height: 0.8 !important;
+            margin-bottom: 7px !important;
+        }
+        .help-block {
+            line-height: 0.8 !important;
+            margin-top: 7px !important;
+            margin-bottom: 7px !important;
         }
     }
     
@@ -168,8 +171,15 @@
     }
     
     .text-fieldtype {
-        .input-group {
+        .input-group,
+        .input-group-prepend,
+        .input-group-append {
             height: 1.625rem !important;
+        }
+        .input-group-prepend,
+        .input-group-append {
+            line-height: 1.375 !important;
+            padding: 4px 6px !important;
         }
         .input-text {
             padding: 4px 6px !important;

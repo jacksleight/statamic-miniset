@@ -11,7 +11,7 @@
             :parent-name="name"
             :set-index="index"
             :errors="errors(field.handle)"
-            :error-key-prefix="errorKey(field.handle)"          
+            :error-key="errorKey(field.handle)"          
             :read-only="miniset.isReadOnly"
             @updated="updated(field.handle, $event)"
             @meta-updated="metaUpdated(field.handle, $event)"
@@ -60,6 +60,14 @@ export default {
         errorKeyPrefix: {
             type: String
         },
+    },
+
+    computed: {
+
+        errorKeyPrefix() {
+            return this.miniset.errorKeyPrefix || this.miniset.handle;
+        }
+
     },
 
     methods: {

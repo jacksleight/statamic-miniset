@@ -296,6 +296,11 @@ __webpack_require__.r(__webpack_exports__);
       type: String
     }
   },
+  computed: {
+    errorKeyPrefix: function errorKeyPrefix() {
+      return this.miniset.errorKeyPrefix || this.miniset.handle;
+    }
+  },
   methods: {
     updated: function updated(handle, value) {
       var group = JSON.parse(JSON.stringify(this.values));
@@ -403,10 +408,13 @@ __webpack_require__.r(__webpack_exports__);
       group[handle] = value;
       this.update(group);
     },
+    errorKey: function errorKey(handle) {
+      return "".concat(this.handle, ".").concat(handle);
+    },
     errors: function errors(handle) {
       var state = this.$store.state.publish[this.storeName];
       if (!state) return [];
-      return state.errors[handle] || [];
+      return state.errors[this.errorKey(handle)] || [];
     },
     blurred: function blurred() {
       var _this2 = this;
@@ -2668,7 +2676,7 @@ var render = function () {
           "parent-name": _vm.name,
           "set-index": _vm.index,
           errors: _vm.errors(field.handle),
-          "error-key-prefix": _vm.errorKey(field.handle),
+          "error-key": _vm.errorKey(field.handle),
           "read-only": _vm.miniset.isReadOnly,
         },
         on: {
@@ -2739,7 +2747,7 @@ var render = function () {
                   "parent-name": _vm.name,
                   "set-index": _vm.index,
                   errors: _vm.errors(field.handle),
-                  "error-key-prefix": field.handle,
+                  "error-key": _vm.errorKey(field.handle),
                   "read-only": _vm.isReadOnly,
                 },
                 on: {
