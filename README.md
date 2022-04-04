@@ -42,13 +42,13 @@ Other fieldtypes should not be added and may cause errors or unexpected results.
 
 Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
 
-```
+```text
 "lg" / "w-32" --> "lg:w-32"
 ```
 
 If you're not using Tailwind CSS you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
-```
+```text
 "&@large" / "width-half" --> "width-half@large"
 ```
 
@@ -56,8 +56,6 @@ Miniset Classes will combine all field values down to a single flat string of cl
 
 ```html
 <div class="{{ my_classes }}">
-    <!--- --->
-</div>
 ```
 
 ### Using `jit_safe` mode with Tailwind
