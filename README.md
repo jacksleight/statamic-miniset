@@ -16,8 +16,8 @@ Miniset includes the following components:
   A class specific fieldtype for creating a compact set of fields that combine into a single string of utility classes, including variant options. Works great with Tailwind CSS.
 * **Miniset Options**  
   A general purpose fieldtype for creating a compact set of fields.
-* **~Miniset Panel~** (coming someday)  
-  ~A fieldtype for grouping multiple Minisets into a stacked panel.~
+* **~~Miniset Panel~~** (coming someday)  
+  ~~A fieldtype for grouping multiple Minisets into a stacked panel.~~
 
 ## Installation
 
@@ -34,8 +34,8 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 * Select (inc. multiple)
 * Button Group
 * Text (not `jit_safe` compatible)
-* ~Checkboxes~ (coming soon)
-* ~Radio~ (coming soon)
+* ~~Checkboxes~~ (coming soon)
+* ~~Radio~~ (coming soon)
 
 Other fieldtypes should not be added and may cause errors or unexpected results.
 
@@ -95,10 +95,10 @@ Create a Miniset Options field and add your nested fields. Miniset Options is in
 * Select (inc. multiple)
 * Button Group
 * Text
-* ~Textarea~ (coming soon)
-* ~Toggle~ (coming soon)
-* ~Checkboxes~ (coming soon)
-* ~Radio~ (coming soon)
+* ~~Textarea~~ (coming soon)
+* ~~Toggle~~ (coming soon)
+* ~~Checkboxes~~ (coming soon)
+* ~~Radio~~ (coming soon)
 
 Other fieldtypes can be added but will not have a compact style. 
 
