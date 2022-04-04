@@ -55,13 +55,13 @@ Miniset Classes will combine all contained values down to a single flat string o
 
 ```html
 <div class="{{ my_class }}">
-	<!--- --->
+    <!--- --->
 </div>
 ```
 
 ### Using `jit_safe` mode with Tailwind
 
-When using Tailwind the JIT compiler needs to know which classes should be included in your CSS, and this needs to include any classes that could possibly be selected by users in the CP. To simplify this process Miniset has a `jit_safe` mode. To enable this publish the config:
+When using Tailwind the JIT compiler scans your content for classes, but this needs to include any classes that could possibly be selected by users in the CP. To simplify this process Miniset has a `jit_safe` mode. To enable this publish the config:
 
 ```bash
 php please vendor:publish --tag=statamic-miniset-config
