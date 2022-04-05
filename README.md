@@ -13,7 +13,7 @@ Miniset allows you to create compact sets of fields that either combine into a s
 Miniset includes the following components:
 
 * **Miniset**  
-  A general purpose fieldtype for creating a compact set of fields.
+  A general purpose fieldtype for creating a compact set of fields that store an array of simple values.
 * **Miniset Classes**  
   A class specific fieldtype for creating a compact set of fields that combine into a string of classes, including variant options. Works great with Tailwind CSS.
 
