@@ -112,6 +112,14 @@
             line-height: 0.8 !important;
             margin-top: 7px !important;
             margin-bottom: 7px !important;
+            &:last-child {
+                margin-bottom: 0 !important;
+            }
+            p {
+                &:last-child {
+                    margin-bottom: 0 !important;
+                }
+            }
         }
     }
     

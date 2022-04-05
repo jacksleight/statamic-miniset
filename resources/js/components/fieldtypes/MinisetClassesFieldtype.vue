@@ -63,6 +63,7 @@
                     <button
                         class="btn"
                         v-for="(label, variant) in variants"
+                        v-if="variant"
                         @click.prevent="commitGroup(variant)">
                         <span v-text="label"></span>
                     </button>

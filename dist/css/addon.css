@@ -107,6 +107,22 @@
   margin-top: 7px !important;
   margin-bottom: 7px !important;
 }
+.miniset-compact .button_group-fieldtype .help-block:last-child,
+.miniset-compact .checkboxes-fieldtype .help-block:last-child,
+.miniset-compact .radio-fieldtype .help-block:last-child,
+.miniset-compact .select-fieldtype .help-block:last-child,
+.miniset-compact .text-fieldtype .help-block:last-child,
+.miniset-compact .textarea-fieldtype .help-block:last-child {
+  margin-bottom: 0 !important;
+}
+.miniset-compact .button_group-fieldtype .help-block p:last-child,
+.miniset-compact .checkboxes-fieldtype .help-block p:last-child,
+.miniset-compact .radio-fieldtype .help-block p:last-child,
+.miniset-compact .select-fieldtype .help-block p:last-child,
+.miniset-compact .text-fieldtype .help-block p:last-child,
+.miniset-compact .textarea-fieldtype .help-block p:last-child {
+  margin-bottom: 0 !important;
+}
 .miniset-compact .button_group-fieldtype .btn-group {
   height: 1.625rem !important;
 }
