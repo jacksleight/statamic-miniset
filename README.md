@@ -84,14 +84,12 @@ When using Tailwind the JIT compiler scans your content for classes, and this wi
 php please vendor:publish --tag=statamic-miniset-config
 ```
 
-Then open `config/statamic/miniset.php` and set the `classes.jit_safe.enable` option to `true`:
+Then open `config/statamic/miniset.php` and set the `jit_safe.enable` option to `true`:
 
 ```php
-'classes' => [
-    'jit_safe' => [
-        'enable' => true,
-        'file'   => resource_path('css/statamic/miniset_classes.yaml'),
-    ], 
+'jit_safe' => [
+    'enable' => true,
+    'file'   => resource_path('css/statamic/miniset_classes.yaml'),
 ],
 ```
 
