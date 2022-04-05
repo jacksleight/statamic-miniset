@@ -63,7 +63,6 @@
                     <button
                         class="btn"
                         v-for="(label, variant) in variants"
-                        v-if="variant"
                         @click.prevent="commitGroup(variant)">
                         <span v-text="label"></span>
                     </button>
@@ -109,7 +108,7 @@ export default {
         },
 
         showTabs() {
-            return Object.keys(this.variants).length > 1
+            return Object.keys(this.variants).length > 0
         },
 
     },
@@ -213,7 +212,9 @@ export default {
         },
 
         groupLabel(group) {
-            return this.variants[group.variant || ''] || group.variant;
+            return group.variant
+                ? (this.variants[group.variant] || group.variant)
+                : __('Default');
         },
 
         updateGroupMeta(group, value) {

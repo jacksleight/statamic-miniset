@@ -110,7 +110,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -133,7 +132,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return this.config.variants;
     },
     showTabs: function showTabs() {
-      return Object.keys(this.variants).length > 1;
+      return Object.keys(this.variants).length > 0;
     }
   },
   reactiveProvide: {
@@ -215,7 +214,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       }, 1);
     },
     groupLabel: function groupLabel(group) {
-      return this.variants[group.variant || ''] || group.variant;
+      return group.variant ? this.variants[group.variant] || group.variant : __('Default');
     },
     updateGroupMeta: function updateGroupMeta(group, value) {
       this.updateMeta(_objectSpread(_objectSpread({}, this.meta), {}, {
@@ -2613,21 +2612,19 @@ var render = function () {
               "div",
               { staticClass: "miniset-create-variants" },
               _vm._l(_vm.variants, function (label, variant) {
-                return variant
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn",
-                        on: {
-                          click: function ($event) {
-                            $event.preventDefault()
-                            return _vm.commitGroup(variant)
-                          },
-                        },
+                return _c(
+                  "button",
+                  {
+                    staticClass: "btn",
+                    on: {
+                      click: function ($event) {
+                        $event.preventDefault()
+                        return _vm.commitGroup(variant)
                       },
-                      [_c("span", { domProps: { textContent: _vm._s(label) } })]
-                    )
-                  : _vm._e()
+                    },
+                  },
+                  [_c("span", { domProps: { textContent: _vm._s(label) } })]
+                )
               }),
               0
             ),

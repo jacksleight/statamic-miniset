@@ -56,7 +56,7 @@ class JitSafeManager
             if (! is_array($value)) {
                 continue;
             }
-            if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null) && is_array($value['variants'] ?? null)) {
+            if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null)) {
                 $configs[] = $value;
             }
         }

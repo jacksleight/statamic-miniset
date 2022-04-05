@@ -30,7 +30,6 @@ class MinisetClassesFieldtype extends Fieldtype
             'variants' => [
                 'display' => __('Variants'),
                 'type' => 'array',
-                'default' => ['' => 'Default'],
             ],
         ];
     }
