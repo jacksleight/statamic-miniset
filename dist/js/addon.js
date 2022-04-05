@@ -2748,7 +2748,7 @@ var render = function () {
                   meta: _vm.meta[field.handle],
                   value: _vm.value[field.handle],
                   "parent-name": _vm.name,
-                  "set-index": _vm.index,
+                  "set-index": 0,
                   errors: _vm.errors(field.handle),
                   "error-key": _vm.errorKey(field.handle),
                   "read-only": _vm.isReadOnly,

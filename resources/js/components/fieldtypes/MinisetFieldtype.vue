@@ -14,7 +14,7 @@
                         :meta="meta[field.handle]"
                         :value="value[field.handle]"
                         :parent-name="name"
-                        :set-index="index"
+                        :set-index="0"
                         :errors="errors(field.handle)"
                         :error-key="errorKey(field.handle)"
                         :read-only="isReadOnly"
