@@ -64,7 +64,7 @@ Variants will be offered as options when adding groups of fields. By default the
 "lg" / "w-32" --> "lg:w-32"
 ```
 
-If you're not using Tailwind CSS you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
+If you're not using Tailwind you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
 ```text
 "&@large" / "width-half" --> "width-half@large"
