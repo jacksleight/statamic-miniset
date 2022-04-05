@@ -8,14 +8,14 @@
 
 <!-- /statamic:hide -->
 
-Miniset allows you to create compact sets of fields that either combine into a single string of utility classes, or can store an array of simple option values.
+Miniset allows you to create compact sets of fields that either combine into a string of classes, or store an array of simple values.
 
 Miniset includes the following components:
 
+* **Miniset**  
+  A general purpose fieldtype for creating a compact set of fields.
 * **Miniset Classes**  
-  A class specific fieldtype for creating a compact set of fields that combine into a single string of utility classes, including variant options. Works great with Tailwind CSS.
-* **Miniset Options**  
-  A general purpose fieldtype for creating a compact set of option fields.
+  A class specific fieldtype for creating a compact set of fields that combine into a string of classes, including variant options. Works great with Tailwind CSS.
 
 ## Installation
 
@@ -24,6 +24,26 @@ You can search for this addon in the `Tools > Addons` section of the Statamic co
 ```bash
 composer require jacksleight/statamic-miniset
 ```
+
+## Creating a Miniset Field
+
+Create a Miniset field and add your nested fields. Miniset is intended for simple data (single or multiple scalar values) and only officially supports these nested fieldtypes:
+
+* Select (inc. multiple)
+* Button Group
+* Checkboxes
+* Radio
+* Text
+* Textarea
+
+Other fieldtypes can be added but will not have a compact style. 
+
+Fields within a Miniset field can be output by [plucking the values](https://statamic.dev/new-antlers-parser#plucking):
+
+```html
+{{ my_options.theme }}
+```
+
 
 ## Creating a Miniset Classes Field
 
@@ -83,23 +103,4 @@ You can then tell Tailwind to search this file in your `tailwind.config.js`:
 content: [
     './resources/css/statamic/miniset_classes.yaml',
 ],
-```
-
-## Creating a Miniset Options Field
-
-Create a Miniset Options field and add your nested fields. Miniset Options is intended for simple data (single or multiple scalar values) and only officially supports these nested fieldtypes:
-
-* Select (inc. multiple)
-* Button Group
-* Checkboxes
-* Radio
-* Text
-* Textarea
-
-Other fieldtypes can be added but will not have a compact style. 
-
-Fields within a Miniset Options field can be output by [plucking the values](https://statamic.dev/new-antlers-parser#plucking):
-
-```html
-{{ my_options.theme }}
 ```

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="miniset-options">
+    <div class="miniset miniset-generic">
 
         <div class="miniset-groups">
 

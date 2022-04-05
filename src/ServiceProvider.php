@@ -3,7 +3,7 @@
 namespace JackSleight\StatamicMiniset;
 
 use JackSleight\StatamicMiniset\Fieldtypes\MinisetClassesFieldtype;
-use JackSleight\StatamicMiniset\Fieldtypes\MinisetOptionsFieldtype;
+use JackSleight\StatamicMiniset\Fieldtypes\MinisetFieldtype;
 use JackSleight\StatamicMiniset\Listeners\BlueprintSavedListener;
 use JackSleight\StatamicMiniset\Listeners\FieldsetSavedListener;
 use Statamic\Events\BlueprintSaved;
@@ -27,7 +27,7 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $fieldtypes = [
         MinisetClassesFieldtype::class,
-        MinisetOptionsFieldtype::class,
+        MinisetFieldtype::class,
     ];
 
     public function register()

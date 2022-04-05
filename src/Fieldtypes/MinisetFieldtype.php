@@ -6,7 +6,7 @@ use Statamic\Fields\Fields;
 use Statamic\Fields\Fieldtype;
 use Statamic\Support\Arr;
 
-class MinisetOptionsFieldtype extends Fieldtype
+class MinisetFieldtype extends Fieldtype
 {
     protected $categories = ['structured'];
 

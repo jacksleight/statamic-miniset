@@ -1,6 +1,6 @@
 <template>
 
-    <div class="miniset-classes">
+    <div class="miniset miniset-classes">
 
         <div class="miniset-tabs" v-if="showTabs">
             <div
