@@ -2623,7 +2623,11 @@ var render = function () {
                       },
                     },
                   },
-                  [_c("span", { domProps: { textContent: _vm._s(label) } })]
+                  [
+                    _c("span", {
+                      domProps: { textContent: _vm._s(label || variant) },
+                    }),
+                  ]
                 )
               }),
               0
