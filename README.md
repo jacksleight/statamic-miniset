@@ -38,7 +38,7 @@ Create a Miniset field and add your nested fields. Miniset is intended for simpl
 
 Other fieldtypes can be added but will not have a compact style. 
 
-Miniset returns a simple array of values which can either be output in it's entirety, or individual values can be [plucked](https://statamic.dev/new-antlers-parser#plucking) from the array:
+Miniset returns a simple array of values which can either be output in its entirety, or individual values can be [plucked](https://statamic.dev/new-antlers-parser#plucking) from the array:
 
 ```html
 {{ my_options | json }}
