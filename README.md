@@ -64,13 +64,13 @@ Variants will be offered as options when adding groups of fields. By default the
 lg / w-32 --> lg:w-32
 ```
 
-If you're not using that convention you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
+If you're not using this convention you can customize the behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
 ```text
 &@large / width-half --> width-half@large
 ```
 
-Miniset Classes will combine all field values down to a single flat string of classes which can be output straight into a `class` attribute:
+Miniset Classes will return a single string of classes that can be output in a `class` attribute:
 
 ```html
 <div class="{{ my_classes }}">
