@@ -93,7 +93,7 @@ Then open `config/statamic/miniset.php` and set the `jit_safe.enable` option to 
 ],
 ```
 
-Once enabled Miniset will scan your Miniset Classes fields and save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset.
+Once enabled Miniset will scan your fields and save a full list of possible classes to `resources/css/statamic/miniset_classes.yaml` whenever you update a blueprint or fieldset.
 
 You can then tell Tailwind to search this file in your `tailwind.config.js`:
 
