@@ -97,6 +97,7 @@
     .button_group-fieldtype,
     .checkboxes-fieldtype,
     .radio-fieldtype,
+    // .range-fieldtype,
     .select-fieldtype,
     .text-fieldtype,
     .textarea-fieldtype {
@@ -128,7 +129,7 @@
             height: 1.625rem !important;
         }
         .btn {
-            padding: 4px 6px !important;
+            padding: 3px 6px !important;
             height: 1.625rem !important;
         }
     }
@@ -143,6 +144,19 @@
             }
         }
     }
+    
+    // .range-fieldtype {
+    //     &-wrapper {
+    //         border: 0 !important;
+    //         padding: 0 !important;
+    //         background-color: transparent !important;
+    //     }
+    //     input + div {
+    //         padding: 1px 4px 0 4px !important;
+    //         line-height: 16px !important;
+    //         background-color: white !important;
+    //     }
+    // }
 
     .select-fieldtype {
         .vs__dropdown-toggle {
@@ -161,13 +175,13 @@
             .vs__selected {
                 margin-top: 4px !important;
                 margin-right: 4px !important;
-                padding-top: 2px !important;
+                padding-top: 1px !important;
                 padding-left: 4px !important;
                 padding-right: 4px !important;
+                line-height: 16px !important;
             }
             .vs__deselect {
-                margin-top: -2px !important;
-                padding-top: 1px !important;
+                margin-top: -1px !important;
             }
         }
         .vs__dropdown-menu {
@@ -179,20 +193,19 @@
     }
     
     .text-fieldtype {
-        .input-group,
-        .input-group-prepend,
-        .input-group-append {
+        .input-group {
             height: 1.625rem !important;
         }
         .input-group-prepend,
         .input-group-append {
+            height: 1.625rem !important;
             line-height: 1.375 !important;
             padding: 4px 6px !important;
         }
         .input-text {
             padding: 4px 6px !important;
-            background-color: white !important;
             height: 1.625rem !important;
+            background-color: white !important;
         }
     }
     

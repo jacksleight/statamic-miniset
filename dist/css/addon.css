@@ -127,7 +127,7 @@
   height: 1.625rem !important;
 }
 .miniset-compact .button_group-fieldtype .btn {
-  padding: 4px 6px !important;
+  padding: 3px 6px !important;
   height: 1.625rem !important;
 }
 .miniset-compact .checkboxes-fieldtype .option,
@@ -154,13 +154,13 @@
 .miniset-compact .select-fieldtype .vs__selected-options-outside .vs__selected {
   margin-top: 4px !important;
   margin-right: 4px !important;
-  padding-top: 2px !important;
+  padding-top: 1px !important;
   padding-left: 4px !important;
   padding-right: 4px !important;
+  line-height: 16px !important;
 }
 .miniset-compact .select-fieldtype .vs__selected-options-outside .vs__deselect {
-  margin-top: -2px !important;
-  padding-top: 1px !important;
+  margin-top: -1px !important;
 }
 .miniset-compact .select-fieldtype .vs__dropdown-menu {
   top: 32px !important;
@@ -168,20 +168,19 @@
 .miniset-compact .select-fieldtype .vs__dropdown-option {
   padding: 4px 6px !important;
 }
-.miniset-compact .text-fieldtype .input-group,
-.miniset-compact .text-fieldtype .input-group-prepend,
-.miniset-compact .text-fieldtype .input-group-append {
+.miniset-compact .text-fieldtype .input-group {
   height: 1.625rem !important;
 }
 .miniset-compact .text-fieldtype .input-group-prepend,
 .miniset-compact .text-fieldtype .input-group-append {
+  height: 1.625rem !important;
   line-height: 1.375 !important;
   padding: 4px 6px !important;
 }
 .miniset-compact .text-fieldtype .input-text {
   padding: 4px 6px !important;
-  background-color: white !important;
   height: 1.625rem !important;
+  background-color: white !important;
 }
 .miniset-compact .textarea-fieldtype .input-text {
   padding: 4px 6px !important;
