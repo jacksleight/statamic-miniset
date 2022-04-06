@@ -7,8 +7,8 @@
     },
     "extra": {
         "statamic": {
-            "name": "Miniset Fieldtype",
-            "description": "This Statamic addon allows you to create compact sets of fields that either combine into a string of classes, or store an array of simple values."
+            "name": "Miniset",
+            "description": "This Statamic addon allows you to create compact sets of fields that either combine into a string of classes, or return a simple array of values."
         },
         "laravel": {
             "providers": [

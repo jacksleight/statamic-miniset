@@ -8,12 +8,12 @@
 
 <!-- /statamic:hide -->
 
-Miniset allows you to create compact sets of fields that either combine into a string of classes, or store an array of simple values.
+Miniset allows you to create compact sets of fields that either combine into a string of classes, or return a simple array of values.
 
 Miniset includes the following components:
 
 * **Miniset**  
-  A general purpose fieldtype for creating a compact set of fields that store an array of simple values.
+  A general purpose fieldtype for creating a compact set of fields that returns a simple array of values.
 * **Miniset Classes**  
   A class specific fieldtype for creating a compact set of fields that combine into a string of classes, including variant options. Works great with Tailwind CSS.
 
@@ -38,12 +38,12 @@ Create a Miniset field and add your nested fields. Miniset is intended for simpl
 
 Other fieldtypes can be added but will not have a compact style. 
 
-Fields within a Miniset field can be output by [plucking the values](https://statamic.dev/new-antlers-parser#plucking):
+Miniset returns a simple array of values which can either be output in it's entirety, or individual values can be [plucked](https://statamic.dev/new-antlers-parser#plucking) from the array:
 
 ```html
+{{ my_options | json }}
 {{ my_options.theme }}
 ```
-
 
 ## Creating a Miniset Classes Field
 
@@ -58,19 +58,19 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 
 Other fieldtypes should not be added and may cause errors or unexpected results.
 
-Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon (the convention used by Tailwind CSS):
+Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon:
 
 ```text
-"lg" / "w-32" --> "lg:w-32"
+lg / w-32 --> lg:w-32
 ```
 
-If you're not using Tailwind you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
+If you're not using that convention you can customize this behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
 ```text
-"&@large" / "width-half" --> "width-half@large"
+&@large / width-half --> width-half@large
 ```
 
-Miniset Classes will combine all field values down to a single flat string of classes which can be output just like any field:
+Miniset Classes will combine all field values down to a single flat string of classes which can be output straight into a `class` attribute:
 
 ```html
 <div class="{{ my_classes }}">
