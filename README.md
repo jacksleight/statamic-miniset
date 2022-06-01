@@ -35,6 +35,8 @@ Create a Miniset field and add your nested fields. Miniset is intended for simpl
 * Radio
 * Text
 * Textarea
+* Toggle
+* Range
 
 Other fieldtypes can be added but will not have a compact style. 
 

@@ -797,25 +797,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/addon.js":
-/*!*******************************!*\
-  !*** ./resources/js/addon.js ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_Fieldtypes_MinisetFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Fieldtypes/MinisetFieldtype.vue */ "./resources/js/components/Fieldtypes/MinisetFieldtype.vue");
-/* harmony import */ var _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Fieldtypes/MinisetClassesFieldtype.vue */ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue");
-
-
-Statamic.booting(function () {
-  Statamic.$components.register('miniset-fieldtype', _components_Fieldtypes_MinisetFieldtype_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
-  Statamic.$components.register('miniset_classes-fieldtype', _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
-});
-
-/***/ }),
-
 /***/ "./vendor/statamic/cms/resources/js/bootstrap/globals.js":
 /*!***************************************************************!*\
   !*** ./vendor/statamic/cms/resources/js/bootstrap/globals.js ***!
@@ -1835,16 +1816,103 @@ var getLine = function getLine(key) {
 
 /***/ }),
 
-/***/ "./resources/css/addon.scss":
-/*!**********************************!*\
-  !*** ./resources/css/addon.scss ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[3]!./resources/css/addon.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[3]!./resources/css/addon.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js */ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
 
+var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".miniset-tabs {\n  font-size: 12px;\n  display: flex;\n  margin-bottom: -1px;\n}\n.miniset-tab {\n  font-size: 12px;\n  border-width: 1px;\n  border-color: #dde3e9;\n  border-radius: 3px 3px 0 0;\n  background-color: white;\n  position: relative;\n  z-index: 1;\n}\n.miniset-tab:not(:first-child) {\n  border-left: 0;\n}\n.miniset-tab-active {\n  border-bottom-color: transparent;\n  background-color: #fafcff;\n}\n.miniset-select {\n  display: block;\n  padding: 4px 8px;\n}\n.miniset-select-removeable {\n  padding-right: calc(6px + 1rem);\n}\n.miniset-remove {\n  position: absolute;\n  top: 0;\n  right: 0;\n  padding: 4px 4px 4px 2px;\n}\n.miniset-add {\n  font-size: 12px;\n  border-width: 1px 1px 0 1px;\n  border-color: transparent;\n  padding: 0 0.25rem 2px 0.25rem;\n}\n.miniset-groups {\n  border-width: 1px;\n  border-color: #dde3e9;\n  border-radius: 3px;\n  background-color: #fafcff;\n  position: relative;\n}\n.miniset-tabs + .miniset-groups {\n  border-top-left-radius: 0;\n}\n.miniset-create {\n  position: absolute;\n  inset: 0;\n  background-color: #fafcff;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  border-radius: 3px;\n}\n.miniset-create-variants {\n  display: flex;\n  gap: 0.5em;\n}\n\n.miniset-compact .publish-fields {\n  padding: 0.6rem !important;\n}\n.miniset-compact .publish-fields-narrow .field-w-1\\/4 {\n  width: 50% !important;\n}\n.miniset-compact .publish-field {\n  padding: 0.5rem !important;\n}\n.miniset-compact .button_group-fieldtype,\n.miniset-compact .checkboxes-fieldtype,\n.miniset-compact .radio-fieldtype,\n.miniset-compact .range-fieldtype,\n.miniset-compact .select-fieldtype,\n.miniset-compact .toggle-fieldtype,\n.miniset-compact .text-fieldtype,\n.miniset-compact .textarea-fieldtype {\n  font-size: 12px !important;\n}\n.miniset-compact .button_group-fieldtype *,\n.miniset-compact .checkboxes-fieldtype *,\n.miniset-compact .radio-fieldtype *,\n.miniset-compact .range-fieldtype *,\n.miniset-compact .select-fieldtype *,\n.miniset-compact .toggle-fieldtype *,\n.miniset-compact .text-fieldtype *,\n.miniset-compact .textarea-fieldtype * {\n  font-size: inherit !important;\n}\n.miniset-compact .button_group-fieldtype > label,\n.miniset-compact .checkboxes-fieldtype > label,\n.miniset-compact .radio-fieldtype > label,\n.miniset-compact .range-fieldtype > label,\n.miniset-compact .select-fieldtype > label,\n.miniset-compact .toggle-fieldtype > label,\n.miniset-compact .text-fieldtype > label,\n.miniset-compact .textarea-fieldtype > label {\n  line-height: 0.8 !important;\n  margin-bottom: 7px !important;\n}\n.miniset-compact .button_group-fieldtype .help-block,\n.miniset-compact .checkboxes-fieldtype .help-block,\n.miniset-compact .radio-fieldtype .help-block,\n.miniset-compact .range-fieldtype .help-block,\n.miniset-compact .select-fieldtype .help-block,\n.miniset-compact .toggle-fieldtype .help-block,\n.miniset-compact .text-fieldtype .help-block,\n.miniset-compact .textarea-fieldtype .help-block {\n  line-height: 0.8 !important;\n  margin-top: 7px !important;\n  margin-bottom: 7px !important;\n}\n.miniset-compact .button_group-fieldtype .help-block:last-child,\n.miniset-compact .checkboxes-fieldtype .help-block:last-child,\n.miniset-compact .radio-fieldtype .help-block:last-child,\n.miniset-compact .range-fieldtype .help-block:last-child,\n.miniset-compact .select-fieldtype .help-block:last-child,\n.miniset-compact .toggle-fieldtype .help-block:last-child,\n.miniset-compact .text-fieldtype .help-block:last-child,\n.miniset-compact .textarea-fieldtype .help-block:last-child {\n  margin-bottom: 0 !important;\n}\n.miniset-compact .button_group-fieldtype .help-block p:last-child,\n.miniset-compact .checkboxes-fieldtype .help-block p:last-child,\n.miniset-compact .radio-fieldtype .help-block p:last-child,\n.miniset-compact .range-fieldtype .help-block p:last-child,\n.miniset-compact .select-fieldtype .help-block p:last-child,\n.miniset-compact .toggle-fieldtype .help-block p:last-child,\n.miniset-compact .text-fieldtype .help-block p:last-child,\n.miniset-compact .textarea-fieldtype .help-block p:last-child {\n  margin-bottom: 0 !important;\n}\n.miniset-compact .button_group-fieldtype .btn-group {\n  height: 1.625rem !important;\n}\n.miniset-compact .button_group-fieldtype .btn {\n  padding: 3px 6px !important;\n  height: 1.625rem !important;\n}\n.miniset-compact .checkboxes-fieldtype .option,\n.miniset-compact .radio-fieldtype .option {\n  margin-top: 4px !important;\n  margin-bottom: 0 !important;\n}\n.miniset-compact .checkboxes-fieldtype .option:first-child,\n.miniset-compact .radio-fieldtype .option:first-child {\n  margin-top: 0 !important;\n}\n.miniset-compact .range-fieldtype-wrapper {\n  padding: 3px 8px !important;\n}\n.miniset-compact .range-fieldtype-wrapper > div div:first-child,\n.miniset-compact .range-fieldtype-wrapper > div input + div + div {\n  line-height: 16px !important;\n}\n.miniset-compact .range-fieldtype-wrapper > div input + div {\n  padding: 1px 4px !important;\n  line-height: 14px !important;\n}\n.miniset-compact .select-fieldtype .vs__dropdown-toggle {\n  height: 1.625rem !important;\n}\n.miniset-compact .select-fieldtype .vs__clear {\n  height: 1.625rem !important;\n}\n.miniset-compact .select-fieldtype .vs__open-indicator {\n  height: 1.625rem !important;\n  padding-left: 4px !important;\n  padding-right: 4px !important;\n}\n.miniset-compact .select-fieldtype .vs__selected-options {\n  padding: 4px 6px !important;\n  background-color: white !important;\n}\n.miniset-compact .select-fieldtype .vs__selected-options-outside .vs__selected {\n  margin-top: 4px !important;\n  margin-right: 4px !important;\n  padding-top: 1px !important;\n  padding-left: 4px !important;\n  padding-right: 4px !important;\n  line-height: 16px !important;\n}\n.miniset-compact .select-fieldtype .vs__selected-options-outside .vs__deselect {\n  margin-top: -1px !important;\n}\n.miniset-compact .select-fieldtype .vs__dropdown-menu {\n  top: 32px !important;\n}\n.miniset-compact .select-fieldtype .vs__dropdown-option {\n  padding: 4px 6px !important;\n}\n.miniset-compact .toggle-fieldtype .toggle-fieldtype-wrapper {\n  height: 1.625rem !important;\n}\n.miniset-compact .text-fieldtype .input-group {\n  height: 1.625rem !important;\n}\n.miniset-compact .text-fieldtype .input-group-prepend,\n.miniset-compact .text-fieldtype .input-group-append {\n  height: 1.625rem !important;\n  line-height: 1.375 !important;\n  padding: 4px 6px !important;\n}\n.miniset-compact .text-fieldtype .input-text {\n  padding: 4px 6px !important;\n  height: 1.625rem !important;\n  background-color: white !important;\n}\n.miniset-compact .textarea-fieldtype .input-text {\n  padding: 4px 6px !important;\n  background-color: white !important;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/laravel-mix/node_modules/css-loader/dist/runtime/api.js ***!
+  \******************************************************************************/
+/***/ ((module) => {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], " {").concat(content, "}");
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery, dedupe) {
+    if (typeof modules === "string") {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, ""]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var i = 0; i < this.length; i++) {
+        // eslint-disable-next-line prefer-destructuring
+        var id = this[i][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = [].concat(modules[_i]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      if (mediaQuery) {
+        if (!item[2]) {
+          item[2] = mediaQuery;
+        } else {
+          item[2] = "".concat(mediaQuery, " and ").concat(item[2]);
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
 
 /***/ }),
 
@@ -2039,6 +2107,315 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
+
+/***/ }),
+
+/***/ "./resources/css/addon.scss":
+/*!**********************************!*\
+  !*** ./resources/css/addon.scss ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_3_addon_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[1]!../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[2]!../../node_modules/sass-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[3]!./addon.scss */ "./node_modules/laravel-mix/node_modules/css-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-11[0].rules[0].use[3]!./resources/css/addon.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_3_addon_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_laravel_mix_node_modules_css_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_1_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_2_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_11_0_rules_0_use_3_addon_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isOldIE = function isOldIE() {
+  var memo;
+  return function memorize() {
+    if (typeof memo === 'undefined') {
+      // Test for IE <= 9 as proposed by Browserhacks
+      // @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+      // Tests for existence of standard globals is to allow style-loader
+      // to operate correctly into non-standard environments
+      // @see https://github.com/webpack-contrib/style-loader/issues/177
+      memo = Boolean(window && document && document.all && !window.atob);
+    }
+
+    return memo;
+  };
+}();
+
+var getTarget = function getTarget() {
+  var memo = {};
+  return function memorize(target) {
+    if (typeof memo[target] === 'undefined') {
+      var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+      if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+        try {
+          // This will throw an exception if access to iframe is blocked
+          // due to cross-origin restrictions
+          styleTarget = styleTarget.contentDocument.head;
+        } catch (e) {
+          // istanbul ignore next
+          styleTarget = null;
+        }
+      }
+
+      memo[target] = styleTarget;
+    }
+
+    return memo[target];
+  };
+}();
+
+var stylesInDom = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDom.length; i++) {
+    if (stylesInDom[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var index = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3]
+    };
+
+    if (index !== -1) {
+      stylesInDom[index].references++;
+      stylesInDom[index].updater(obj);
+    } else {
+      stylesInDom.push({
+        identifier: identifier,
+        updater: addStyle(obj, options),
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function insertStyleElement(options) {
+  var style = document.createElement('style');
+  var attributes = options.attributes || {};
+
+  if (typeof attributes.nonce === 'undefined') {
+    var nonce =  true ? __webpack_require__.nc : 0;
+
+    if (nonce) {
+      attributes.nonce = nonce;
+    }
+  }
+
+  Object.keys(attributes).forEach(function (key) {
+    style.setAttribute(key, attributes[key]);
+  });
+
+  if (typeof options.insert === 'function') {
+    options.insert(style);
+  } else {
+    var target = getTarget(options.insert || 'head');
+
+    if (!target) {
+      throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+    }
+
+    target.appendChild(style);
+  }
+
+  return style;
+}
+
+function removeStyleElement(style) {
+  // istanbul ignore if
+  if (style.parentNode === null) {
+    return false;
+  }
+
+  style.parentNode.removeChild(style);
+}
+/* istanbul ignore next  */
+
+
+var replaceText = function replaceText() {
+  var textStore = [];
+  return function replace(index, replacement) {
+    textStore[index] = replacement;
+    return textStore.filter(Boolean).join('\n');
+  };
+}();
+
+function applyToSingletonTag(style, index, remove, obj) {
+  var css = remove ? '' : obj.media ? "@media ".concat(obj.media, " {").concat(obj.css, "}") : obj.css; // For old IE
+
+  /* istanbul ignore if  */
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = replaceText(index, css);
+  } else {
+    var cssNode = document.createTextNode(css);
+    var childNodes = style.childNodes;
+
+    if (childNodes[index]) {
+      style.removeChild(childNodes[index]);
+    }
+
+    if (childNodes.length) {
+      style.insertBefore(cssNode, childNodes[index]);
+    } else {
+      style.appendChild(cssNode);
+    }
+  }
+}
+
+function applyToTag(style, options, obj) {
+  var css = obj.css;
+  var media = obj.media;
+  var sourceMap = obj.sourceMap;
+
+  if (media) {
+    style.setAttribute('media', media);
+  } else {
+    style.removeAttribute('media');
+  }
+
+  if (sourceMap && typeof btoa !== 'undefined') {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    while (style.firstChild) {
+      style.removeChild(style.firstChild);
+    }
+
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var singleton = null;
+var singletonCounter = 0;
+
+function addStyle(obj, options) {
+  var style;
+  var update;
+  var remove;
+
+  if (options.singleton) {
+    var styleIndex = singletonCounter++;
+    style = singleton || (singleton = insertStyleElement(options));
+    update = applyToSingletonTag.bind(null, style, styleIndex, false);
+    remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+  } else {
+    style = insertStyleElement(options);
+    update = applyToTag.bind(null, style, options);
+
+    remove = function remove() {
+      removeStyleElement(style);
+    };
+  }
+
+  update(obj);
+  return function updateStyle(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) {
+        return;
+      }
+
+      update(obj = newObj);
+    } else {
+      remove();
+    }
+  };
+}
+
+module.exports = function (list, options) {
+  options = options || {}; // Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+  // tags it will allow on a page
+
+  if (!options.singleton && typeof options.singleton !== 'boolean') {
+    options.singleton = isOldIE();
+  }
+
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    if (Object.prototype.toString.call(newList) !== '[object Array]') {
+      return;
+    }
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDom[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDom[_index].references === 0) {
+        stylesInDom[_index].updater();
+
+        stylesInDom.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
 
 /***/ }),
 
@@ -2725,7 +3102,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "miniset miniset-generic" }, [
+  return _c("div", { staticClass: "miniset miniset-values" }, [
     _c("div", { staticClass: "miniset-groups" }, [
       _c(
         "div",
@@ -7658,7 +8035,7 @@ function values(obj) {
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
+/******/ 			id: moduleId,
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
@@ -7670,42 +8047,7 @@ function values(obj) {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var [chunkIds, fn, priority] = deferred[i];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -7746,68 +8088,26 @@ function values(obj) {
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"/dist/js/addon": 0,
-/******/ 			"dist/css/addon": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var [chunkIds, moreModules, runtime] = data;
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
-/******/ 	
-/******/ 	// startup
-/******/ 	// Load entry module and return exports
-/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["dist/css/addon"], () => (__webpack_require__("./resources/js/addon.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["dist/css/addon"], () => (__webpack_require__("./resources/css/addon.scss")))
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
-/******/ 	
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!*******************************!*\
+  !*** ./resources/js/addon.js ***!
+  \*******************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _css_addon_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../css/addon.scss */ "./resources/css/addon.scss");
+/* harmony import */ var _components_Fieldtypes_MinisetFieldtype_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Fieldtypes/MinisetFieldtype.vue */ "./resources/js/components/Fieldtypes/MinisetFieldtype.vue");
+/* harmony import */ var _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Fieldtypes/MinisetClassesFieldtype.vue */ "./resources/js/components/Fieldtypes/MinisetClassesFieldtype.vue");
+
+
+
+Statamic.booting(function () {
+  Statamic.$components.register('miniset-fieldtype', _components_Fieldtypes_MinisetFieldtype_vue__WEBPACK_IMPORTED_MODULE_1__["default"]);
+  Statamic.$components.register('miniset_classes-fieldtype', _components_Fieldtypes_MinisetClassesFieldtype_vue__WEBPACK_IMPORTED_MODULE_2__["default"]);
+});
+})();
+
 /******/ })()
 ;

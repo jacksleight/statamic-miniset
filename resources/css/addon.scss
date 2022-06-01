@@ -93,12 +93,12 @@
         padding: 0.5rem !important;
     }   
     
-    
     .button_group-fieldtype,
     .checkboxes-fieldtype,
     .radio-fieldtype,
-    // .range-fieldtype,
+    .range-fieldtype,
     .select-fieldtype,
+    .toggle-fieldtype,
     .text-fieldtype,
     .textarea-fieldtype {
         font-size: 12px !important;
@@ -145,22 +145,28 @@
         }
     }
     
-    // .range-fieldtype {
-    //     &-wrapper {
-    //         border: 0 !important;
-    //         padding: 0 !important;
-    //         background-color: transparent !important;
-    //     }
-    //     input + div {
-    //         padding: 1px 4px 0 4px !important;
-    //         line-height: 16px !important;
-    //         background-color: white !important;
-    //     }
-    // }
+    .range-fieldtype {
+        &-wrapper {
+            padding: 3px 8px !important;
+            > div {
+                div:first-child,
+                input + div + div {
+                    line-height: 16px !important;                    
+                }
+                input + div {
+                    padding: 1px 4px !important;
+                    line-height: 14px !important;
+                }
+            }
+        }
+    }
 
     .select-fieldtype {
         .vs__dropdown-toggle {
             height: 1.625rem !important;
+        }
+        .vs__clear {
+            height: 1.625rem !important;      
         }
         .vs__open-indicator {
             height: 1.625rem !important;
@@ -189,6 +195,12 @@
         }
         .vs__dropdown-option {
             padding: 4px 6px !important;
+        }
+    }
+    
+    .toggle-fieldtype {
+        .toggle-fieldtype-wrapper {
+            height: 1.625rem !important;
         }
     }
     
