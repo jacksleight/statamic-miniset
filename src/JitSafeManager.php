@@ -40,7 +40,11 @@ class JitSafeManager
         $data = File::exists($path)
             ? YAML::file($path)->parse()
             : [];
-        $data[$key] = $classes;
+        if (count($classes)) {
+            $data[$key] = $classes;
+        } else {
+            unset($data[$key]);
+        }
         File::put($path, YAML::dump($data));
     }
 
