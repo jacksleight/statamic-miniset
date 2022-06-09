@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1 (2022-06-09)
+
+- [fix] Empty class lists in JIT safe data
+
 ## 0.2.0 (2022-06-01)
 
 - [new] Toggle now supported in Miniset fieldtype
