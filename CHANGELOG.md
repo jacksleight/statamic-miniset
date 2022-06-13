@@ -2,7 +2,7 @@
 
 ## 0.3.0 ()
 
-- [new] Add JIT safe scann CLI command
+- [new] Add JIT safe scan CLI command
 - [fix] Scanning linked fields and fieldsets
 - A little more mini
 
