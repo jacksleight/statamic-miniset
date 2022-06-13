@@ -9,21 +9,27 @@ use RecursiveIteratorIterator;
 use Statamic\Facades\Collection as CollectionFacade;
 use Statamic\Facades\Fieldset as FieldsetFacade;
 use Statamic\Facades\File;
+use Statamic\Facades\Taxonomy as TaxonomyFacade;
 use Statamic\Facades\YAML;
 use Statamic\Fields\Blueprint;
 use Statamic\Fields\Fieldset;
 
-class JitSafeManager
+class JitSafeScanner
 {
     public function processAll()
     {
-        foreach (FieldsetFacade::all() as $fieldset) {
-            $this->processFieldset($fieldset);
-        }
         foreach (CollectionFacade::all() as $collection) {
             foreach ($collection->entryBlueprints() as $blueprint) {
                 $this->processBlueprint($blueprint);
             }
+        }
+        foreach (TaxonomyFacade::all() as $taxonomy) {
+            foreach ($taxonomy->termBlueprints() as $blueprint) {
+                $this->processBlueprint($blueprint);
+            }
+        }
+        foreach (FieldsetFacade::all() as $fieldset) {
+            $this->processFieldset($fieldset);
         }
     }
 
@@ -31,19 +37,19 @@ class JitSafeManager
     {
         $key = 'fieldsets.'.$fieldset->handle();
 
-        $this->processContents($key, $fieldset->contents());
+        $this->processData($key, $fieldset->contents());
     }
 
     public function processBlueprint(Blueprint $blueprint)
     {
         $key = 'blueprints.'.$blueprint->namespace().'.'.$blueprint->handle();
 
-        $this->processContents($key, $blueprint->contents());
+        $this->processData($key, $blueprint->contents());
     }
 
-    protected function processContents($key, $contents)
+    protected function processData($key, $data)
     {
-        $configs = $this->findConfigs($contents);
+        $configs = $this->findConfigs($data);
         $classes = $this->processConfigs($configs);
 
         $path = config('statamic.miniset.jit_safe.file');
@@ -63,12 +69,12 @@ class JitSafeManager
         File::put($path, YAML::dump($data));
     }
 
-    protected function findConfigs($contents)
+    protected function findConfigs($data)
     {
         $configs = [];
 
         $iterator = new RecursiveIteratorIterator(
-            new RecursiveArrayIterator($contents),
+            new RecursiveArrayIterator($data),
             \RecursiveIteratorIterator::SELF_FIRST
         );
         foreach ($iterator as $value) {
@@ -82,15 +88,6 @@ class JitSafeManager
 
         return $configs;
     }
-
-    // ^ array:2 [
-    //     "handle" => "select_field1"
-    //     "field" => "imported_field.select_field"
-    //   ]
-    //   ^ array:2 [
-    //     "import" => "imported_fieldset"
-    //     "prefix" => "abc"
-    //   ]
 
     protected function processConfigs($configs)
     {
@@ -108,14 +105,12 @@ class JitSafeManager
                 $field = array_shift($stack);
                 if (is_string($field['field'] ?? null)) {
                     if ($imports = FieldFacade::find($field['field'])) {
-                        array_push($stack, ['field' => $imports->toArray()]);
+                        array_push($stack, ['field' => array_merge($imports->toArray(), $field['config'] ?? [])]);
                     }
                     continue;
                 } elseif (is_string($field['import'] ?? null)) {
                     if ($imports = FieldsetFacade::find($field['import'])) {
-                        foreach ($imports->fields()->all() as $import) {
-                            array_push($stack, ['field' => $import->toArray()]);
-                        }
+                        call_user_func_array('array_push', array_merge([&$stack], $imports->contents()['fields']));
                     }
                     continue;
                 }

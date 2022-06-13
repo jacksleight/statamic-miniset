@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 ()
+
+- [new] Add JIT safe scann CLI command
+- [fix] Scanning linked fields and fieldsets
+- A little more mini
+
 ## 0.2.1 (2022-06-09)
 
 - [fix] Empty class lists in JIT safe data

@@ -2,7 +2,7 @@
 
 namespace JackSleight\StatamicMiniset\Listeners;
 
-use JackSleight\StatamicMiniset\Facades\JitSafeManager;
+use JackSleight\StatamicMiniset\Facades\JitSafeScanner;
 use Statamic\Events\FieldsetSaved;
 
 class FieldsetSavedListener
@@ -13,6 +13,6 @@ class FieldsetSavedListener
             return;
         }
 
-        JitSafeManager::processFieldset($event->fieldset);
+        JitSafeScanner::processFieldset($event->fieldset);
     }
 }

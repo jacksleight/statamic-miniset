@@ -2,7 +2,7 @@
 
 namespace JackSleight\StatamicMiniset\Listeners;
 
-use JackSleight\StatamicMiniset\Facades\JitSafeManager;
+use JackSleight\StatamicMiniset\Facades\JitSafeScanner;
 use Statamic\Events\BlueprintSaved;
 
 class BlueprintSavedListener
@@ -13,6 +13,6 @@ class BlueprintSavedListener
             return;
         }
 
-        JitSafeManager::processBlueprint($event->blueprint);
+        JitSafeScanner::processBlueprint($event->blueprint);
     }
 }
