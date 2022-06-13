@@ -2,9 +2,12 @@
 
 namespace JackSleight\StatamicMiniset;
 
+use Facades\Statamic\Fields\FieldRepository as FieldFacade;
 use JackSleight\StatamicMiniset\Fieldtypes\MinisetClassesFieldtype;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
+use Statamic\Facades\Collection as CollectionFacade;
+use Statamic\Facades\Fieldset as FieldsetFacade;
 use Statamic\Facades\File;
 use Statamic\Facades\YAML;
 use Statamic\Fields\Blueprint;
@@ -12,6 +15,18 @@ use Statamic\Fields\Fieldset;
 
 class JitSafeManager
 {
+    public function processAll()
+    {
+        foreach (FieldsetFacade::all() as $fieldset) {
+            $this->processFieldset($fieldset);
+        }
+        foreach (CollectionFacade::all() as $collection) {
+            foreach ($collection->entryBlueprints() as $blueprint) {
+                $this->processBlueprint($blueprint);
+            }
+        }
+    }
+
     public function processFieldset(Fieldset $fieldset)
     {
         $key = 'fieldsets.'.$fieldset->handle();
@@ -68,6 +83,15 @@ class JitSafeManager
         return $configs;
     }
 
+    // ^ array:2 [
+    //     "handle" => "select_field1"
+    //     "field" => "imported_field.select_field"
+    //   ]
+    //   ^ array:2 [
+    //     "import" => "imported_fieldset"
+    //     "prefix" => "abc"
+    //   ]
+
     protected function processConfigs($configs)
     {
         $classes = [];
@@ -78,9 +102,25 @@ class JitSafeManager
                 array_keys($config['variants'] ?? [])
             );
 
-            $options = call_user_func_array('array_merge', array_map(function ($field) {
-                return array_keys($field['field']['options'] ?? []);
-            }, $config['fields']));
+            $stack = $config['fields'];
+            $options = [];
+            while (count($stack)) {
+                $field = array_shift($stack);
+                if (is_string($field['field'] ?? null)) {
+                    if ($imports = FieldFacade::find($field['field'])) {
+                        array_push($stack, ['field' => $imports->toArray()]);
+                    }
+                    continue;
+                } elseif (is_string($field['import'] ?? null)) {
+                    if ($imports = FieldsetFacade::find($field['import'])) {
+                        foreach ($imports->fields()->all() as $import) {
+                            array_push($stack, ['field' => $import->toArray()]);
+                        }
+                    }
+                    continue;
+                }
+                $options = array_merge($options, array_keys($field['field']['options'] ?? []));
+            }
 
             $value = array_map(function ($variant) use ($options) {
                 return [

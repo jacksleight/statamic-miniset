@@ -26,6 +26,10 @@ class ServiceProvider extends AddonServiceProvider
         MinisetFieldtype::class,
     ];
 
+    protected $commands = [
+        Console\Commands\JitSafeScan::class,
+    ];
+
     public function register()
     {
         parent::register();
