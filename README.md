@@ -104,3 +104,5 @@ content: [
     './resources/css/statamic/miniset_classes.yaml',
 ],
 ```
+
+You can also manually run this scan on all fieldsets and blueprints via the command line using `php please miniset:jit-safe-scan`.
