@@ -6,7 +6,7 @@
 
 ## 0.3.0 (2022-06-15)
 
-- [new] Add JIT safe scan CLI command
+- [new] JIT safe scan CLI command
 - [fix] Scanning linked fields and fieldsets
 - A little more mini
 
