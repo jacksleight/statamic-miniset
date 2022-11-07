@@ -2,6 +2,7 @@
 
 namespace JackSleight\StatamicMiniset\Fieldtypes;
 
+use Facades\Statamic\Fieldtypes\RowId;
 use Statamic\Fields\Fields;
 use Statamic\Fields\Fieldtype;
 use Statamic\Support\Arr;
@@ -43,11 +44,9 @@ class MinisetClassesFieldtype extends Fieldtype
 
     private function processGroup($group)
     {
-        $group = array_except($group, '_id');
-
         $fields = $this->fields()->addValues($group)->process()->values()->all();
 
-        $group = array_merge($group, $fields);
+        $group = array_merge(['id' => Arr::pull($group, '_id')], $group, $fields);
 
         return Arr::removeNullValues($group);
     }
@@ -67,8 +66,10 @@ class MinisetClassesFieldtype extends Fieldtype
     {
         $fields = $this->fields()->addValues($group)->preProcess()->values()->all();
 
+        $id = Arr::pull($group, 'id') ?? RowId::generate();
+
         return array_merge($group, $fields, [
-            '_id' => "group-$index",
+            '_id' => $id,
         ]);
     }
 
@@ -170,7 +171,7 @@ class MinisetClassesFieldtype extends Fieldtype
         $list = [];
         foreach ($value as $group) {
             $variant = $group['variant'] ?? null;
-            unset($group['variant']);
+            $group = Arr::except($group, ['variant', 'id']);
             if ($variant && ! Str::contains($variant, '&')) {
                 $variant = "{$variant}:&";
             }

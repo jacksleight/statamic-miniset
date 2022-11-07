@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.3.0 ()
+## 0.3.1 (2022-11-07)
+
+- [fix] Compatibilty with Statamic 3.3.50
+
+## 0.3.0 (2022-06-15)
 
 - [new] Add JIT safe scan CLI command
 - [fix] Scanning linked fields and fieldsets
