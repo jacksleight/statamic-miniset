@@ -1,5 +1,3 @@
-// Miniset
-
 .miniset {
 
     &-tabs {
@@ -74,8 +72,6 @@
     }
 
 }
-    
-// Miniset Compact Overrides
 
 .miniset-compact {
 

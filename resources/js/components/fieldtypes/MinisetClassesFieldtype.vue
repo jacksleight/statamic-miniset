@@ -97,6 +97,17 @@ export default {
         }
     },
 
+    provide() {
+        return {
+            miniset: {
+                config: this.config,
+                isReadOnly: this.isReadOnly,
+                handle: this.handle,
+                errorKeyPrefix: this.errorKeyPrefix,
+            },
+        };
+    },
+
     computed: {
 
         fields() {
@@ -111,11 +122,6 @@ export default {
             return Object.keys(this.variants).length > 0
         },
 
-    },
-
-    reactiveProvide: {
-        name: 'miniset',
-        include: ['config', 'isReadOnly', 'handle', 'errorKeyPrefix']
     },
 
     watch: {

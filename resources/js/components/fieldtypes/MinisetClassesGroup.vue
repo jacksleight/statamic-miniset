@@ -34,7 +34,10 @@ export default {
 
     components: { SetField },
 
-    inject: ['miniset'],
+    inject: [
+        'miniset',
+        'storeName',
+    ],
 
     props: {
         index: {
