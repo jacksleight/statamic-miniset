@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0 ()
+
+- [new] Statamic 4 support
+
 ## 0.3.1 (2022-11-07)
 
 - [fix] Compatibilty with Statamic 3.3.50
