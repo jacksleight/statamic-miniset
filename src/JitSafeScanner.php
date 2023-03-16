@@ -107,11 +107,13 @@ class JitSafeScanner
                     if ($imports = FieldFacade::find($field['field'])) {
                         array_push($stack, ['field' => array_merge($imports->toArray(), $field['config'] ?? [])]);
                     }
+
                     continue;
                 } elseif (is_string($field['import'] ?? null)) {
                     if ($imports = FieldsetFacade::find($field['import'])) {
                         call_user_func_array('array_push', array_merge([&$stack], $imports->contents()['fields']));
                     }
+
                     continue;
                 }
                 $options = array_merge($options, array_keys($field['field']['options'] ?? []));
