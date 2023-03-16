@@ -150,6 +150,7 @@
                     line-height: 16px !important;                    
                 }
                 input + div {
+                    margin: 0 0 0 8px !important;
                     padding: 1px 4px !important;
                     line-height: 14px !important;
                 }
@@ -187,7 +188,7 @@
             }
         }
         .vs__dropdown-menu {
-            top: 32px !important;
+            top: 30px !important;
         }
         .vs__dropdown-option {
             padding: 4px 6px !important;
