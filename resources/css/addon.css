@@ -127,6 +127,7 @@
         .btn {
             padding: 3px 6px !important;
             height: 1.625rem !important;
+            box-shadow: none !important;
         }
     }
     
