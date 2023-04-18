@@ -3,6 +3,7 @@
 ## 0.4.0 ()
 
 - [new] Statamic 4 support
+- Improved field widths at small container sizes
 
 ## 0.3.1 (2022-11-07)
 

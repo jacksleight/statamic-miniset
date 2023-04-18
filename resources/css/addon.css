@@ -241,11 +241,4 @@
         }
     }
 
-    /* @deprecated */
-    .publish-fields-narrow {
-        .field-w-1\/4 {
-            width: 50% !important;
-        }
-    }
-
 }
