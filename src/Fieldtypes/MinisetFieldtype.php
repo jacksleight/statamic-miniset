@@ -16,7 +16,7 @@ class MinisetFieldtype extends Fieldtype
 
     public function icon()
     {
-        return file_get_contents(__DIR__ . '/../../resources/svg/icon.svg');
+        return file_get_contents(__DIR__.'/../../resources/svg/icon.svg');
     }
 
     protected function configFieldItems(): array

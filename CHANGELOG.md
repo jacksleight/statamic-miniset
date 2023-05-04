@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0 (2023-05-04)
+
+- [new] Statamic 4 support
+- Improved field widths at small container sizes
+- Dropped support for Statamic 3
+
 ## 0.3.1 (2022-11-07)
 
 - [fix] Compatibilty with Statamic 3.3.50

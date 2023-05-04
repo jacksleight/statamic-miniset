@@ -1,9 +1,5 @@
 <!-- statamic:hide -->
 
-![Statamic](https://flat.badgen.net/badge/Statamic/3.3+/FF269E)
-![Packagist version](https://flat.badgen.net/packagist/v/jacksleight/statamic-miniset)
-![License](https://flat.badgen.net/github/license/jacksleight/statamic-miniset)
-
 # Miniset 
 
 <!-- /statamic:hide -->
