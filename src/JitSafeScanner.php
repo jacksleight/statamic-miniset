@@ -84,6 +84,12 @@ class JitSafeScanner
             if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null)) {
                 $configs[] = $value;
             }
+            if (is_string($value['field'] ?? null) && str($value['field'])->contains('.')) {
+                $referencedField = FieldFacade::find($value['field']);
+                if(($referencedField->config()['type'] ?? null) === 'miniset_classes'){
+                    $configs[] = array_merge($value['config'], $referencedField->config());
+                }
+            }
         }
 
         return $configs;
