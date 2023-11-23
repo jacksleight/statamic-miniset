@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 (2023-11-23)
+
+* [fix] Merge imported `miniset_classes` configs in JIT scanner by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/4
+
 ## 1.0.0 (2023-05-04)
 
 - [new] Statamic 4 support
