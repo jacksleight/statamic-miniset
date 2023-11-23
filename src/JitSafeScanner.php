@@ -13,6 +13,7 @@ use Statamic\Facades\Taxonomy as TaxonomyFacade;
 use Statamic\Facades\YAML;
 use Statamic\Fields\Blueprint;
 use Statamic\Fields\Fieldset;
+use Statamic\Support\Arr;
 
 class JitSafeScanner
 {
@@ -78,17 +79,17 @@ class JitSafeScanner
             \RecursiveIteratorIterator::SELF_FIRST
         );
         foreach ($iterator as $value) {
-            if (! is_array($value)) {
+            if (! is_array($value) || ! Arr::exists($value, 'handle') || ! Arr::exists($value, 'field')) {
                 continue;
             }
-            if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null)) {
-                $configs[] = $value;
-            }
-            if (is_string($value['field'] ?? null) && str($value['field'])->contains('.')) {
-                $referencedField = FieldFacade::find($value['field']);
-                if(($referencedField->config()['type'] ?? null) === 'miniset_classes'){
-                    $configs[] = array_merge($value['config'], $referencedField->config());
+            if (is_string($value['field'] ?? null)) {
+                if ($imports = FieldFacade::find($value['field'])) {
+                    $value['field'] = array_merge($imports->toArray(), $value['config'] ?? []);
                 }
+            }
+            $config = $value['field'];
+            if (($config['type'] ?? null) === 'miniset_classes' && is_array($config['fields'] ?? null)) {
+                $configs[] = $config;
             }
         }
 
@@ -115,8 +116,8 @@ class JitSafeScanner
                     }
 
                     continue;
-                } elseif (is_string($field['import'] ?? null)) {
-                    if ($imports = FieldsetFacade::find($field['import'])) {
+                } elseif (is_string($field['imports'] ?? null)) {
+                    if ($imports = FieldsetFacade::find($field['imports'])) {
                         call_user_func_array('array_push', array_merge([&$stack], $imports->contents()['fields']));
                     }
 
