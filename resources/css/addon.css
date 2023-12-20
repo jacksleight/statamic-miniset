@@ -156,6 +156,7 @@
     .select-fieldtype {
         .vs__dropdown-toggle {
             height: 1.625rem !important;
+            background-color: white !important;
         }
         .vs__clear {
             height: 1.625rem !important;      
@@ -167,7 +168,6 @@
         }
         .vs__selected-options {
             padding: 4px 6px !important;
-            background-color: white !important;
         }
         .vs__selected-options-outside {
             .vs__selected {
