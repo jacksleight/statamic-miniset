@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 (2023-12-20)
+
+* Full width fields configuration
+* Improved select field styling
+
 ## 1.0.1 (2023-11-23)
 
 * [fix] Merge imported `miniset_classes` configs in JIT scanner by @caseydwyer in [#4](https://github.com/jacksleight/statamic-miniset/pull/4)
