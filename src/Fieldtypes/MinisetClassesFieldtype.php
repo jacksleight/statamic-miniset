@@ -27,6 +27,7 @@ class MinisetClassesFieldtype extends Fieldtype
             'fields' => [
                 'display' => __('Fields'),
                 'type' => 'fields',
+                'full_width_setting' => true,
             ],
             'variants' => [
                 'display' => __('Variants'),

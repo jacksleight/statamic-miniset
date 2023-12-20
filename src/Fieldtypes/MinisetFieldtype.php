@@ -25,6 +25,7 @@ class MinisetFieldtype extends Fieldtype
             'fields' => [
                 'display' => __('Fields'),
                 'type' => 'fields',
+                'full_width_setting' => true,
             ],
         ];
     }
