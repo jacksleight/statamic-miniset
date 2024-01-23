@@ -4,6 +4,7 @@ namespace JackSleight\StatamicMiniset\Fieldtypes;
 
 use Statamic\Fields\Fields;
 use Statamic\Fields\Fieldtype;
+use Statamic\Fields\Values;
 use Statamic\Support\Arr;
 
 class MinisetFieldtype extends Fieldtype
@@ -28,6 +29,25 @@ class MinisetFieldtype extends Fieldtype
                 'full_width_setting' => true,
             ],
         ];
+    }
+
+    public function augment($values)
+    {
+        return $this->performAugmentation($values, false);
+    }
+
+    public function shallowAugment($values)
+    {
+        return $this->performAugmentation($values, true);
+    }
+
+    protected function performAugmentation($values, $shallow)
+    {
+        $augmentMethod = $shallow ? 'shallowAugment' : 'augment';
+
+        $values = $this->fields()->addValues($values)->{$augmentMethod}()->values();
+
+        return new Values($values->all());
     }
 
     public function process($data)
