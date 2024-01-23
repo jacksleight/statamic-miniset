@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 (2024-01-23)
+
+* [fix] Blank miniset values augmentation
+
 ## 1.0.3 (2024-01-23)
 
 * [fix] Miniset values augmentation
