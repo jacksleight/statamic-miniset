@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 (2024-01-23)
+
+* [fix] Minset values augmentation
+
 ## 1.0.2 (2023-12-20)
 
 * Full width fields configuration
