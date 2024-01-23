@@ -45,7 +45,7 @@ class MinisetFieldtype extends Fieldtype
     {
         $augmentMethod = $shallow ? 'shallowAugment' : 'augment';
 
-        $values = $this->fields()->addValues($values)->{$augmentMethod}()->values();
+        $values = $this->fields()->addValues($values ?? [])->{$augmentMethod}()->values();
 
         return new Values($values->all());
     }
