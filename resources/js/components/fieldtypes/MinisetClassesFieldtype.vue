@@ -5,7 +5,7 @@
         <div class="miniset-tabs" v-if="showTabs">
             <div
                 class="miniset-tab"
-                :class="{   
+                :class="{
                     'miniset-tab-active': selected === index
                 }"
                 v-for="(group, index) in value">
@@ -151,7 +151,7 @@ export default {
         },
 
         commitGroup(variant) {
-                        
+
             const existing = this.value.findIndex(group => group.variant === variant);
             if (existing !== -1) {
                 this.addingGroup = false;
