@@ -182,6 +182,24 @@ export default {
             });
         },
 
+        mergeGroup(group){
+            if( ! this.orderTabs || this.value.length === 1 ){
+                return [...this.value, group];
+            }
+
+            let orderKeyForGroup = this.tabOrderForVariant(group.variant);
+            let targetIndex = _.chain(this.value)
+                .findIndex((group) => this.tabOrderForVariant(group.variant) > orderKeyForGroup)
+                .value();
+
+            if( targetIndex === -1 ){
+                return [...this.value, group];
+            }
+
+            this.value.splice(targetIndex, 0, group);
+            return this.value;
+        },
+
         tabOrderForVariant(variant){
             return _.findIndex(this.meta.tab_order, (variantKey) => variantKey === variant);
         },
