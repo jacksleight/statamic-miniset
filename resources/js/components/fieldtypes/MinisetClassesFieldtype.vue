@@ -10,7 +10,7 @@
                 }"
                 v-for="(group, index) in value">
                 <button
-                    class="miniset-select"
+                    class="miniset-select flex items-center"
                     :class="{   
                         'miniset-select-removeable': index !== 0 && index === selected
                     }"
@@ -64,7 +64,7 @@
                         class="btn"
                         v-for="(label, variant) in variants"
                         @click.prevent="commitGroup(variant)">
-                        <span v-html="label || variant"></span>
+                        <span class="flex items-center" v-html="label || variant"></span>
                     </button>
                 </div>
             </div>
