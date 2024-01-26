@@ -114,6 +114,10 @@ export default {
             return this.config.fields;
         },
 
+        orderTabs() {
+            return this.config.order_tabs;
+        },
+
         variants() {
             return this.config.variants;
         },
@@ -170,7 +174,7 @@ export default {
             group.variant = variant;
 
             this.updateGroupMeta(id, this.meta.new);
-            this.update([...this.value, group]);
+            this.update(this.mergeGroup(group));
 
             this.$nextTick(() => {
                 this.addingGroup = false;
