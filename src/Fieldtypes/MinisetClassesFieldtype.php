@@ -140,6 +140,7 @@ class MinisetClassesFieldtype extends Fieldtype
             'existing' => collect($this->field->value())->mapWithKeys(function ($group) {
                 return [$group['_id'] => $this->fields()->addValues($group)->meta()];
             })->toArray(),
+            'tab_order' => array_keys($this->config('variants')),
         ];
     }
 
