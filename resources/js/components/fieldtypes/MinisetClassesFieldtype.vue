@@ -181,6 +181,10 @@ export default {
                 this.selected = this.value.length - 1;
             });
         },
+
+        tabOrderForVariant(variant){
+            return _.findIndex(this.meta.tab_order, (variantKey) => variantKey === variant);
+        },
     
         removeGroup(index) {
             if (! confirm(__('Are you sure?'))) return;
