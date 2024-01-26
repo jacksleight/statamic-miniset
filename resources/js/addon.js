@@ -1,7 +1,7 @@
 import '../css/addon.css';
 
-import MinisetFieldtype from './components/Fieldtypes/MinisetFieldtype.vue';
-import MinisetClassesFieldtype from './components/Fieldtypes/MinisetClassesFieldtype.vue';
+import MinisetFieldtype from './components/fieldtypes/MinisetFieldtype.vue';
+import MinisetClassesFieldtype from './components/fieldtypes/MinisetClassesFieldtype.vue';
 
 Statamic.booting(() => {
 
