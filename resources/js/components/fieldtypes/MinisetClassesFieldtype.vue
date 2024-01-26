@@ -178,7 +178,9 @@ export default {
 
             this.$nextTick(() => {
                 this.addingGroup = false;
-                this.selected = this.value.length - 1;
+                this.selected = this.orderTabs ?
+                    _.findIndex(this.value, {'variant' : group.variant}) :
+                    this.value.length - 1;
             });
         },
 
