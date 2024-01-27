@@ -114,10 +114,6 @@ export default {
             return this.config.fields;
         },
 
-        orderTabs() {
-            return this.config.order_tabs;
-        },
-
         variants() {
             return this.config.variants;
         },
@@ -178,23 +174,17 @@ export default {
 
             this.$nextTick(() => {
                 this.addingGroup = false;
-                this.selected = this.orderTabs ?
-                    _.findIndex(this.value, {'variant' : group.variant}) :
-                    this.value.length - 1;
+                this.selected = _.findIndex(this.value, {'variant' : group.variant});
             });
         },
 
         mergeGroup(group){
-            if( ! this.orderTabs || this.value.length === 1 ){
-                return [...this.value, group];
-            }
-
             let orderKeyForGroup = this.tabOrderForVariant(group.variant);
             let targetIndex = _.chain(this.value)
                 .findIndex((group) => this.tabOrderForVariant(group.variant) > orderKeyForGroup)
                 .value();
 
-            if( targetIndex === -1 ){
+            if( this.value.length === 1 || targetIndex === -1 ){
                 return [...this.value, group];
             }
 
