@@ -32,12 +32,6 @@ class MinisetClassesFieldtype extends Fieldtype
                 'display' => __('Variants'),
                 'type' => 'array',
             ],
-            'order_tabs' => [
-                'display' => __('Order Tabs'),
-                'type' => 'toggle',
-                'inline_label' => 'Tabs use order they are selected in.',
-                'inline_label_when_true' => 'Tabs use order as defined in `Variants`.',
-            ],
         ];
     }
 
