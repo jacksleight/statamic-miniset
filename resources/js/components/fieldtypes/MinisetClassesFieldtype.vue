@@ -170,7 +170,7 @@ export default {
             group.variant = variant;
 
             this.updateGroupMeta(id, this.meta.new);
-            this.update(this.mergeGroup(group));
+            this.update(this.sortGroups([...this.value, group]));
 
             this.$nextTick(() => {
                 this.addingGroup = false;
@@ -178,22 +178,13 @@ export default {
             });
         },
 
-        mergeGroup(group){
-            let orderKeyForGroup = this.tabOrderForVariant(group.variant);
-            let targetIndex = _.chain(this.value)
-                .findIndex((group) => this.tabOrderForVariant(group.variant) > orderKeyForGroup)
-                .value();
-
-            if( this.value.length === 1 || targetIndex === -1 ){
-                return [...this.value, group];
-            }
-
-            this.value.splice(targetIndex, 0, group);
-            return this.value;
-        },
-
-        tabOrderForVariant(variant){
-            return _.findIndex(this.meta.tab_order, (variantKey) => variantKey === variant);
+        sortGroups(groups) {
+            return groups.sort((a, b) => {
+                if (!a.variant || !b.variant) {
+                    return 0;
+                }
+                return this.meta.variant_indexes[a.variant] - this.meta.variant_indexes[b.variant];
+            });
         },
     
         removeGroup(index) {
