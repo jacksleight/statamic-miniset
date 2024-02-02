@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.4 (2024-01-23)
+
+* [fix] Blank miniset values augmentation
+
+## 1.0.3 (2024-01-23)
+
+* [fix] Miniset values augmentation
+
+## 1.0.2 (2023-12-20)
+
+* Full width fields configuration
+* Improved select field styling
+
+## 1.0.1 (2023-11-23)
+
+* [fix] Merge imported `miniset_classes` configs in JIT scanner by @caseydwyer in [#4](https://github.com/jacksleight/statamic-miniset/pull/4)
+
 ## 1.0.0 (2023-05-04)
 
 - [new] Statamic 4 support
