@@ -97,11 +97,12 @@
         }
         > label {
             line-height: 0.8 !important;
-            margin-bottom: 5px !important;
+            margin-bottom: 7px !important;
         }
         .help-block {
             line-height: 1.1 !important;
-            margin-bottom: 5px !important;
+            margin-top: -2px !important;
+            margin-bottom: 7px !important;
             &:last-child {
                 margin-bottom: 0 !important;
             }
