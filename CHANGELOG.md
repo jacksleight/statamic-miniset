@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 (2024-02-02)
+
+* [new] Allow HTML in buttons/tabs by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/5
+* [fix] Adjust `<code>` and instruction spacing by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/6
+* [fix] Tabs order to match variant order by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/5
+* [fix] Variant buttons overflowing container
+
 ## 1.0.4 (2024-01-23)
 
 * [fix] Blank miniset values augmentation
