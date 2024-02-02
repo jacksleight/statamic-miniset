@@ -50,23 +50,27 @@
         border-color: #dde3e9;
         border-radius: 3px;
         background-color: #fafcff;
-        position: relative;
+        display: grid;
+        > * {
+            grid-area: 1 / 1;
+        }
     }
     &-tabs + &-groups {
         border-top-left-radius: 0;
     }
 
     &-create {
-        position: absolute;
-        inset: 0;
         background-color: #fafcff;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+        z-index: 1;
         &-variants {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 0.5em;
         }
     }
