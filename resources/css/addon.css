@@ -100,8 +100,8 @@
             margin-bottom: 7px !important;
         }
         .help-block {
-            line-height: 0.8 !important;
-            margin-top: 7px !important;
+            line-height: 1.1 !important;
+            margin-top: -2px !important;
             margin-bottom: 7px !important;
             &:last-child {
                 margin-bottom: 0 !important;
@@ -110,6 +110,9 @@
                 &:last-child {
                     margin-bottom: 0 !important;
                 }
+            }
+            code {
+                padding: 0 3px;
             }
         }
     }
