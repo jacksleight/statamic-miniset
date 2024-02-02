@@ -13,6 +13,7 @@ use Statamic\Facades\Taxonomy as TaxonomyFacade;
 use Statamic\Facades\YAML;
 use Statamic\Fields\Blueprint;
 use Statamic\Fields\Fieldset;
+use Statamic\Support\Arr;
 
 class JitSafeScanner
 {
@@ -78,11 +79,17 @@ class JitSafeScanner
             \RecursiveIteratorIterator::SELF_FIRST
         );
         foreach ($iterator as $value) {
-            if (! is_array($value)) {
+            if (! is_array($value) || ! Arr::exists($value, 'handle') || ! Arr::exists($value, 'field')) {
                 continue;
             }
-            if (($value['type'] ?? null) === 'miniset_classes' && is_array($value['fields'] ?? null)) {
-                $configs[] = $value;
+            if (is_string($value['field'] ?? null)) {
+                if ($imports = FieldFacade::find($value['field'])) {
+                    $value['field'] = array_merge($imports->toArray(), $value['config'] ?? []);
+                }
+            }
+            $config = $value['field'];
+            if (($config['type'] ?? null) === 'miniset_classes' && is_array($config['fields'] ?? null)) {
+                $configs[] = $config;
             }
         }
 
