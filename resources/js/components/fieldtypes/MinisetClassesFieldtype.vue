@@ -5,16 +5,16 @@
         <div class="miniset-tabs" v-if="showTabs">
             <div
                 class="miniset-tab"
-                :class="{   
+                :class="{
                     'miniset-tab-active': selected === index
                 }"
                 v-for="(group, index) in value">
                 <button
-                    class="miniset-select"
+                    class="miniset-select flex items-center"
                     :class="{   
                         'miniset-select-removeable': index !== 0 && index === selected
                     }"
-                    v-text="groupLabel(group)"
+                    v-html="groupLabel(group)"
                     @click.prevent="selectGroup(index)">
                 </button>
                 <button
@@ -64,7 +64,7 @@
                         class="btn"
                         v-for="(label, variant) in variants"
                         @click.prevent="commitGroup(variant)">
-                        <span v-text="label || variant"></span>
+                        <span class="flex items-center" v-html="label || variant"></span>
                     </button>
                 </div>
             </div>
@@ -151,7 +151,7 @@ export default {
         },
 
         commitGroup(variant) {
-                        
+
             const existing = this.value.findIndex(group => group.variant === variant);
             if (existing !== -1) {
                 this.addingGroup = false;
@@ -170,11 +170,20 @@ export default {
             group.variant = variant;
 
             this.updateGroupMeta(id, this.meta.new);
-            this.update([...this.value, group]);
+            this.update(this.sortGroups([...this.value, group]));
 
             this.$nextTick(() => {
                 this.addingGroup = false;
-                this.selected = this.value.length - 1;
+                this.selected = _.findIndex(this.value, {'variant' : group.variant});
+            });
+        },
+
+        sortGroups(groups) {
+            return groups.sort((a, b) => {
+                if (!a.variant || !b.variant) {
+                    return 0;
+                }
+                return this.meta.variant_indexes[a.variant] - this.meta.variant_indexes[b.variant];
             });
         },
     
