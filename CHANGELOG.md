@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 (2024-02-05)
+
+* [fix] Type error when variants config is null by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/7
+
 ## 1.1.0 (2024-02-02)
 
 * [new] Allow HTML in buttons/tabs by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/5
