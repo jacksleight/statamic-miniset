@@ -135,7 +135,7 @@ class MinisetClassesFieldtype extends Fieldtype
             'existing' => collect($this->field->value())->mapWithKeys(function ($group) {
                 return [$group['_id'] => $this->fields()->addValues($group)->meta()];
             })->toArray(),
-            'variant_indexes' => array_flip(array_keys($this->config('variants'))),
+            'variant_indexes' => array_flip(array_keys($this->config('variants') ?? [])),
         ];
     }
 
