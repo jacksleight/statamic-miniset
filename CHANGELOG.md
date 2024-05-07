@@ -1,8 +1,12 @@
 # Changelog
 
-## 1.1.1 (2024-05-07)
+## 1.1.2 (2024-05-07)
 
 - Statamic 5 support
+
+## 1.1.1 (2024-02-05)
+
+* [fix] Type error when variants config is null by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/7
 
 ## 1.1.0 (2024-02-02)
 
