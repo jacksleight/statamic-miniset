@@ -27,6 +27,7 @@
                 </button>
             </div>
             <button
+                v-if="! allVariantsActive"
                 class="miniset-add"
                 @click.prevent="addGroup">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -110,6 +111,9 @@ export default {
 
     computed: {
 
+        allVariantsActive() {
+            return Object.keys(this.variants).length === this.value.length - 1;
+        },
         fields() {
             return this.config.fields;
         },
