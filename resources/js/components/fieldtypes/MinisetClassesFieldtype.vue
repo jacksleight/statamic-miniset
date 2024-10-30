@@ -164,7 +164,6 @@ export default {
         },
 
         commitGroup(variant) {
-
             const existing = this.value.findIndex(group => group.variant === variant);
             if (existing !== -1) {
                 this.addingGroup = false;
