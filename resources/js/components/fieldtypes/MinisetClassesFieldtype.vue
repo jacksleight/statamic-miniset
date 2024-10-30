@@ -114,6 +114,11 @@ export default {
         allVariantsActive() {
             return Object.keys(this.variants).length === this.value.length - 1;
         },
+
+        defaultVariantLabel() {
+            return this.config.variant_default_label;
+        },
+
         fields() {
             return this.config.fields;
         },
@@ -237,7 +242,7 @@ export default {
         groupLabel(group) {
             return group.variant
                 ? (this.variants[group.variant] || group.variant)
-                : __('Default');
+                : this.defaultVariantLabel ?? __('Default');
         },
 
         updateGroupMeta(group, value) {
