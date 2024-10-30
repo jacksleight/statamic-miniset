@@ -115,20 +115,21 @@ export default {
             return Object.keys(this.variants).length === this.value.length - 1;
         },
 
-        defaultVariantLabel() {
-            return this.config.variant_default_label;
-        },
 
         fields() {
             return this.config.fields;
         },
 
-        variants() {
-            return this.config.variants;
-        },
-
         showTabs() {
             return Object.keys(this.variants).length > 0
+        },
+
+        variantDefaultLabel() {
+            return this.config.variant_default_label;
+        },
+
+        variants() {
+            return this.config.variants;
         },
 
     },
@@ -241,7 +242,7 @@ export default {
         groupLabel(group) {
             return group.variant
                 ? (this.variants[group.variant] || group.variant)
-                : this.defaultVariantLabel ?? __('Default');
+                : this.variantDefaultLabel ?? __('Default');
         },
 
         updateGroupMeta(group, value) {
