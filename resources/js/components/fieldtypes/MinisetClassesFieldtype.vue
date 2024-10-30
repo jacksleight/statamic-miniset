@@ -151,7 +151,11 @@ export default {
         },
 
         addGroup() {
-            this.addingGroup = true;
+            if(Object.keys(this.variants).length === 1){
+                this.commitGroup(Object.keys(this.variants)[0]);
+            } else {
+                this.addingGroup = true;
+            }
         },
 
         commitGroup(variant) {
