@@ -2,9 +2,9 @@
 
 ## 1.2.0 (2024-11-01)
 
-- [new] Custom default tab label by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/8
-- [new] Automatic single variant selection by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/8
-- [fix] Hide add button once all variants are added by @caseydwyer in https://github.com/jacksleight/statamic-miniset/pull/8 
+- [new] Custom default tab label by @caseydwyer in [#8](https://github.com/jacksleight/statamic-miniset/pull/8)
+- [new] Automatic single variant selection by @caseydwyer in [#8](https://github.com/jacksleight/statamic-miniset/pull/8)
+- [fix] Hide add button once all variants are added by @caseydwyer in [#8](https://github.com/jacksleight/statamic-miniset/pull/8) 
 
 ## 1.1.2 (2024-05-07)
 
