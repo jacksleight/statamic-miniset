@@ -160,7 +160,7 @@ export default {
         },
 
         addGroup() {
-            if (variantCount === 1) {
+            if (this.variantCount === 1) {
                 this.commitGroup(Object.keys(this.variants)[0]);
             } else {
                 this.addingGroup = true;
