@@ -27,6 +27,7 @@
                 </button>
             </div>
             <button
+                v-if="! allVariantsAdded"
                 class="miniset-add"
                 @click.prevent="addGroup">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 block opacity-25 hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -110,16 +111,28 @@ export default {
 
     computed: {
 
+        allVariantsAdded() {
+            return this.variantCount === this.value.length - 1;
+        },
+
         fields() {
             return this.config.fields;
+        },
+
+        showTabs() {
+            return this.variantCount > 0
+        },
+
+        defaultLabel() {
+            return this.config.default_label || __('Default');
         },
 
         variants() {
             return this.config.variants;
         },
 
-        showTabs() {
-            return Object.keys(this.variants).length > 0
+        variantCount() {
+            return Object.keys(this.variants).length;
         },
 
     },
@@ -147,11 +160,14 @@ export default {
         },
 
         addGroup() {
-            this.addingGroup = true;
+            if (this.variantCount === 1) {
+                this.commitGroup(Object.keys(this.variants)[0]);
+            } else {
+                this.addingGroup = true;
+            }
         },
 
         commitGroup(variant) {
-
             const existing = this.value.findIndex(group => group.variant === variant);
             if (existing !== -1) {
                 this.addingGroup = false;
@@ -229,7 +245,7 @@ export default {
         groupLabel(group) {
             return group.variant
                 ? (this.variants[group.variant] || group.variant)
-                : __('Default');
+                : this.defaultLabel;
         },
 
         updateGroupMeta(group, value) {

@@ -33,6 +33,12 @@ class MinisetClassesFieldtype extends Fieldtype
                 'display' => __('Variants'),
                 'type' => 'array',
             ],
+            'default_label' => [
+                'display' => __('Default Label'),
+                'instructions' => __('Custom label for the default tab.'),
+                'type' => 'text',
+                'placeholder' => 'Default',
+            ],
         ];
     }
 
