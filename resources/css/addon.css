@@ -5,7 +5,7 @@
     --miniset-group-bg: #fafcff;
     --miniset-group-border: #dde3e9;
     --miniset-create-bg: #fafcff;
-    --miniset-input-bg: white;
+    --miniset-input-bg: #fff;
 }
 .dark .miniset {
     --miniset-tab-bg: #2b2d30;
