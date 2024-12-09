@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.0 (2024-12-09)
+
+- [new] Dark mode support by @bopwok in [#9](https://github.com/jacksleight/statamic-miniset/pull/9)
+
 ## 1.2.0 (2024-11-01)
 
 - [new] Custom default tab label by @caseydwyer in [#8](https://github.com/jacksleight/statamic-miniset/pull/8)
