@@ -5,6 +5,7 @@
     --miniset-group-bg: #fafcff;
     --miniset-group-border: #dde3e9;
     --miniset-create-bg: #fafcff;
+    --miniset-input-bg: white;
 }
 .dark .miniset {
     --miniset-tab-bg: #2b2d30;
@@ -13,6 +14,7 @@
     --miniset-group-bg: #1e1f22;
     --miniset-group-border: #171717;
     --miniset-create-bg: #1e1f22;
+    --miniset-input-bg: #2b2d30;
 }
 .miniset {
 
@@ -179,7 +181,7 @@
     .select-fieldtype {
         .vs__dropdown-toggle {
             height: 1.625rem !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
         .vs__clear {
             height: 1.625rem !important;      
@@ -232,14 +234,14 @@
         .input-text {
             padding: 4px 6px !important;
             height: 1.625rem !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
     }
     
     .textarea-fieldtype {
         .input-text {
             padding: 4px 6px !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
     }
 
