@@ -25,9 +25,9 @@
     &-tab {
         font-size: 12px;
         border-width: 1px;
-        border-color: var(--miniset-tab-border);;
+        border-color: var(--miniset-tab-border);
         border-radius: 3px 3px 0 0;
-        background-color: var(--miniset-tab-bg);;
+        background-color: var(--miniset-tab-bg);
         position: relative;
         z-index: 1;
         &:not(:first-child) {
