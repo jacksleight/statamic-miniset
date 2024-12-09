@@ -1,4 +1,22 @@
 .miniset {
+    --miniset-tab-bg: #fff;
+    --miniset-tab-active-bg: #fafcff;
+    --miniset-tab-border: #dde3e9;
+    --miniset-group-bg: #fafcff;
+    --miniset-group-border: #dde3e9;
+    --miniset-create-bg: #fafcff;
+    --miniset-input-bg: #fff;
+}
+.dark .miniset {
+    --miniset-tab-bg: #2b2d30;
+    --miniset-tab-active-bg: #1e1f22;
+    --miniset-tab-border: #171717;
+    --miniset-group-bg: #1e1f22;
+    --miniset-group-border: #171717;
+    --miniset-create-bg: #1e1f22;
+    --miniset-input-bg: #2b2d30;
+}
+.miniset {
 
     &-tabs {
         font-size: 12px;
@@ -9,9 +27,9 @@
     &-tab {
         font-size: 12px;
         border-width: 1px;
-        border-color: #dde3e9;
+        border-color: var(--miniset-tab-border);
         border-radius: 3px 3px 0 0;
-        background-color: white;
+        background-color: var(--miniset-tab-bg);
         position: relative;
         z-index: 1;
         &:not(:first-child) {
@@ -19,7 +37,7 @@
         }
         &-active {
             border-bottom-color: transparent;
-            background-color: #fafcff;
+            background-color: var(--miniset-tab-active-bg);
         }
     }
 
@@ -47,9 +65,9 @@
         
     &-groups {
         border-width: 1px;
-        border-color: #dde3e9;
+        border-color: var(--miniset-group-border);
         border-radius: 3px;
-        background-color: #fafcff;
+        background-color: var(--miniset-group-bg);
         display: grid;
         > * {
             grid-area: 1 / 1;
@@ -60,7 +78,7 @@
     }
 
     &-create {
-        background-color: #fafcff;
+        background-color: var(--miniset-create-bg);
         border-radius: 3px;
         display: flex;
         align-items: center;
@@ -163,7 +181,7 @@
     .select-fieldtype {
         .vs__dropdown-toggle {
             height: 1.625rem !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
         .vs__clear {
             height: 1.625rem !important;      
@@ -216,14 +234,14 @@
         .input-text {
             padding: 4px 6px !important;
             height: 1.625rem !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
     }
     
     .textarea-fieldtype {
         .input-text {
             padding: 4px 6px !important;
-            background-color: white !important;
+            background-color: var(--miniset-input-bg) !important;
         }
     }
 
