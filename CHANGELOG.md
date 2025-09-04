@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.1 (2025-09-04)
+
+- [fix] Error saving when field is hidden due to a condition
+
 ## 1.3.0 (2024-12-09)
 
 - [new] Dark mode support by @bopwok in [#9](https://github.com/jacksleight/statamic-miniset/pull/9)

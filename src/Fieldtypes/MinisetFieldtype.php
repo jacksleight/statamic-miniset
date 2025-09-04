@@ -52,14 +52,14 @@ class MinisetFieldtype extends Fieldtype
 
     public function process($data)
     {
-        $fields = $this->fields()->addValues($data)->process()->values()->all();
+        $fields = $this->fields()->addValues($data ?? [])->process()->values()->all();
 
         return Arr::removeNullValues($fields);
     }
 
     public function preProcess($data)
     {
-        $fields = $this->fields()->addValues($data)->preProcess()->values()->all();
+        $fields = $this->fields()->addValues($data ?? [])->preProcess()->values()->all();
 
         return $fields;
     }
@@ -111,7 +111,7 @@ class MinisetFieldtype extends Fieldtype
     public function preProcessValidatable($value)
     {
         $processed = $this->fields()
-            ->addValues($value)
+            ->addValues($value ?? [])
             ->preProcessValidatables()
             ->values()
             ->all();
