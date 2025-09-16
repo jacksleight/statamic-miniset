@@ -1,5 +1,3 @@
-import '../css/addon.css';
-
 import MinisetFieldtype from './components/fieldtypes/MinisetFieldtype.vue';
 import MinisetClassesFieldtype from './components/fieldtypes/MinisetClassesFieldtype.vue';
 

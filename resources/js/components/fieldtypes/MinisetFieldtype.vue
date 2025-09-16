@@ -5,25 +5,13 @@
         <div class="miniset-groups">
 
             <div class="miniset-compact">
-                <publish-fields-container>
-                    <set-field
-                        v-for="field in fields"
-                        v-show="showField(field)"
-                        :key="field.handle"
-                        :field="field"
-                        :meta="meta[field.handle]"
-                        :value="value[field.handle]"
-                        :parent-name="name"
-                        :set-index="0"
-                        :errors="errors(field.handle)"
-                        :error-key="errorKey(field.handle)"
-                        :read-only="isReadOnly"
-                        @updated="updated(field.handle, $event)"
-                        @meta-updated="metaUpdated(field.handle, $event)"
-                        @focus="$emit('focus')"
-                        @blur="$emit('blur')"
-                    />
-                </publish-fields-container>
+                <FieldsProvider
+                    :fields="fields"
+                    :field-path-prefix="fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle"
+                    :meta-path-prefix="metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle"
+                >
+                    <Fields class="p-4" />
+                </FieldsProvider>
             </div>
 
         </div>
@@ -33,17 +21,14 @@
 </template>
 
 <script>
-import SetField from '../../../../vendor/statamic/cms/resources/js/components/fieldtypes/replicator/Field.vue';
-import { ValidatesFieldConditions } from '../../../../vendor/statamic/cms/resources/js/components/field-conditions/FieldConditions.js';
+import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
+import { PublishFields as Fields, PublishFieldsProvider as FieldsProvider } from '@statamic/cms/ui';
 
 export default {
 
-    mixins: [
-        Fieldtype,
-        ValidatesFieldConditions,
-    ],
+    mixins: [Fieldtype],
 
-    components: { SetField },
+    components: { Fields, FieldsProvider },
 
     data() {
         return {

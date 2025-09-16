@@ -1,269 +1,276 @@
-.miniset {
-    --miniset-tab-bg: #fff;
-    --miniset-tab-active-bg: #fafcff;
-    --miniset-tab-border: #dde3e9;
-    --miniset-group-bg: #fafcff;
-    --miniset-group-border: #dde3e9;
-    --miniset-create-bg: #fafcff;
-    --miniset-input-bg: #fff;
-}
-.dark .miniset {
-    --miniset-tab-bg: #2b2d30;
-    --miniset-tab-active-bg: #1e1f22;
-    --miniset-tab-border: #171717;
-    --miniset-group-bg: #1e1f22;
-    --miniset-group-border: #171717;
-    --miniset-create-bg: #1e1f22;
-    --miniset-input-bg: #2b2d30;
-}
-.miniset {
+@import "@statamic/cms/tailwind.css";
+@source "../js/components";
 
-    &-tabs {
-        font-size: 12px;
-        display: flex;
-        margin-bottom: -1px;
-    }
+@layer components {
 
-    &-tab {
-        font-size: 12px;
-        border-width: 1px;
-        border-color: var(--miniset-tab-border);
-        border-radius: 3px 3px 0 0;
-        background-color: var(--miniset-tab-bg);
-        position: relative;
-        z-index: 1;
-        &:not(:first-child) {
-            border-left: 0;
-        }
-        &-active {
-            border-bottom-color: transparent;
-            background-color: var(--miniset-tab-active-bg);
-        }
+    .miniset {
+        --miniset-tab-bg: #fff;
+        --miniset-tab-active-bg: #fafcff;
+        --miniset-tab-border: #dde3e9;
+        --miniset-group-bg: #fafcff;
+        --miniset-group-border: #dde3e9;
+        --miniset-create-bg: #fafcff;
+        --miniset-input-bg: #fff;
     }
+    .dark .miniset {
+        --miniset-tab-bg: #2b2d30;
+        --miniset-tab-active-bg: #1e1f22;
+        --miniset-tab-border: #171717;
+        --miniset-group-bg: #1e1f22;
+        --miniset-group-border: #171717;
+        --miniset-create-bg: #1e1f22;
+        --miniset-input-bg: #2b2d30;
+    }
+    .miniset {
 
-    &-select {
-        display: block;
-        padding: 0.25rem 0.7rem;
-        &-removeable {
-            padding-right: calc(6px + 1rem);
-        }
-    }
-
-    &-remove {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 5px 4px 4px 2px;
-    }
-    
-    &-add {
-        font-size: 12px;
-        border-width: 1px 1px 0 1px;
-        border-color: transparent;
-        padding: 0 0.25rem 2px 0.25rem;
-    }
-        
-    &-groups {
-        border-width: 1px;
-        border-color: var(--miniset-group-border);
-        border-radius: 3px;
-        background-color: var(--miniset-group-bg);
-        display: grid;
-        > * {
-            grid-area: 1 / 1;
-        }
-    }
-    &-tabs + &-groups {
-        border-top-left-radius: 0;
-    }
-
-    &-create {
-        background-color: var(--miniset-create-bg);
-        border-radius: 3px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1em;
-        z-index: 1;
-        &-variants {
+        .miniset-tabs {
+            font-size: 12px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5em;
+            margin-bottom: -1px;
         }
-    }
 
-}
-
-.miniset-compact {
-
-    .publish-fields {
-        padding: 0.4rem !important;
-    }
-
-    .publish-field {
-        padding: 0.3rem !important;
-    }   
-    
-    .button_group-fieldtype,
-    .checkboxes-fieldtype,
-    .radio-fieldtype,
-    .range-fieldtype,
-    .select-fieldtype,
-    .toggle-fieldtype,
-    .text-fieldtype,
-    .textarea-fieldtype {
-        font-size: 12px !important;
-        * {
-            font-size: inherit !important;
-        }
-        > label {
-            line-height: 0.8 !important;
-            margin-bottom: 7px !important;
-        }
-        .help-block {
-            line-height: 1.1 !important;
-            margin-top: -2px !important;
-            margin-bottom: 7px !important;
-            &:last-child {
-                margin-bottom: 0 !important;
+        .miniset-tab {
+            font-size: 12px;
+            border-width: 1px;
+            border-color: var(--miniset-tab-border);
+            border-radius: 3px 3px 0 0;
+            background-color: var(--miniset-tab-bg);
+            position: relative;
+            z-index: 1;
+            &:not(:first-child) {
+                border-left: 0;
             }
-            p {
+            .miniset-tab-active {
+                border-bottom-color: transparent;
+                background-color: var(--miniset-tab-active-bg);
+            }
+        }
+
+        .miniset-select {
+            display: block;
+            padding: 0.25rem 0.7rem;
+            .miniset-select-removeable {
+                padding-right: calc(6px + 1rem);
+            }
+        }
+
+        .miniset-remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 5px 4px 4px 2px;
+        }
+        
+        .miniset-add {
+            font-size: 12px;
+            border-width: 1px 1px 0 1px;
+            border-color: transparent;
+            padding: 0 0.25rem 2px 0.25rem;
+        }
+            
+        .miniset-groups {
+            border-width: 1px;
+            border-color: var(--miniset-group-border);
+            border-radius: 3px;
+            background-color: var(--miniset-group-bg);
+            display: grid;
+            > * {
+                grid-area: 1 / 1;
+            }
+        }
+        .miniset-tabs + .miniset-groups {
+            border-top-left-radius: 0;
+        }
+
+        .miniset-create {
+            background-color: var(--miniset-create-bg);
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+            z-index: 1;
+            .miniset-create-variants {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5em;
+            }
+        }
+
+    }
+
+    /* .miniset-compact {
+
+        .publish-fields {
+            padding: 0.4rem !important;
+        }
+
+        .publish-field {
+            padding: 0.3rem !important;
+        }   
+        
+        .button_group-fieldtype,
+        .checkboxes-fieldtype,
+        .radio-fieldtype,
+        .range-fieldtype,
+        .select-fieldtype,
+        .toggle-fieldtype,
+        .text-fieldtype,
+        .textarea-fieldtype {
+            font-size: 12px !important;
+            * {
+                font-size: inherit !important;
+            }
+            > label {
+                line-height: 0.8 !important;
+                margin-bottom: 7px !important;
+            }
+            .help-block {
+                line-height: 1.1 !important;
+                margin-top: -2px !important;
+                margin-bottom: 7px !important;
                 &:last-child {
                     margin-bottom: 0 !important;
                 }
-            }
-            code {
-                padding: 0 3px;
-            }
-        }
-    }
-    
-    .button_group-fieldtype {
-        .btn-group {
-            height: 1.625rem !important;
-        }
-        .btn {
-            padding: 3px 6px !important;
-            height: 1.625rem !important;
-            box-shadow: none !important;
-        }
-    }
-    
-    .checkboxes-fieldtype,
-    .radio-fieldtype {
-        .option {
-            margin-top: 4px !important;
-            margin-bottom: 0 !important;
-            &:first-child {
-                margin-top: 0 !important;
-            }
-        }
-    }
-    
-    .range-fieldtype {
-        &-wrapper {
-            padding: 3px 8px !important;
-            > div {
-                div:first-child,
-                input + div + div {
-                    line-height: 16px !important;                    
+                p {
+                    &:last-child {
+                        margin-bottom: 0 !important;
+                    }
                 }
-                input + div {
-                    margin: 0 0 0 8px !important;
-                    padding: 1px 4px !important;
-                    line-height: 14px !important;
+                code {
+                    padding: 0 3px;
                 }
             }
         }
-    }
-
-    .select-fieldtype {
-        .vs__dropdown-toggle {
-            height: 1.625rem !important;
-            background-color: var(--miniset-input-bg) !important;
+        
+        .button_group-fieldtype {
+            .btn-group {
+                height: 1.625rem !important;
+            }
+            .btn {
+                padding: 3px 6px !important;
+                height: 1.625rem !important;
+                box-shadow: none !important;
+            }
         }
-        .vs__clear {
-            height: 1.625rem !important;      
-        }
-        .vs__open-indicator {
-            height: 1.625rem !important;
-            padding-left: 4px !important;
-            padding-right: 4px !important;
-        }
-        .vs__selected-options {
-            padding: 4px 6px !important;
-        }
-        .vs__selected-options-outside {
-            .vs__selected {
+        
+        .checkboxes-fieldtype,
+        .radio-fieldtype {
+            .option {
                 margin-top: 4px !important;
-                margin-right: 4px !important;
-                padding-top: 1px !important;
+                margin-bottom: 0 !important;
+                &:first-child {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+        
+        .range-fieldtype {
+            &-wrapper {
+                padding: 3px 8px !important;
+                > div {
+                    div:first-child,
+                    input + div + div {
+                        line-height: 16px !important;                    
+                    }
+                    input + div {
+                        margin: 0 0 0 8px !important;
+                        padding: 1px 4px !important;
+                        line-height: 14px !important;
+                    }
+                }
+            }
+        }
+
+        .select-fieldtype {
+            .vs__dropdown-toggle {
+                height: 1.625rem !important;
+                background-color: var(--miniset-input-bg) !important;
+            }
+            .vs__clear {
+                height: 1.625rem !important;      
+            }
+            .vs__open-indicator {
+                height: 1.625rem !important;
                 padding-left: 4px !important;
                 padding-right: 4px !important;
-                line-height: 16px !important;
             }
-            .vs__deselect {
-                margin-top: -1px !important;
+            .vs__selected-options {
+                padding: 4px 6px !important;
+            }
+            .vs__selected-options-outside {
+                .vs__selected {
+                    margin-top: 4px !important;
+                    margin-right: 4px !important;
+                    padding-top: 1px !important;
+                    padding-left: 4px !important;
+                    padding-right: 4px !important;
+                    line-height: 16px !important;
+                }
+                .vs__deselect {
+                    margin-top: -1px !important;
+                }
+            }
+            .vs__dropdown-menu {
+                top: 30px !important;
+            }
+            .vs__dropdown-option {
+                padding: 4px 6px !important;
             }
         }
-        .vs__dropdown-menu {
-            top: 30px !important;
+        
+        .toggle-fieldtype {
+            .toggle-fieldtype-wrapper {
+                height: 1.625rem !important;
+            }
         }
-        .vs__dropdown-option {
-            padding: 4px 6px !important;
+        
+        .text-fieldtype {
+            .input-group {
+                height: 1.625rem !important;
+            }
+            .input-group-prepend,
+            .input-group-append {
+                height: 1.625rem !important;
+                line-height: 1.375 !important;
+                padding: 4px 6px !important;
+            }
+            .input-text {
+                padding: 4px 6px !important;
+                height: 1.625rem !important;
+                background-color: var(--miniset-input-bg) !important;
+            }
         }
-    }
-    
-    .toggle-fieldtype {
-        .toggle-fieldtype-wrapper {
-            height: 1.625rem !important;
+        
+        .textarea-fieldtype {
+            .input-text {
+                padding: 4px 6px !important;
+                background-color: var(--miniset-input-bg) !important;
+            }
         }
-    }
-    
-    .text-fieldtype {
-        .input-group {
-            height: 1.625rem !important;
-        }
-        .input-group-prepend,
-        .input-group-append {
-            height: 1.625rem !important;
-            line-height: 1.375 !important;
-            padding: 4px 6px !important;
-        }
-        .input-text {
-            padding: 4px 6px !important;
-            height: 1.625rem !important;
-            background-color: var(--miniset-input-bg) !important;
-        }
-    }
-    
-    .textarea-fieldtype {
-        .input-text {
-            padding: 4px 6px !important;
-            background-color: var(--miniset-input-bg) !important;
-        }
-    }
 
-    .publish-field {
-        @container (min-width: 20rem) {
-            &.\@lg\:w-1\/4 {
-                width: 50% !important;
+        .publish-field {
+            @container (min-width: 20rem) {
+                &.\@lg\:w-1\/4 {
+                    width: 50% !important;
+                }
+                &.\@lg\:w-1\/2 {
+                    width: 50% !important;
+                }
             }
-            &.\@lg\:w-1\/2 {
-                width: 50% !important;
+            @container (min-width: 30rem) {
+                &.\@lg\:w-1\/3 {
+                    width: 33.333% !important;
+                }
+            }
+            @container (min-width: 40rem) {
+                &.\@lg\:w-1\/4 {
+                    width: 25% !important;
+                }
             }
         }
-        @container (min-width: 30rem) {
-            &.\@lg\:w-1\/3 {
-                width: 33.333% !important;
-            }
-        }
-        @container (min-width: 40rem) {
-            &.\@lg\:w-1\/4 {
-                width: 25% !important;
-            }
-        }
-    }
+
+    } */
 
 }

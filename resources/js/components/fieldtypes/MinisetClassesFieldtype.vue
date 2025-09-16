@@ -78,6 +78,7 @@
 
 <script>
 import uniqid from 'uniqid';
+import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
 import MinisetClassesGroup from './MinisetClassesGroup.vue';
 
 export default {
