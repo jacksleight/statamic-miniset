@@ -26,64 +26,42 @@ import { PublishFields as Fields, PublishFieldsProvider as FieldsProvider } from
 
 export default {
 
-    mixins: [Fieldtype],
+    mixins: [
+        Fieldtype
+    ],
 
-    components: { Fields, FieldsProvider },
-
-    data() {
-        return {
-            focused: false,
-        }
+    components: {
+        Fields,
+        FieldsProvider,
     },
 
     computed: {
 
-        fields() {
-            return this.config.fields;
+        values() {
+            return this.value;
         },
 
-    },
+        extraValues() {
+            return {};
+        },
 
-    watch: {
-
-        focused(focused, oldFocused) {
-            if (focused === oldFocused) return;
-
-            if (focused) return this.$emit('focus');
-
-            setTimeout(() => {
-                if (!this.$el.contains(document.activeElement)) {
-                    this.$emit('blur');
-                }
-            }, 1);
-        }
+        fields() {
+            return this.config.fields.map(field => ({...field, size: 'xs'}));
+        },
 
     },
 
     methods: {
 
         updated(handle, value) {
-            let group = JSON.parse(JSON.stringify(this.value));
-            group[handle] = value;
-            this.update(group);
+            this.update({
+                ...this.value,
+                [handle]: value,
+            });
         },
 
-        errorKey(handle) {
-            return `${this.handle}.${handle}`;
-        },
-
-        errors(handle) {
-            const state = this.$store.state.publish[this.storeName];
-            if (! state) return [];
-            return state.errors[this.errorKey(handle)] || [];
-        },
-
-        blurred() {
-            setTimeout(() => {
-                if (!this.$el.contains(document.activeElement)) {
-                    this.focused = false;
-                }
-            }, 1);
+        updateMeta(handle, value) {
+            this.$emit('meta-updated', { ...this.meta, [handle]: value });
         },
 
     }
