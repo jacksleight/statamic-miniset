@@ -4,15 +4,14 @@
 
         <div class="miniset-groups">
 
-            <div class="miniset-compact">
-                <FieldsProvider
-                    :fields="fields"
-                    :field-path-prefix="fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle"
-                    :meta-path-prefix="metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle"
-                >
-                    <Fields class="p-4" />
-                </FieldsProvider>
-            </div>
+            <FieldsProvider
+                size="xs"
+                :fields="fields"
+                :field-path-prefix="fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle"
+                :meta-path-prefix="metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle"
+            >
+                <Fields class="miniset-compact" />
+            </FieldsProvider>
 
         </div>
         
@@ -46,7 +45,7 @@ export default {
         },
 
         fields() {
-            return this.config.fields.map(field => ({...field, size: 'xs'}));
+            return this.config.fields;
         },
 
     },

@@ -7,7 +7,7 @@
         --miniset-tab-bg: #fff;
         --miniset-tab-active-bg: #fafcff;
         --miniset-tab-border: #dde3e9;
-        --miniset-group-bg: #fafcff;
+        --miniset-group-bg: var(--color-gray-50);
         --miniset-group-border: #dde3e9;
         --miniset-create-bg: #fafcff;
         --miniset-input-bg: #fff;
@@ -71,12 +71,8 @@
         .miniset-groups {
             border-width: 1px;
             border-color: var(--miniset-group-border);
-            border-radius: 3px;
+            border-radius: 8px;
             background-color: var(--miniset-group-bg);
-            display: grid;
-            > * {
-                grid-area: 1 / 1;
-            }
         }
         .miniset-tabs + .miniset-groups {
             border-top-left-radius: 0;
@@ -100,11 +96,12 @@
 
     }
 
-    /* .miniset-compact {
+    .miniset-compact {
 
-        .publish-fields {
-            padding: 0.4rem !important;
-        }
+        padding: 1rem !important;
+        gap: 1rem !important;
+
+        /*
 
         .publish-field {
             padding: 0.3rem !important;
@@ -164,10 +161,10 @@
                     margin-top: 0 !important;
                 }
             }
-        }
+        } */
         
         .range-fieldtype {
-            &-wrapper {
+            div:last-child {
                 padding: 3px 8px !important;
                 > div {
                     div:first-child,
@@ -183,7 +180,7 @@
             }
         }
 
-        .select-fieldtype {
+        /* .select-fieldtype {
             .vs__dropdown-toggle {
                 height: 1.625rem !important;
                 background-color: var(--miniset-input-bg) !important;
@@ -269,8 +266,7 @@
                     width: 25% !important;
                 }
             }
-        }
+        } */
 
-    } */
-
+    }
 }
