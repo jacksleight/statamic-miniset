@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.0 (2026-02-18)
+
+- Statamic 6 support
+- Dropped support for Statamic 5
+
 ## 1.3.1 (2025-09-04)
 
 - [fix] Error saving when field is hidden due to a condition

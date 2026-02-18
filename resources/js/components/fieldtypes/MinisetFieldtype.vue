@@ -4,27 +4,13 @@
 
         <div class="miniset-groups">
 
-            <div class="miniset-compact">
-                <publish-fields-container>
-                    <set-field
-                        v-for="field in fields"
-                        v-show="showField(field)"
-                        :key="field.handle"
-                        :field="field"
-                        :meta="meta[field.handle]"
-                        :value="value[field.handle]"
-                        :parent-name="name"
-                        :set-index="0"
-                        :errors="errors(field.handle)"
-                        :error-key="errorKey(field.handle)"
-                        :read-only="isReadOnly"
-                        @updated="updated(field.handle, $event)"
-                        @meta-updated="metaUpdated(field.handle, $event)"
-                        @focus="$emit('focus')"
-                        @blur="$emit('blur')"
-                    />
-                </publish-fields-container>
-            </div>
+            <FieldsProvider
+                :fields="fields"
+                :field-path-prefix="fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle"
+                :meta-path-prefix="metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle"
+            >
+                <Fields class="miniset-compact" />
+            </FieldsProvider>
 
         </div>
         
@@ -33,25 +19,29 @@
 </template>
 
 <script>
-import SetField from '../../../../vendor/statamic/cms/resources/js/components/fieldtypes/replicator/Field.vue';
-import { ValidatesFieldConditions } from '../../../../vendor/statamic/cms/resources/js/components/field-conditions/FieldConditions.js';
+import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
+import { PublishFields as Fields, PublishFieldsProvider as FieldsProvider } from '@statamic/cms/ui';
 
 export default {
 
     mixins: [
-        Fieldtype,
-        ValidatesFieldConditions,
+        Fieldtype
     ],
 
-    components: { SetField },
-
-    data() {
-        return {
-            focused: false,
-        }
+    components: {
+        Fields,
+        FieldsProvider,
     },
 
     computed: {
+
+        values() {
+            return this.value;
+        },
+
+        extraValues() {
+            return {};
+        },
 
         fields() {
             return this.config.fields;
@@ -59,46 +49,17 @@ export default {
 
     },
 
-    watch: {
-
-        focused(focused, oldFocused) {
-            if (focused === oldFocused) return;
-
-            if (focused) return this.$emit('focus');
-
-            setTimeout(() => {
-                if (!this.$el.contains(document.activeElement)) {
-                    this.$emit('blur');
-                }
-            }, 1);
-        }
-
-    },
-
     methods: {
 
         updated(handle, value) {
-            let group = JSON.parse(JSON.stringify(this.value));
-            group[handle] = value;
-            this.update(group);
+            this.update({
+                ...this.value,
+                [handle]: value,
+            });
         },
 
-        errorKey(handle) {
-            return `${this.handle}.${handle}`;
-        },
-
-        errors(handle) {
-            const state = this.$store.state.publish[this.storeName];
-            if (! state) return [];
-            return state.errors[this.errorKey(handle)] || [];
-        },
-
-        blurred() {
-            setTimeout(() => {
-                if (!this.$el.contains(document.activeElement)) {
-                    this.focused = false;
-                }
-            }, 1);
+        updateMeta(handle, value) {
+            this.$emit('meta-updated', { ...this.meta, [handle]: value });
         },
 
     }

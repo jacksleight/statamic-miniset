@@ -23,16 +23,14 @@
 </template>
 
 <script>
-import SetField from '../../../../vendor/statamic/cms/resources/js/components/fieldtypes/replicator/Field.vue';
-import { ValidatesFieldConditions } from '../../../../vendor/statamic/cms/resources/js/components/field-conditions/FieldConditions.js';
+import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
+import { PublishFields as Fields, PublishFieldsProvider as FieldsProvider } from '@statamic/cms/ui';
 
 export default {
 
-    mixins: [
-        ValidatesFieldConditions,
-    ],
+    mixins: [Fieldtype],
 
-    components: { SetField },
+    components: { Fields, FieldsProvider },
 
     inject: [
         'miniset',
