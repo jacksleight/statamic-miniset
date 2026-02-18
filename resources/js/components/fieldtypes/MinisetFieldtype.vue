@@ -5,7 +5,6 @@
         <div class="miniset-groups">
 
             <FieldsProvider
-                size="xs"
                 :fields="fields"
                 :field-path-prefix="fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle"
                 :meta-path-prefix="metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle"

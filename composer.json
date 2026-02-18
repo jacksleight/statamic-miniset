@@ -19,7 +19,6 @@
     "require": {
         "statamic/cms": "^6.0"
     },
-    "minimum-stability": "dev",
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
