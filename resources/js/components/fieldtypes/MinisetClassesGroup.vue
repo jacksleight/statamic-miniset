@@ -1,100 +1,35 @@
 <template>
 
-    <publish-fields-container>
-        <set-field
-            v-for="field in fields"
-            v-show="showField(field)"
-            :key="field.handle"
-            :field="field"
-            :meta="meta[field.handle]"
-            :value="values[field.handle]"
-            :parent-name="name"
-            :set-index="index"
-            :errors="errors(field.handle)"
-            :error-key="errorKey(field.handle)"          
-            :read-only="miniset.isReadOnly"
-            @updated="updated(field.handle, $event)"
-            @meta-updated="metaUpdated(field.handle, $event)"
-            @focus="$emit('focus')"
-            @blur="$emit('blur')"
-        />
-    </publish-fields-container>
+    <FieldsProvider
+        :fields="fields"
+        :field-path-prefix="fieldPathPrefix"
+        :meta-path-prefix="metaPathPrefix"
+    >
+        <Fields class="miniset-compact" />
+    </FieldsProvider>
 
 </template>
 
 <script>
-import { FieldtypeMixin as Fieldtype } from '@statamic/cms';
 import { PublishFields as Fields, PublishFieldsProvider as FieldsProvider } from '@statamic/cms/ui';
 
 export default {
 
-    mixins: [Fieldtype],
-
     components: { Fields, FieldsProvider },
 
-    inject: [
-        'miniset',
-        'storeName',
-    ],
-
     props: {
-        index: {
-            type: Number,
-            required: true
-        },
         fields: {
             type: Array,
-            required: true
+            required: true,
         },
-        values: {
-            type: Object,
-            required: true
-        },
-        meta: {
-            type: Object,
-            required: true
-        },
-        name: {
+        fieldPathPrefix: {
             type: String,
-            required: true
+            required: true,
         },
-        errorKeyPrefix: {
-            type: String
+        metaPathPrefix: {
+            type: String,
+            required: true,
         },
-    },
-
-    computed: {
-
-        errorKeyPrefix() {
-            return this.miniset.errorKeyPrefix || this.miniset.handle;
-        }
-
-    },
-
-    methods: {
-
-        updated(handle, value) {
-            let group = JSON.parse(JSON.stringify(this.values));
-            group[handle] = value;
-            this.$emit('updated', this.index, group);
-        },
-
-        metaUpdated(handle, value) {
-            let meta = clone(this.meta);
-            meta[handle] = value;
-            this.$emit('meta-updated', meta);
-        },
-
-        errorKey(handle) {
-            return `${this.errorKeyPrefix}.${this.index}.${handle}`;
-        },
-
-        errors(handle) {
-            const state = this.$store.state.publish[this.storeName];
-            if (! state) return [];
-            return state.errors[this.errorKey(handle)] || [];
-        }
-
     },
 
 }

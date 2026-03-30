@@ -38,35 +38,24 @@
 
         <div class="miniset-groups">
 
-            <div class="miniset-compact">
-                <miniset-classes-group
-                    v-for="(group, index) in value"
-                    v-if="index === selected"
-                    :key="`group-${group._id}`"
-                    :index="index"
+            <template v-for="(group, index) in value" :key="`group-${group._id}`">
+                <MinisetClassesGroup
+                    v-if="index === selected && !addingGroup"
                     :fields="fields"
-                    :values="group"
-                    :meta="meta.existing[group._id]"
-                    :name="name"
-                    :error-key-prefix="errorKeyPrefix"
-                    @updated="updated"
-                    @meta-updated="updateGroupMeta"
-                    @removed="removed"
-                    @focus="$emit('focus')"
-                    @blur="$emit('blur')" />
-            </div>
-            
+                    :field-path-prefix="`${fieldPathPrefix ? `${fieldPathPrefix}.${handle}` : handle}.${index}`"
+                    :meta-path-prefix="`${metaPathPrefix ? `${metaPathPrefix}.${handle}` : handle}.existing.${group._id}`" />
+            </template>
+
             <div
                 class="miniset-create"
                 v-if="addingGroup"
                 >
                 <div class="miniset-create-variants">
-                    <button
-                        class="btn"
+                    <ui-button
+                        size="sm"
                         v-for="(label, variant) in variants"
-                        @click.prevent="commitGroup(variant)">
-                        <span class="flex items-center" v-html="label || variant"></span>
-                    </button>
+                        @click.prevent="commitGroup(variant)"
+                        v-html="label || variant" />
                 </div>
             </div>
 
@@ -97,17 +86,6 @@ export default {
             addingGroup: false,
             focused: false,
         }
-    },
-
-    provide() {
-        return {
-            miniset: {
-                config: this.config,
-                isReadOnly: this.isReadOnly,
-                handle: this.handle,
-                errorKeyPrefix: this.errorKeyPrefix,
-            },
-        };
     },
 
     computed: {
@@ -178,10 +156,9 @@ export default {
 
             const id = uniqid();
 
-            const group = _.chain(this.fields)
-                .indexBy('handle')
-                .mapObject(field => this.meta.defaults[field.handle])
-                .value();
+            const group = Object.fromEntries(
+                this.fields.map(field => [field.handle, this.meta.defaults[field.handle]])
+            );
 
             group._id = id;
             group.variant = variant;
@@ -191,7 +168,7 @@ export default {
 
             this.$nextTick(() => {
                 this.addingGroup = false;
-                this.selected = _.findIndex(this.value, {'variant' : group.variant});
+                this.selected = this.value.findIndex(v => v.variant === group.variant);
             });
         },
 
@@ -216,31 +193,6 @@ export default {
                 this.selected = Math.min(this.selected, this.value.length - 1);
                 document.activeElement.blur();
             });
-        },
-
-        updated(index, group) {
-            this.update([
-                ...this.value.slice(0, index),
-                group,
-                ...this.value.slice(index + 1)
-            ]);
-        },
-
-        removed(index) {
-            if (! confirm(__('Are you sure?'))) return;
-                
-            this.update([
-                ...this.value.slice(0, index),
-                ...this.value.slice(index + 1)
-            ]);
-        },
-
-        blurred() {
-            setTimeout(() => {
-                if (!this.$el.contains(document.activeElement)) {
-                    this.focused = false;
-                }
-            }, 1);
         },
 
         groupLabel(group) {
