@@ -1,0 +1,12 @@
+{{ partial:heading }}
+
+{{ partial:raw field="media_type" }}
+
+{{ partial:raw field="animation_settings" }}
+
+{{ partial:panel heading="animation_settings &middot; each key" }}
+    <dl class="grid grid-cols-[8rem_1fr] gap-x-4 gap-y-1 font-mono text-sm">
+        <dt class="text-zinc-500">duration</dt><dd>{{ animation_settings:duration }}</dd>
+        <dt class="text-zinc-500">controls</dt><dd>{{ animation_settings:controls ? 'true' : 'false' }}</dd>
+    </dl>
+{{ /partial:panel }}

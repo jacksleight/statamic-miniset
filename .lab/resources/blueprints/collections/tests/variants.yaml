@@ -1,0 +1,46 @@
+title: Variants
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: arrangement
+    field:
+      type: miniset_classes
+      display: Arrangement
+      default_label: Mobile
+      variants:
+        md: Tablet
+        lg: Desktop
+        xl: Wide
+      fields:
+        -
+          handle: grid
+          field:
+            type: select
+            display: Grid
+            width: 50
+            options:
+              'grid grid-cols-1 gap-2': 'One column'
+              'grid grid-cols-2 gap-4': 'Two columns'
+              'grid grid-cols-3 gap-6': 'Three columns'
+        -
+          handle: width
+          field:
+            type: button_group
+            display: Width
+            width: 50
+            options:
+              w-full: Full
+              w-1/2: Half
+              w-32: Fixed

@@ -1,0 +1,42 @@
+title: Ampersand
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: widths
+    field:
+      type: miniset_classes
+      display: Widths
+      variants:
+        '&@large': Large
+        'hover:&': Hover
+      fields:
+        -
+          handle: width
+          field:
+            type: button_group
+            display: Width
+            width: 50
+            options:
+              width-half: Half
+              width-full: Full
+        -
+          handle: tone
+          field:
+            type: select
+            display: Tone
+            width: 50
+            options:
+              'tone-light tone-soft': Light
+              tone-dark: Dark

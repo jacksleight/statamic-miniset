@@ -1,0 +1,121 @@
+title: Neighbourhood
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: section_classes
+    field:
+      type: miniset_classes
+      display: 'Section layout'
+      variants:
+        md: Tablet
+        lg: Desktop
+        xl: Wide
+        dark: 'Dark mode'
+      fields:
+        -
+          handle: padding
+          field:
+            type: select
+            display: Padding
+            width: 25
+            options:
+              py-8: Small
+              py-16: Medium
+              py-24: Large
+        -
+          handle: columns
+          field:
+            type: button_group
+            display: Columns
+            width: 25
+            options:
+              grid-cols-1: One
+              grid-cols-2: Two
+              grid-cols-3: Three
+        -
+          handle: align
+          field:
+            type: button_group
+            display: Align
+            width: 25
+            options:
+              text-left: Left
+              text-center: Centre
+        -
+          handle: background
+          field:
+            type: select
+            display: Background
+            width: 25
+            options:
+              bg-sky-50: 'Sea mist'
+              bg-amber-50: Sand
+              bg-stone-100: Shingle
+  -
+    handle: card_style
+    field:
+      type: miniset
+      display: 'Card style'
+      fields:
+        -
+          handle: size
+          field:
+            type: select
+            display: Size
+            width: 25
+            options:
+              compact: Compact
+              regular: Regular
+              feature: Feature
+        -
+          handle: theme
+          field:
+            type: button_group
+            display: Theme
+            width: 50
+            options:
+              sea: Sea
+              shingle: Shingle
+              sunset: Sunset
+              chalk: Chalk
+        -
+          handle: image
+          field:
+            type: button_group
+            display: Image
+            width: 25
+            options:
+              left: Left
+              right: Right
+              top: Top
+        -
+          handle: rounded
+          field:
+            type: toggle
+            display: Rounded
+            width: 25
+        -
+          handle: badge
+          field:
+            type: text
+            display: Badge
+            width: 75
+  -
+    handle: intro
+    field:
+      type: textarea
+      display: Intro
+  -
+    handle: image
+    field:
+      type: assets
+      display: Image
+      container: assets
+      max_files: 1

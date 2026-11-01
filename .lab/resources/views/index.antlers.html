@@ -1,0 +1,25 @@
+<header>
+    <p class="font-mono text-xs tracking-wide text-zinc-500 uppercase">jacksleight/statamic-miniset</p>
+    <h1 class="mt-1 text-2xl font-semibold tracking-tight text-zinc-950">{{ title }}</h1>
+    <p class="mt-2 max-w-[60ch] text-pretty text-zinc-600">One entry per case. Each has its own blueprint, so the Miniset field is configured for that case alone, and its own template, which prints the stored value next to what the field augments to.</p>
+</header>
+
+<h2 class="mt-8 font-mono text-xs tracking-wide text-zinc-500 uppercase">Tests</h2>
+<ul class="mt-2 grid gap-px overflow-hidden rounded-xl bg-zinc-950/5 ring-1 ring-zinc-950/5">
+    {{ collection:tests }}
+        <li class="relative bg-white p-5">
+            <h3 class="text-sm font-medium tracking-tight text-zinc-950"><a href="{{ url }}" class="before:absolute before:inset-0">{{ title }}</a></h3>
+            <p class="mt-1 text-sm text-pretty text-zinc-600">{{ summary }}</p>
+        </li>
+    {{ /collection:tests }}
+</ul>
+
+<h2 class="mt-8 font-mono text-xs tracking-wide text-zinc-500 uppercase">Demos</h2>
+<ul class="mt-2 grid gap-px overflow-hidden rounded-xl bg-zinc-950/5 ring-1 ring-zinc-950/5">
+    {{ collection:demos }}
+        <li class="relative bg-white p-5">
+            <h3 class="text-sm font-medium tracking-tight text-zinc-950"><a href="{{ url }}" class="before:absolute before:inset-0">{{ title }}</a></h3>
+            <p class="mt-1 text-sm text-pretty text-zinc-600">{{ intro }}</p>
+        </li>
+    {{ /collection:demos }}
+</ul>

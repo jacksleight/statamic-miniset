@@ -1,0 +1,25 @@
+<section class="demo-section grid items-center gap-10 px-8 {{ section_classes }}">
+    <div class="demo-copy">
+        <p class="demo-kicker">Brighton Neighbourhoods</p>
+        <h1 class="demo-title">{{ title }}</h1>
+        <p class="demo-intro">{{ intro }}</p>
+    </div>
+
+    <article class="card card-theme-{{ card_style:theme }} card-size-{{ card_style:size }} card-image-{{ card_style:image }}{{ if card_style:rounded }} card-rounded{{ /if }}">
+        {{ image }}
+            <img class="card-image" src="{{ url }}" alt="{{ alt }}">
+        {{ /image }}
+        <div class="card-body">
+            {{ if card_style:badge }}
+                <span class="card-badge">{{ card_style:badge }}</span>
+            {{ /if }}
+            <h2 class="card-title">{{ title }}</h2>
+            <p class="card-text">{{ intro }}</p>
+        </div>
+    </article>
+</section>
+
+<footer class="demo-output">
+    <p><span>section_classes</span> <code>{{ section_classes }}</code></p>
+    <p><span>card_style</span> <code>{{ card_style | to_json }}</code></p>
+</footer>

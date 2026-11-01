@@ -1,0 +1,44 @@
+title: Conditional
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: media_type
+    field:
+      type: button_group
+      display: 'Media Type'
+      options:
+        image: 'Image Set'
+        video: 'Video Embed'
+  -
+    handle: animation_settings
+    field:
+      type: miniset
+      display: 'Animation Settings'
+      if:
+        media_type: image
+      fields:
+        -
+          handle: duration
+          field:
+            type: text
+            display: Duration
+            input_type: number
+            width: 50
+        -
+          handle: controls
+          field:
+            type: toggle
+            display: Controls
+            width: 50

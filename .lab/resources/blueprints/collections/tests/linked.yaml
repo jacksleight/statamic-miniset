@@ -1,0 +1,37 @@
+title: Linked
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: spacing
+    field: lab_classes.spacing
+    config:
+      display: 'Spacing (linked)'
+      variants:
+        md: Tablet
+        lg: Desktop
+        xl: Wide
+  -
+    handle: surface
+    field:
+      type: miniset_classes
+      display: 'Surface (imported fields)'
+      variants:
+        dark: 'Dark mode'
+      fields:
+        -
+          handle: radius
+          field: lab_classes.radius
+        -
+          import: lab_colours

@@ -1,0 +1,43 @@
+title: 'Single Variant'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: light_dark
+    field:
+      type: miniset_classes
+      display: 'Light Dark'
+      default_label: 'Light mode'
+      variants:
+        dark: 'Dark mode'
+      fields:
+        -
+          handle: background
+          field:
+            type: select
+            display: Background
+            width: 50
+            options:
+              bg-white: White
+              bg-zinc-100: Grey
+              bg-zinc-900: Black
+        -
+          handle: text
+          field:
+            type: select
+            display: Text
+            width: 50
+            options:
+              text-zinc-900: Dark
+              text-zinc-100: Light

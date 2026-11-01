@@ -1,0 +1,21 @@
+{{ partial:heading }}
+
+{{ partial:raw field="options" }}
+
+{{ partial:panel heading="options &middot; json" }}
+    <pre class="overflow-x-auto font-mono text-xs/relaxed text-zinc-600">{{ options | to_json(true) | sanitize }}</pre>
+{{ /partial:panel }}
+
+{{ partial:panel heading="options &middot; each key" }}
+    <dl class="grid grid-cols-[8rem_1fr] gap-x-4 gap-y-1 font-mono text-sm">
+        <dt class="text-zinc-500">theme</dt><dd>{{ options:theme }} ({{ options:theme:label }})</dd>
+        <dt class="text-zinc-500">size</dt><dd>{{ options:size }} ({{ options:size:label }})</dd>
+        <dt class="text-zinc-500">visible</dt><dd>{{ options:visible ? 'true' : 'false' }}</dd>
+        <dt class="text-zinc-500">opacity</dt><dd>{{ options:opacity }}</dd>
+        <dt class="text-zinc-500">tags</dt><dd>{{ options:tags }}{{ value }}{{ unless last }}, {{ /unless }}{{ /options:tags }}</dd>
+        <dt class="text-zinc-500">corner</dt><dd>{{ options:corner }}</dd>
+        <dt class="text-zinc-500">extras</dt><dd>{{ options:extras }}{{ value }}{{ unless last }}, {{ /unless }}{{ /options:extras }}</dd>
+        <dt class="text-zinc-500">heading</dt><dd>{{ options:heading }}</dd>
+        <dt class="text-zinc-500">note</dt><dd>{{ options:note }}</dd>
+    </dl>
+{{ /partial:panel }}

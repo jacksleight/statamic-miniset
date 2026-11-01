@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@source "../views";
+@source "../../content";
+@source "./statamic/miniset_classes.yaml";
+
+@theme {
+    --font-demo-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-demo-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --color-demo-ink: #16181d;
+    --color-demo-muted: #5b6472;
+}
+
+.demo-body {
+    background: #fbfaf8;
+    color: var(--color-demo-ink);
+    font-family: var(--font-demo-sans);
+}
+
+.demo-section { margin: 0 auto; max-width: 72rem; }
+.demo-kicker { color: var(--color-demo-muted); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.demo-title { font-family: var(--font-demo-serif); font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; margin-top: 0.5rem; }
+.demo-intro { color: var(--color-demo-muted); font-size: 1.25rem; line-height: 1.5; margin-top: 1rem; max-width: 32rem; }
+.text-center .demo-intro { margin-inline: auto; }
+
+.card { display: grid; overflow: hidden; text-align: left; }
+.card-image { aspect-ratio: 4 / 3; height: 100%; object-fit: cover; width: 100%; }
+.card-body { align-content: center; display: grid; gap: 0.5rem; justify-items: start; padding: 1.5rem; }
+.card-badge { border-radius: 999px; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.65rem; }
+.card-title { font-family: var(--font-demo-serif); font-size: 1.5rem; font-weight: 700; }
+.card-text { font-size: 0.9375rem; line-height: 1.5; opacity: 0.85; }
+
+.card-image-left { grid-template-columns: 1fr 1fr; }
+.card-image-right { grid-template-columns: 1fr 1fr; }
+.card-image-right .card-image { order: 2; }
+
+.card-size-compact .card-body { padding: 1rem; }
+.card-size-compact .card-title { font-size: 1.125rem; }
+.card-size-feature .card-body { padding: 2.25rem; }
+.card-size-feature .card-title { font-size: 2rem; }
+
+.card-rounded { border-radius: 1.25rem; }
+
+.card-theme-sea { background: #0e5a78; color: #fff; }
+.card-theme-sea .card-badge { background: #9fe0f5; color: #06364a; }
+.card-theme-shingle { background: #e7e4df; color: var(--color-demo-ink); }
+.card-theme-shingle .card-badge { background: #16181d; color: #fff; }
+.card-theme-sunset { background: #f0a35e; color: #3b1d06; }
+.card-theme-sunset .card-badge { background: #fff4e6; color: #8a3b0a; }
+.card-theme-chalk { background: #fff; box-shadow: 0 0 0 1px #e2e5ea; color: var(--color-demo-ink); }
+.card-theme-chalk .card-badge { background: #eef3f5; color: #0e5a78; }
+
+.demo-output { border-top: 1px solid #e2e5ea; color: var(--color-demo-muted); display: grid; font-size: 0.8125rem; gap: 0.25rem; margin: 0 auto; max-width: 72rem; padding: 1.5rem 2rem 3rem; }
+.demo-output span { display: inline-block; font-weight: 600; width: 8rem; }
+.demo-output code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }

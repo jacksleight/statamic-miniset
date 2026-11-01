@@ -1,0 +1,51 @@
+title: 'JIT Safe'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: type
+    field:
+      type: miniset_classes
+      display: Type
+      variants:
+        lg: Desktop
+      fields:
+        -
+          handle: size
+          field:
+            type: select
+            display: 'Size (map options)'
+            width: 50
+            options:
+              text-sm: Small
+              text-base: Normal
+              text-lg: Large
+        -
+          handle: weight
+          field:
+            type: button_group
+            display: 'Weight (list options)'
+            width: 50
+            options:
+              -
+                key: font-normal
+                value: Normal
+              -
+                key: font-bold
+                value: Bold
+        -
+          handle: custom
+          field:
+            type: text
+            display: 'Custom (not scanned)'

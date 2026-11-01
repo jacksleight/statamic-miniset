@@ -1,0 +1,44 @@
+title: Validation
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: details
+    field:
+      type: miniset
+      display: Details
+      fields:
+        -
+          handle: name
+          field:
+            type: text
+            display: Name
+            width: 50
+            validate:
+              - required
+        -
+          handle: colour
+          field:
+            type: select
+            display: Colour
+            width: 25
+            options:
+              blue: Blue
+              green: Green
+        -
+          handle: featured
+          field:
+            type: toggle
+            display: Featured
+            width: 25

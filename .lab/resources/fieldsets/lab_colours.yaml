@@ -1,0 +1,11 @@
+title: 'Lab Colours'
+fields:
+  -
+    handle: background
+    field:
+      type: select
+      display: Background
+      width: 50
+      options:
+        bg-rose-100: Rose
+        bg-teal-100: Teal

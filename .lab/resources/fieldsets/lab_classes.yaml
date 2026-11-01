@@ -1,0 +1,39 @@
+title: 'Lab Classes'
+fields:
+  -
+    handle: spacing
+    field:
+      type: miniset_classes
+      display: Spacing
+      variants:
+        md: Tablet
+      fields:
+        -
+          handle: padding
+          field:
+            type: select
+            display: Padding
+            width: 50
+            options:
+              p-2: Small
+              p-4: Medium
+              p-8: Large
+        -
+          handle: gap
+          field:
+            type: button_group
+            display: Gap
+            width: 50
+            options:
+              gap-2: Tight
+              gap-6: Loose
+  -
+    handle: radius
+    field:
+      type: select
+      display: Radius
+      width: 50
+      options:
+        rounded-none: None
+        rounded-lg: Soft
+        rounded-full: Pill

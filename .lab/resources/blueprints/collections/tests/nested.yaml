@@ -1,0 +1,125 @@
+title: Nested
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: blocks
+    field:
+      type: replicator
+      display: Blocks
+      sets:
+        main:
+          display: Main
+          sets:
+            section:
+              display: Section
+              fields:
+                -
+                  handle: classes
+                  field:
+                    type: miniset_classes
+                    display: Classes
+                    variants:
+                      md: Tablet
+                      lg: Desktop
+                    fields:
+                      -
+                        handle: padding
+                        field:
+                          type: select
+                          display: Padding
+                          width: 50
+                          options:
+                            py-4: Small
+                            py-8: Medium
+                            py-16: Large
+                      -
+                        handle: align
+                        field:
+                          type: button_group
+                          display: Align
+                          width: 50
+                          options:
+                            text-left: Left
+                            text-center: Centre
+                -
+                  handle: options
+                  field:
+                    type: miniset
+                    display: Options
+                    fields:
+                      -
+                        handle: theme
+                        field:
+                          type: button_group
+                          display: Theme
+                          width: 50
+                          options:
+                            sea: Sea
+                            chalk: Chalk
+                      -
+                        handle: visible
+                        field:
+                          type: toggle
+                          display: Visible
+                          width: 50
+  -
+    handle: rows
+    field:
+      type: grid
+      display: Rows
+      mode: stacked
+      fields:
+        -
+          handle: label
+          field:
+            type: text
+            display: Label
+        -
+          handle: classes
+          field:
+            type: miniset_classes
+            display: Classes
+            variants:
+              dark: 'Dark mode'
+            fields:
+              -
+                handle: colour
+                field:
+                  type: button_group
+                  display: Colour
+                  options:
+                    text-sky-700: Sky
+                    text-amber-700: Sand
+        -
+          handle: options
+          field:
+            type: miniset
+            display: Options
+            fields:
+              -
+                handle: size
+                field:
+                  type: select
+                  display: Size
+                  width: 50
+                  options:
+                    sm: Small
+                    lg: Large
+              -
+                handle: badge
+                field:
+                  type: text
+                  display: Badge
+                  width: 50

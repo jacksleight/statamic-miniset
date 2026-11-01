@@ -1,0 +1,99 @@
+title: Values
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: options
+    field:
+      type: miniset
+      display: Options
+      fields:
+        -
+          handle: theme
+          field:
+            type: button_group
+            display: Theme
+            width: 25
+            options:
+              sea: Sea
+              shingle: Shingle
+              sunset: Sunset
+        -
+          handle: size
+          field:
+            type: select
+            display: Size
+            width: 25
+            clearable: true
+            options:
+              sm: Small
+              md: Medium
+              lg: Large
+        -
+          handle: visible
+          field:
+            type: toggle
+            display: Visible
+            width: 25
+        -
+          handle: opacity
+          field:
+            type: range
+            display: Opacity
+            width: 25
+            min: 0
+            max: 100
+            step: 10
+        -
+          handle: tags
+          field:
+            type: select
+            display: Tags
+            width: 50
+            multiple: true
+            options:
+              beach: Beach
+              pier: Pier
+              lanes: Lanes
+              park: Park
+        -
+          handle: corner
+          field:
+            type: radio
+            display: Corner
+            width: 25
+            options:
+              square: Square
+              round: Round
+        -
+          handle: extras
+          field:
+            type: checkboxes
+            display: Extras
+            width: 25
+            options:
+              shadow: Shadow
+              border: Border
+        -
+          handle: heading
+          field:
+            type: text
+            display: Heading
+            width: 50
+        -
+          handle: note
+          field:
+            type: textarea
+            display: Note
+            width: 50

@@ -1,0 +1,54 @@
+title: 'Many Variants'
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: spacing
+    field:
+      type: miniset_classes
+      display: Spacing
+      variants:
+        sm: '<b>SM</b>&nbsp;640'
+        md: '<b>MD</b>&nbsp;768'
+        lg: '<b>LG</b>&nbsp;1024'
+        xl: '<b>XL</b>&nbsp;1280'
+        2xl: '<b>2XL</b>&nbsp;1536'
+        hover: '<i>Hover</i>'
+        focus: '<i>Focus</i>'
+        active: '<i>Active</i>'
+        dark: '<i>Dark</i>'
+        print: '<i>Print</i>'
+        motion-safe: '<i>Motion safe</i>'
+        'group-hover': '<i>Group hover</i>'
+      fields:
+        -
+          handle: padding
+          field:
+            type: select
+            display: Padding
+            width: 50
+            options:
+              p-2: Small
+              p-4: Medium
+              p-8: Large
+        -
+          handle: margin
+          field:
+            type: select
+            display: Margin
+            width: 50
+            options:
+              m-2: Small
+              m-4: Medium
+              m-8: Large

@@ -1,0 +1,65 @@
+title: Classes
+fields:
+  -
+    handle: title
+    field:
+      type: text
+      display: Title
+      required: true
+      validate:
+        - required
+  -
+    handle: summary
+    field:
+      type: text
+      display: Summary
+  -
+    handle: box
+    field:
+      type: miniset_classes
+      display: Box
+      fields:
+        -
+          handle: padding
+          field:
+            type: select
+            display: Padding
+            width: 25
+            options:
+              p-2: Small
+              p-4: Medium
+              p-8: Large
+        -
+          handle: colour
+          field:
+            type: button_group
+            display: Colour
+            width: 25
+            options:
+              bg-sky-100: Sky
+              bg-amber-100: Sand
+              bg-stone-200: Stone
+        -
+          handle: decoration
+          field:
+            type: checkboxes
+            display: Decoration
+            width: 25
+            options:
+              rounded-lg: Rounded
+              shadow: Shadow
+              border: Border
+        -
+          handle: weight
+          field:
+            type: radio
+            display: Weight
+            width: 25
+            options:
+              font-normal: Normal
+              font-bold: Bold
+        -
+          handle: custom
+          field:
+            type: text
+            display: Custom
