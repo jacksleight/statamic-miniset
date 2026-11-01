@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.2 (2026-11-02)
+- [fix] JIT safe scan ignoring options in list format
+- [fix] JIT safe scan command running when JIT safe mode is disabled
+- [fix] JIT safe scan command keeping classes from removed blueprints and fieldsets
+- [fix] JIT safe scan command skipping global, navigation, asset, form and user blueprints
+- [fix] Field actions unable to update Miniset meta
+- [fix] Variant tabs overflowing instead of wrapping
+
 ## 2.0.1 (2026-03-30)
 
 - [fix] Miniset Classes errors with Statamic 6
@@ -63,7 +71,7 @@
 
 ## 0.3.1 (2022-11-07)
 
-- [fix] Compatibilty with Statamic 3.3.50
+- [fix] Compatibility with Statamic 3.3.50
 
 ## 0.3.0 (2022-06-15)
 
