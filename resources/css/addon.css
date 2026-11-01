@@ -6,18 +6,18 @@
     .miniset {
 
         .miniset-tabs {
-            @apply text-xs flex -mb-px;
+            @apply text-xs flex flex-wrap -mb-px;
         }
 
         .miniset-tab {
-            @apply text-xs border border-gray-300 rounded-t-sm bg-white relative z-10;
+            @apply text-xs border border-gray-300 rounded-t-sm bg-white relative z-10 -mt-px whitespace-nowrap;
 
             .dark & {
                 @apply border-gray-950 bg-gray-800;
             }
 
             &:not(:first-child) {
-                @apply border-l-0;
+                @apply -ml-px;
             }
 
             &.miniset-tab-active {

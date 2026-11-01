@@ -19,7 +19,7 @@ The `tests` collection is routed at `/tests/{slug}`. Each entry tests one case a
 | `/tests/variants` | Miniset Classes | `md` / `lg` / `xl` with a custom `default_label` and multi-class option values, each class prefixed |
 | `/tests/single-variant` | Miniset Classes | One variant, so the + button commits it directly rather than opening the picker |
 | `/tests/ampersand` | Miniset Classes | `&@large` (suffix) and `hover:&` (the explicit form of the default prefix) |
-| `/tests/many-variants` | Miniset Classes | Twelve variants with HTML labels; the picker wraps and the tabs overflow |
+| `/tests/many-variants` | Miniset Classes | Twelve variants with HTML labels; the picker and the tabs wrap |
 | `/tests/linked` | Miniset Classes | `field: lab_classes.spacing` with a `config` override of its variants, and a field whose nested `fields` are a linked field (`lab_classes.radius`) plus `import: lab_colours`. These are the three paths `JitSafeScanner` resolves |
 | `/tests/nested` | both | Both fieldtypes in a Replicator set and a Grid row, where field and meta paths are prefixed |
 | `/tests/jit-safe` | Miniset Classes | Map-format options next to the list format the CP saves, plus a text field. The page prints the generated `miniset_classes.yaml` |
@@ -58,7 +58,7 @@ Confirmed in this lab on 2026-10-30. The fixes are a separate pass.
 
 Observed while testing, also left alone:
 
-5. **The variant tabs never wrap.** With eleven groups on `/tests/many-variants` the tabs run past the panel's right edge, long labels squash onto two lines, and the + button ends up under the sidebar where it cannot be clicked.
+5. **Fixed: the variant tabs never wrapped.** With many groups they ran past the card edge, where they were clipped and the + button was unreachable. `.miniset-tabs` now wraps, each tab keeps its left border and overlaps its neighbour by a pixel (`-ml-px` / `-mt-px`) so wrapped rows share one border line, and labels no longer break onto two lines. A single row looks as before. Checked on `/tests/many-variants` with eight groups added, the active tab in each row, light and dark.
 6. **The variant picker lists variants that already have a group.** Clicking one selects the existing tab, which is harmless but means the picker never shrinks.
 7. **A button group with more options than its column fits stacks vertically**, as the three-option theme field on `/tests/values` shows at w-25.
 
