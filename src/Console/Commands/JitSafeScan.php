@@ -16,6 +16,12 @@ class JitSafeScan extends Command
 
     public function handle()
     {
+        if (! config('statamic.miniset.jit_safe.enable')) {
+            $this->components->warn('JIT safe mode is not enabled.');
+
+            return;
+        }
+
         JitSafeScanner::processAll();
     }
 }

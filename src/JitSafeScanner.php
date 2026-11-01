@@ -6,6 +6,7 @@ use Facades\Statamic\Fields\FieldRepository as FieldFacade;
 use JackSleight\StatamicMiniset\Fieldtypes\MinisetClassesFieldtype;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
+use Statamic\Facades\Blueprint as BlueprintFacade;
 use Statamic\Facades\Collection as CollectionFacade;
 use Statamic\Facades\Fieldset as FieldsetFacade;
 use Statamic\Facades\File;
@@ -19,6 +20,8 @@ class JitSafeScanner
 {
     public function processAll()
     {
+        File::delete(config('statamic.miniset.jit_safe.file'));
+
         foreach (CollectionFacade::all() as $collection) {
             foreach ($collection->entryBlueprints() as $blueprint) {
                 $this->processBlueprint($blueprint);
@@ -26,6 +29,16 @@ class JitSafeScanner
         }
         foreach (TaxonomyFacade::all() as $taxonomy) {
             foreach ($taxonomy->termBlueprints() as $blueprint) {
+                $this->processBlueprint($blueprint);
+            }
+        }
+        foreach (['globals', 'navigation', 'assets', 'forms'] as $namespace) {
+            foreach (BlueprintFacade::in($namespace) as $blueprint) {
+                $this->processBlueprint($blueprint);
+            }
+        }
+        foreach (['user', 'user_group'] as $handle) {
+            if ($blueprint = BlueprintFacade::find($handle)) {
                 $this->processBlueprint($blueprint);
             }
         }
