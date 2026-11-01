@@ -5,3 +5,6 @@ node_modules
 mix-manifest.json
 .php-cs-fixer.cache
 vite.hot
+.phpunit.result.cache
+.phpunit.cache
+tests/__fixtures__/dev-null
