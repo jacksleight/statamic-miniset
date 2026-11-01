@@ -47,16 +47,16 @@ The `demos` collection, routed at `/demos/{slug}`, is what the marketplace scree
 
 The capture pipeline is the `code-capture` skill in `~/Projects/jacksleight`, whose `shots/statamic-miniset.json` hard-codes the demo entry UUIDs. They stay valid because the entries are baked into the package's `.lab/` overlay verbatim.
 
-## Survey findings (recorded, not fixed)
+## Survey findings
 
-Confirmed in this lab on 2026-10-30. The fixes are a separate pass.
+Confirmed in this lab on 2026-10-30. Items 1 to 5 were fixed for 2.0.2 on 2026-11-01; 6 and 7 are deferred until after launch.
 
 1. **Fixed: CP-saved option lists broke the JIT scan.** `JitSafeScanner` took `array_keys()` of `options`, so the `{key, value}` list Statamic 6's CP saves, and the plain list of strings, scanned as `'0'`, `'1'`, `'lg:0'`, `'lg:1'`. It now reads all three formats the way Statamic's `HasSelectOptions` does, and `/tests/jit-safe`'s `weight` field scans as `font-normal` / `font-bold`. Covered by `tests/JitSafeScannerTest.php`.
 2. **Fixed: `MinisetFieldtype.vue` overrode `updateMeta` with the Statamic 5 signature.** Its `updated(handle, value)` and `updateMeta(handle, value)` were dead code, and the override emitted `meta-updated`, which nothing listens for, so a field action calling `updateMeta(value)` on a Miniset did nothing. Both are gone and the mixin's `updateMeta(value)` emits `update:meta`. Proved in the CP on `/tests/values` by finding the component through `#statamic`'s `_vnode` tree (the production build has no `__vueParentComponent`) and calling `fieldActionPayload.updateMeta()`: the meta now changes. Snooze the licensing alert first or it swallows clicks and typing.
 3. **Fixed: the scan command ignored `enable`, and nothing pruned stale keys.** The command now warns and exits when `enable` is off, and a full scan deletes the classes file and rebuilds it, so a key for a blueprint that no longer exists goes. The full scan also covers every blueprint the save listeners write keys for (globals, navigation, assets, forms, user, user group), not just collections, taxonomies and fieldsets. Blueprints in addon namespaces are still only scanned on save. Covered by `tests/JitSafeScannerTest.php`.
 4. **Fixed: `mix-manifest.json` was gitignored local cruft.** It was never committed and points at a `dist/js/addon.js` that no longer exists. Its `.gitignore` line is gone, so a leftover local copy now shows as untracked: bin it, never commit it.
 
-Observed while testing, also left alone:
+Observed while testing:
 
 5. **Fixed: the variant tabs never wrapped.** With many groups they ran past the card edge, where they were clipped and the + button was unreachable. `.miniset-tabs` now wraps, each tab keeps its left border and overlaps its neighbour by a pixel (`-ml-px` / `-mt-px`) so wrapped rows share one border line, and labels no longer break onto two lines. A single row looks as before. Checked on `/tests/many-variants` with eight groups added, the active tab in each row, light and dark.
 6. **The variant picker lists variants that already have a group.** Clicking one selects the existing tab, which is harmless but means the picker never shrinks.
