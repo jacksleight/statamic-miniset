@@ -49,20 +49,5 @@ export default {
 
     },
 
-    methods: {
-
-        updated(handle, value) {
-            this.update({
-                ...this.value,
-                [handle]: value,
-            });
-        },
-
-        updateMeta(handle, value) {
-            this.$emit('meta-updated', { ...this.meta, [handle]: value });
-        },
-
-    }
-
 }
 </script>
