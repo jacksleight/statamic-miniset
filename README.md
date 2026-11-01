@@ -100,3 +100,7 @@ You can then tell Tailwind to search this file in your CSS:
 ```
 
 You can also manually run this scan on all fieldsets and blueprints via the command line using `php please miniset:jit-safe-scan`.
+
+## Sponsoring
+
+This addon is completely free to use. However fixing bugs, adding features and helping users takes time and effort. If you find this addon useful and would like to support its development any [contribution](https://github.com/sponsors/jacksleight) would be greatly appreciated. Thanks! 🙂

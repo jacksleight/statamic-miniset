@@ -7,3 +7,4 @@
 /vite.config.js export-ignore
 /tests export-ignore
 /phpunit.xml export-ignore
+/.github export-ignore
