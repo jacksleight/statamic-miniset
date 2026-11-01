@@ -56,13 +56,13 @@ Create a Miniset Classes field and add your nested fields and variants. Miniset 
 
 Other fieldtypes should not be added and may cause errors or unexpected results.
 
-Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and seperated with a colon:
+Variants will be offered as options when adding groups of fields. By default the variant keys will be prepended to the class value and separated with a colon:
 
 ```text
 lg / w-32 --> lg:w-32
 ```
 
-If you're not using this convention you can customize the behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
+If you're not using this convention you can customise the behaviour by including an ampersand in your variant keys. The ampersand will be replaced with the class value when augmented:
 
 ```text
 &@large / width-half --> width-half@large
