@@ -47,3 +47,22 @@ it('scans map options', function () {
         'blueprints.collections.pages.page' => ['text-sm', 'text-lg', 'lg:text-sm', 'lg:text-lg'],
     ]);
 });
+
+it('scans key value list options', function () {
+    JitSafeScanner::processBlueprint(classesBlueprint([
+        ['key' => 'font-normal', 'value' => 'Normal'],
+        ['key' => 'font-bold', 'value' => 'Bold'],
+    ]));
+
+    expect(scannedClasses($this->file))->toBe([
+        'blueprints.collections.pages.page' => ['font-normal', 'font-bold', 'lg:font-normal', 'lg:font-bold'],
+    ]);
+});
+
+it('scans plain list options', function () {
+    JitSafeScanner::processBlueprint(classesBlueprint(['italic', 'underline']));
+
+    expect(scannedClasses($this->file))->toBe([
+        'blueprints.collections.pages.page' => ['italic', 'underline', 'lg:italic', 'lg:underline'],
+    ]);
+});

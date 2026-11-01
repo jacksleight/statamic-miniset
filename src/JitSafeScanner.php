@@ -123,7 +123,7 @@ class JitSafeScanner
 
                     continue;
                 }
-                $options = array_merge($options, array_keys($field['field']['options'] ?? []));
+                $options = array_merge($options, $this->optionKeys($field['field']['options'] ?? []));
             }
 
             $value = array_map(function ($variant) use ($options) {
@@ -137,5 +137,14 @@ class JitSafeScanner
         }
 
         return array_values(array_unique($classes));
+    }
+
+    protected function optionKeys(array $options)
+    {
+        if (! array_is_list($options)) {
+            return array_keys($options);
+        }
+
+        return array_map(fn ($option) => is_array($option) ? $option['key'] : $option, $options);
     }
 }
