@@ -1,5 +1,6 @@
 {
     "name": "jacksleight/statamic-miniset",
+    "description": "Create compact sets of fields that combine into a string of classes or return a simple array of values.",
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -14,7 +15,7 @@
     "extra": {
         "statamic": {
             "name": "Miniset",
-            "description": "This Statamic addon allows you to create compact sets of fields that either combine into a string of classes, or return a simple array of values."
+            "description": "Create compact sets of fields that combine into a string of classes or return a simple array of values."
         },
         "laravel": {
             "providers": [
